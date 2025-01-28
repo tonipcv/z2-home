@@ -2,99 +2,79 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="bg-black text-white min-h-screen font-montserrat font-thin">
+      <main className="max-w-5xl mx-auto px-4 py-8 sm:py-12">
+        {/* Logo */}
+        <div className="text-center mb-20 sm:mb-32">
+          <h1 className="text-base sm:text-lg font-thin tracking-[0.5em] text-white/80">
+            BOOP
+          </h1>
+        </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+        {/* Hero Section */}
+        <div className="flex flex-col items-center text-center mb-24 sm:mb-40">
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-thin mb-8 sm:mb-12 tracking-wider leading-tight">
+            <span className="bg-gradient-to-b from-white to-white/60 bg-clip-text text-transparent">MONITOR YOUR</span><br/>
+            <span className="bg-gradient-to-b from-[#003af5] to-[#003af5]/60 bg-clip-text text-transparent">FUTURE</span>
+          </h2>
+          <p className="text-[10px] sm:text-xs max-w-2xl mb-12 sm:mb-16 font-thin tracking-[0.2em] uppercase">
+            Technology that transforms data into performance
+          </p>
+          <button className="border-[0.5px] border-white/20 hover:border-[#003af5] text-white hover:text-[#003af5] transition-all duration-500 font-extralight py-4 sm:py-6 px-12 sm:px-16 rounded-full tracking-[0.4em] text-xs sm:text-sm">
+            START
+          </button>
+        </div>
+
+        {/* Features Section */}
+        <div className="grid grid-cols-3 gap-6 sm:gap-20 mb-12 sm:mb-20">
+          <div className="text-center group">
+            <div className="flex justify-center">
+              <svg className="w-6 h-6 sm:w-8 sm:h-8 text-white/40 group-hover:text-white transition-colors duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={0.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </div>
+          </div>
+
+          <div className="text-center group">
+            <div className="flex justify-center">
+              <svg className="w-6 h-6 sm:w-8 sm:h-8 text-white/40 group-hover:text-white transition-colors duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={0.5} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+              </svg>
+            </div>
+          </div>
+
+          <div className="text-center group">
+            <div className="flex justify-center">
+              <svg className="w-6 h-6 sm:w-8 sm:h-8 text-white/40 group-hover:text-white transition-colors duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={0.5} d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        {/* Graph Section */}
+        <div className="relative h-40 sm:h-48 mb-24 sm:mb-40 px-4">
+          {/* Graph Lines */}
+          <div className="absolute inset-0 flex items-end justify-between">
+            <div className="w-[1px] h-[60%] bg-gradient-to-t from-[#003af5] to-white/20"></div>
+            <div className="w-[1px] h-[75%] bg-gradient-to-t from-[#003af5] to-white/20"></div>
+            <div className="w-[1px] h-[90%] bg-gradient-to-t from-[#003af5] to-white/20"></div>
+            <div className="w-[1px] h-[70%] bg-gradient-to-t from-[#003af5] to-white/20"></div>
+            <div className="w-[1px] h-[85%] bg-gradient-to-t from-[#003af5] to-white/20"></div>
+            <div className="w-[1px] h-[95%] bg-gradient-to-t from-[#003af5] to-white/20"></div>
+          </div>
+          
+          {/* Graph Line */}
+          <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-white/10"></div>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+      <footer className="border-t border-white/5">
+        <div className="max-w-5xl mx-auto px-4 py-6 sm:py-8">
+          <p className="text-center text-gray-500 font-extralight tracking-[0.3em] text-[10px] sm:text-xs">
+            © 2024 BOOP
+          </p>
+        </div>
       </footer>
     </div>
   );
