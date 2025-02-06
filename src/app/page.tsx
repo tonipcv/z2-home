@@ -1,26 +1,87 @@
-export default function Home() {
-  return (
-    <div className="bg-black text-white min-h-screen font-montserrat font-thin">
-      <main className="max-w-5xl mx-auto px-4 py-8 sm:py-12">
-        {/* Logo */}
-        <div className="text-center mb-20 sm:mb-32">
-          <h1 className="text-base sm:text-lg font-thin tracking-[0.5em] text-white/80">
-            BOOP
-          </h1>
-        </div>
+'use client'
 
+import { useState, useEffect } from 'react'
+
+export default function Home() {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [scrollProgress, setScrollProgress] = useState(0)
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY })
+    }
+
+    const handleScroll = () => {
+      const scrolled = window.scrollY
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight
+      const progress = (scrolled / maxScroll) * 100
+      setScrollProgress(progress)
+    }
+
+    window.addEventListener('mousemove', handleMouseMove)
+    window.addEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove)
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
+
+  return (
+    <div className="min-h-screen bg-black text-white overflow-hidden">
+      {/* Cursor follower */}
+      <div 
+        className="fixed w-[500px] h-[500px] rounded-full bg-gradient-to-r from-[#00F5D4]/10 to-white/10 blur-3xl pointer-events-none transition-transform duration-1000"
+        style={{
+          transform: `translate(${mousePosition.x - 250}px, ${mousePosition.y - 250}px)`,
+        }}
+      />
+
+      {/* Progress bar */}
+      <div className="fixed top-0 left-0 w-full h-0.5 bg-zinc-800 z-50">
+        <div 
+          className="h-full bg-white transition-all duration-300"
+          style={{ width: `${scrollProgress}%` }}
+        />
+      </div>
+
+      <header className="fixed w-full top-0 border-b border-zinc-900 backdrop-blur-md z-40">
+        <div className="max-w-5xl mx-auto px-4 py-12">
+          <div className="flex justify-between items-center">
+            <div className="w-20"></div>
+            <h1 className="text-base sm:text-lg font-thin tracking-[0.8em] text-white/80 hover:text-white transition-colors duration-300">
+              BOOP
+            </h1>
+            <div className="w-20">
+              <a 
+                href="https://app.booplabs.com/auth/signin" 
+                className="text-xs sm:text-sm font-thin tracking-[0.2em] text-white/60 hover:text-white transition-colors duration-300"
+              >
+                LOGIN
+              </a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main className="max-w-5xl mx-auto px-4 py-8 sm:py-12 mt-32">
         {/* Hero Section */}
-        <div className="flex flex-col items-center text-center mb-24 sm:mb-40">
+        <div className="flex flex-col items-center text-center mb-24 sm:mb-40 relative">
+          <div className="absolute inset-0 bg-gradient-to-b from-[#00F5D4]/10 via-transparent to-transparent blur-3xl -z-10" />
           <h2 className="text-3xl sm:text-4xl md:text-6xl font-thin mb-8 sm:mb-12 tracking-wider leading-tight">
             <span className="bg-gradient-to-b from-white to-white/60 bg-clip-text text-transparent">MONITOR YOUR</span><br/>
-            <span className="bg-gradient-to-b from-[#003af5] to-[#003af5]/60 bg-clip-text text-transparent">FUTURE</span>
+            <span className="bg-gradient-to-b from-[#00F5D4] to-[#00F5D4]/60 bg-clip-text text-transparent">FUTURE</span>
           </h2>
-          <p className="text-[10px] sm:text-xs max-w-2xl mb-12 sm:mb-16 font-thin tracking-[0.2em] uppercase">
+          <p className="text-[10px] sm:text-xs max-w-2xl mb-12 sm:mb-16 font-thin tracking-[0.2em] uppercase text-zinc-400">
             Technology that transforms data into performance
           </p>
-          <button className="border-[0.5px] border-white/20 hover:border-[#003af5] text-white hover:text-[#003af5] transition-all duration-500 font-extralight py-4 sm:py-6 px-12 sm:px-16 rounded-full tracking-[0.4em] text-xs sm:text-sm">
-            START
-          </button>
+          <a 
+            href="https://app.booplabs.com/auth/register"
+            className="group relative inline-flex items-center gap-2 px-12 py-4 text-sm font-thin overflow-hidden bg-white/5 hover:bg-white/10 backdrop-blur-sm border border-white/10 transition-all duration-300 rounded-full tracking-[0.4em]"
+          >
+            <span className="relative z-10 text-white/90 group-hover:text-white">START</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-[#00F5D4]/0 via-[#00F5D4]/10 to-white/0 transform translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+          </a>
         </div>
 
         {/* Features Section */}
@@ -54,12 +115,12 @@ export default function Home() {
         <div className="relative h-40 sm:h-48 mb-24 sm:mb-40 px-4">
           {/* Graph Lines */}
           <div className="absolute inset-0 flex items-end justify-between">
-            <div className="w-[1px] h-[60%] bg-gradient-to-t from-[#003af5] to-white/20"></div>
-            <div className="w-[1px] h-[75%] bg-gradient-to-t from-[#003af5] to-white/20"></div>
-            <div className="w-[1px] h-[90%] bg-gradient-to-t from-[#003af5] to-white/20"></div>
-            <div className="w-[1px] h-[70%] bg-gradient-to-t from-[#003af5] to-white/20"></div>
-            <div className="w-[1px] h-[85%] bg-gradient-to-t from-[#003af5] to-white/20"></div>
-            <div className="w-[1px] h-[95%] bg-gradient-to-t from-[#003af5] to-white/20"></div>
+            <div className="w-[1px] h-[60%] bg-gradient-to-t from-[#00F5D4] to-white/20"></div>
+            <div className="w-[1px] h-[75%] bg-gradient-to-t from-[#00F5D4] to-white/20"></div>
+            <div className="w-[1px] h-[90%] bg-gradient-to-t from-[#00F5D4] to-white/20"></div>
+            <div className="w-[1px] h-[70%] bg-gradient-to-t from-[#00F5D4] to-white/20"></div>
+            <div className="w-[1px] h-[85%] bg-gradient-to-t from-[#00F5D4] to-white/20"></div>
+            <div className="w-[1px] h-[95%] bg-gradient-to-t from-[#00F5D4] to-white/20"></div>
           </div>
           
           {/* Graph Line */}

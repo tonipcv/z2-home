@@ -10,26 +10,26 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://boop.tech'),
-  title: "BOOP | Unlock Your Potential with Real-Time Performance Monitoring",
-  description: "Transform your performance with BOOP's advanced monitoring technology. Track sleep, recovery, and real-time metrics to unlock your full potential.",
+  title: "BOOP | Unlock Your Potential",
+  description: "Track your habits, sales, achieve your goals, and unlock your full potential with BOOP.",
   keywords: [
-    "performance monitoring",
-    "unlock potential",
-    "athletic performance",
-    "sleep tracking",
-    "recovery optimization",
-    "real-time monitoring",
-    "biometric data",
+    "habit tracking",
+    "sales tracking",
+    "goal achievement",
+    "personal development",
+    "performance tracking",
+    "potential unlocking",
+    "productivity tools",
+    "success metrics",
+    "personal growth",
+    "achievement tracking",
+    "BOOP platform",
     "performance analytics",
-    "fitness technology",
-    "athletic development",
-    "performance enhancement",
-    "elite performance",
-    "sports technology",
-    "performance metrics",
-    "BOOP technology"
+    "goal setting",
+    "habit formation",
+    "success tracking"
   ],
-  authors: [{ name: "BOOP Technology" }],
+  authors: [{ name: "BOOP" }],
   category: "Technology",
   openGraph: {
     type: "website",
@@ -37,12 +37,12 @@ export const metadata: Metadata = {
     url: "https://boop.tech",
     siteName: "BOOP",
     title: "BOOP | Unlock Your Potential",
-    description: "Advanced performance monitoring technology to unlock your full potential. Real-time tracking for optimal results.",
+    description: "Track your habits, sales, achieve your goals, and unlock your full potential with BOOP.",
     images: [
       {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
+        url: "/icon-512.png",
+        width: 512,
+        height: 512,
         alt: "BOOP - Unlock Your Potential",
       },
     ],
@@ -50,9 +50,9 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "BOOP | Unlock Your Potential",
-    description: "Transform your performance with advanced monitoring technology",
+    description: "Track your habits, sales, achieve your goals, and unlock your full potential with BOOP.",
     creator: "@booptech",
-    images: ["/twitter-image.png"],
+    images: ["/icon-512.png"],
   },
   robots: {
     index: true,
@@ -70,19 +70,18 @@ export const metadata: Metadata = {
   manifest: "/site.webmanifest",
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/icon.svg", type: "image/svg+xml" },
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" }
+      { url: "/favicon.png", sizes: "32x32", type: "image/png" },
+      { url: "/icon.png", type: "image/png" },
+      { url: "/icon-large.svg", type: "image/svg+xml" },
     ],
     apple: [
-      { url: "/apple-touch-icon.png", sizes: "180x180" }
+      { url: "/apple-icon.png", sizes: "180x180" }
     ],
     other: [
       {
         rel: "mask-icon",
         url: "/safari-pinned-tab.svg",
-        color: "#003af5"
+        color: "#00F5D4"
       }
     ],
   },
@@ -102,7 +101,7 @@ export const metadata: Metadata = {
     canonical: "https://boop.tech",
   },
   other: {
-    "msapplication-TileColor": "#003af5",
+    "msapplication-TileColor": "#00F5D4",
     "theme-color": "#000000"
   }
 };
@@ -117,9 +116,9 @@ export default function RootLayout({
       <head>
         <link rel="canonical" href="https://boop.tech" />
         <meta name="theme-color" content="#000000" />
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="icon" href="/favicon.png" sizes="32x32" />
+        <link rel="icon" href="/icon-large.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/apple-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
       </head>
       <body className="antialiased">
