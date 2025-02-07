@@ -38,7 +38,30 @@ export default function Blog() {
         </div>
 
         {/* Blog Posts */}
-        <div className="mb-20">
+        <div className="mb-20 grid gap-8">
+          {/* Post 1 */}
+          <Link 
+            href="/blog/master-plan-8-figure-business"
+            className="block group"
+          >
+            <article className="border border-zinc-900 p-8 rounded-lg hover:bg-zinc-900/30 transition-all duration-300">
+              <div className="text-[#00F5D4] text-sm mb-4">Business Strategy</div>
+              <h2 className="text-2xl font-thin mb-4 group-hover:text-[#00F5D4] transition-colors duration-300">
+                How Build an 8-Figure Business in 2025 with BOOP Labs
+              </h2>
+              <p className="text-zinc-400 text-sm font-light mb-6">
+                Discover how to build a wildly profitable 8-figure business while working only 4 hours a day. Learn how to set a clear vision, create automated systems, build a dream team, and use BOOP Labs to scale your business effortlessly in 2024.
+              </p>
+              <div className="flex items-center justify-between text-xs text-zinc-500">
+                <span>March 15, 2024</span>
+                <span className="text-[#00F5D4] group-hover:translate-x-2 transition-transform duration-300">
+                  Read more →
+                </span>
+              </div>
+            </article>
+          </Link>
+
+          {/* Post 2 */}
           <Link 
             href="/blog/how-boop-labs-helps-you-build-profitable-business"
             className="block group"
