@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
 
 export default function Home() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
@@ -48,7 +49,14 @@ export default function Home() {
       <header className="fixed w-full top-0 border-b border-zinc-900 backdrop-blur-md z-40">
         <div className="max-w-5xl mx-auto px-4 py-12">
           <div className="flex justify-between items-center">
-            <div className="w-20"></div>
+            <div className="w-20">
+              <Link 
+                href="/blog" 
+                className="text-xs sm:text-sm font-thin tracking-[0.2em] text-white/60 hover:text-white transition-colors duration-300"
+              >
+                TIPS
+              </Link>
+            </div>
             <h1 className="text-base sm:text-lg font-thin tracking-[0.8em] text-white/80 hover:text-white transition-colors duration-300">
               BOOP
             </h1>
