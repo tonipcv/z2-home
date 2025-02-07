@@ -23,4 +23,12 @@ export const metadata: Metadata = {
     authors: ["BOOP Labs"],
     tags: ["Business Growth", "Productivity", "Success"],
   }
+}
+
+export default function Layout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return children
 } 
