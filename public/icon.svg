@@ -1,6 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="512" height="512" fill="#00F5D4"/>
-  <path d="M128 256C128 176.471 192.471 112 272 112C351.529 112 416 176.471 416 256C416 335.529 351.529 400 272 400C192.471 400 128 335.529 128 256ZM272 368C334.408 368 384 318.408 384 256C384 193.592 334.408 144 272 144C209.592 144 160 193.592 160 256C160 318.408 209.592 368 272 368Z" fill="white"/>
-  <path d="M272 208C297.405 208 318 228.595 318 254C318 279.405 297.405 300 272 300C246.595 300 226 279.405 226 254C226 228.595 246.595 208 272 208Z" fill="white"/>
+  <!-- Gradient Definition -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0" y1="0" x2="512" y2="512">
+      <stop offset="0%" stop-color="#00F5D4"/>
+      <stop offset="100%" stop-color="#00D4B4"/>
+    </linearGradient>
+    
+    <linearGradient id="rhino" x1="156" y1="156" x2="356" y2="356">
+      <stop offset="0%" stop-color="white"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0.9)"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background Circle with Gradient -->
+  <circle cx="256" cy="256" r="256" fill="url(#bgGradient)"/>
+  
+  <!-- Minimalist Rhino with Gradient -->
+  <path 
+    d="M156 256
+       C156 200 200 156 256 156
+       C312 156 356 200 356 256
+       C356 312 312 356 256 356
+       C200 356 156 312 156 256Z
+       M256 196
+       C222 196 196 222 196 256
+       C196 290 222 316 256 316
+       C290 316 316 290 316 256
+       C316 222 290 196 256 196Z"
+    fill="url(#rhino)"
+    fill-rule="evenodd"
+  />
+  
+  <!-- Horn Detail with Glow -->
+  <path 
+    d="M256 196L316 196"
+    stroke="white"
+    stroke-width="12"
+    stroke-linecap="round"
+    filter="drop-shadow(0 0 2px rgba(255,255,255,0.5))"
+  />
 </svg> 

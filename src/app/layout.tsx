@@ -70,17 +70,17 @@ export const metadata: Metadata = {
   manifest: "/site.webmanifest",
   icons: {
     icon: [
-      { url: "/favicon.png", sizes: "32x32", type: "image/png" },
-      { url: "/icon.png", type: "image/png" },
-      { url: "/icon-large.svg", type: "image/svg+xml" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icon-512.png", sizes: "512x512", type: "image/png" }
     ],
     apple: [
-      { url: "/apple-icon.png", sizes: "180x180" }
+      { url: "/apple-touch-icon.png", sizes: "180x180" }
     ],
     other: [
       {
         rel: "mask-icon",
-        url: "/safari-pinned-tab.svg",
+        url: "/icon.svg",
         color: "#00F5D4"
       }
     ],
@@ -115,11 +115,11 @@ export default function RootLayout({
     <html lang="en" className={montserrat.variable}>
       <head>
         <link rel="canonical" href="https://boop.tech" />
-        <meta name="theme-color" content="#000000" />
-        <link rel="icon" href="/favicon.png" sizes="32x32" />
-        <link rel="icon" href="/icon-large.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/apple-icon.png" />
+        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+        <link rel="alternate icon" href="/icon-192.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
+        <meta name="theme-color" content="#00F5D4" />
       </head>
       <body className="antialiased">
         {children}
