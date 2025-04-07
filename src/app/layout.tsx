@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
+import { ChatWidget } from "@/components/chatbot/ChatWidget";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -130,6 +131,7 @@ export default function RootLayout({
       </head>
       <body className="antialiased font-sans">
         {children}
+        <ChatWidget />
       </body>
     </html>
   );

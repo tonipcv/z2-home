@@ -6,7 +6,7 @@ declare global {
 }
 
 // Previne múltiplas instâncias do Prisma Client em desenvolvimento devido ao hot-reloading
-const prisma = global.prisma || new PrismaClient();
+const prisma = new PrismaClient();
 
 if (process.env.NODE_ENV !== 'production') {
   console.log('🔌 Prisma Client inicializado');
