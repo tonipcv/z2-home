@@ -1,17 +1,24 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
 
-const montserrat = Montserrat({
+const inter = Inter({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-montserrat",
+  variable: "--font-inter",
+});
+
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  variable: '--font-montserrat'
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://boop.tech'),
-  title: "BOOP | Unlock Your Potential",
-  description: "Track your habits, sales, achieve your goals, and unlock your full potential with BOOP.",
+  metadataBase: new URL('https://med1.app'),
+  title: "MED1 | CRM Inteligente para Médicos",
+  description: "CRM inteligente para médicos e clínicas privadas crescerem até 10x mais rápido.",
   keywords: [
     "habit tracking",
     "sales tracking",
@@ -112,7 +119,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={montserrat.variable}>
+    <html lang="en" className={`${inter.variable} ${montserrat.variable}`}>
       <head>
         <link rel="canonical" href="https://boop.tech" />
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
@@ -121,7 +128,7 @@ export default function RootLayout({
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="theme-color" content="#00F5D4" />
       </head>
-      <body className="antialiased">
+      <body className="antialiased font-sans">
         {children}
       </body>
     </html>
