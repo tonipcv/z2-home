@@ -62,7 +62,7 @@ export default function Home() {
               <div className="relative inline-block">
                 <span className="absolute -inset-4 rounded-full bg-blue-500/30 blur-xl animate-pulse"></span>
                 <a 
-                  href="https://www.med1.app/auth/register"
+                  href="https://www.med1.app/inside-sales"
                   className="relative inline-flex items-center bg-blue-600 text-white hover:bg-blue-700 hover:scale-105 active:scale-95 transition-all duration-300 border-none shadow-xl px-12 py-7 text-xl font-black tracking-[-0.02em] rounded-lg"
                 >
                   <span className="mr-3">Começar agora</span>
