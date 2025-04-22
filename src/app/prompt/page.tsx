@@ -16,9 +16,17 @@ export default function PromptPage() {
     e.preventDefault()
     setIsLoading(true)
 
-    // Track lead conversion
+    // Track lead conversion - Facebook
     if ((window as any).fbq) {
       (window as any).fbq('track', 'Lead')
+    }
+
+    // Track lead conversion - Google Analytics
+    if ((window as any).gtag) {
+      (window as any).gtag('event', 'generate_lead', {
+        'event_category': 'conversion',
+        'event_label': 'prompt_form'
+      })
     }
 
     try {

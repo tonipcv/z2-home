@@ -4,6 +4,7 @@ import { Montserrat } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
 import { ChatManager } from "@/components/ChatManager";
+import { Analytics } from '@/components/Analytics'
 
 const inter = Inter({
   subsets: ["latin"],
@@ -180,6 +181,7 @@ export default function RootLayout({
         {/* End Google Tag Manager (noscript) */}
         {children}
         <ChatManager />
+        <Analytics />
       </body>
     </html>
   );

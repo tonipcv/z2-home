@@ -6,9 +6,17 @@ export default function ThankYouPage() {
   const [countdown, setCountdown] = useState(10)
 
   useEffect(() => {
-    // Track lead conversion
+    // Track lead conversion - Facebook
     if ((window as any).fbq) {
       (window as any).fbq('track', 'Lead')
+    }
+
+    // Track lead conversion - Google Analytics
+    if ((window as any).gtag) {
+      (window as any).gtag('event', 'conversion', {
+        'event_category': 'lead',
+        'event_label': 'thank_you_page_view'
+      })
     }
 
     const timer = setInterval(() => {
@@ -27,9 +35,17 @@ export default function ThankYouPage() {
   }, [])
 
   const handleWhatsAppClick = () => {
-    // Track WhatsApp click
+    // Track WhatsApp click - Facebook
     if ((window as any).fbq) {
       (window as any).fbq('track', 'Contact')
+    }
+
+    // Track WhatsApp click - Google Analytics
+    if ((window as any).gtag) {
+      (window as any).gtag('event', 'click', {
+        'event_category': 'whatsapp',
+        'event_label': 'access_prompts'
+      })
     }
     
     const message = encodeURIComponent("Olá, sou médico e quero acesso aos prompts!")
