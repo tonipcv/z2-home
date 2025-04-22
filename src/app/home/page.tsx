@@ -50,9 +50,9 @@ export default function HomePage() {
               </a>
               <Button 
                 onClick={handleDemoClick}
-                className="bg-white/10 text-white hover:bg-white/20 transition-colors border border-white/20 px-6 py-2 text-sm tracking-[-0.03em]"
+                className="bg-white/10 text-white hover:bg-white/20 transition-colors border border-white/20 px-6 py-2 text-sm font-black tracking-[-0.03em]"
               >
-                Agendar demonstração
+                Entrar
               </Button>
             </div>
 
@@ -140,48 +140,50 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,_var(--tw-gradient-stops))] from-blue-300/10 via-transparent to-transparent" />
 
         <div className="container mx-auto max-w-7xl relative z-10">
-    <motion.div 
-      initial={{ opacity: 0, y: 20 }} 
-      animate={{ opacity: 1, y: 0 }} 
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }} 
+            animate={{ opacity: 1, y: 0 }} 
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="max-w-5xl mx-auto px-4 sm:px-6"
           >
-            <motion.h1 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-              className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 leading-[1.1] tracking-[-0.03em]"
+              className="space-y-4"
             >
-              <span className="bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent">
-                Transforme seu consultório em uma máquina de agendamentos
-        </span>
-            </motion.h1>
+              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white tracking-[-0.04em] leading-[0.95]">
+                CRESÇA SEU 
+                <span className="bg-gradient-to-r from-blue-200 via-white to-blue-200 bg-clip-text text-transparent"> CONSULTÓRIO </span>
+                EM ATÉ 10X
+              </h1>
+            </motion.div>
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-              className="text-base sm:text-lg md:text-xl text-blue-100/80 mb-8 sm:mb-10 max-w-4xl leading-relaxed tracking-[-0.03em]"
+              className="text-xl sm:text-2xl md:text-3xl text-blue-100/90 mt-6 mb-10 max-w-4xl leading-tight tracking-[-0.03em] font-medium"
             >
               O primeiro CRM focado em aquisição e fidelização de pacientes por indicação
             </motion.p>
-    <motion.div 
-      initial={{ opacity: 0, y: 20 }} 
-      animate={{ opacity: 1, y: 0 }} 
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }} 
+              animate={{ opacity: 1, y: 0 }} 
               transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
               className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-start"
             >
               <Button 
                 onClick={handleDemoClick}
-                className="bg-white/10 text-white hover:bg-white/20 transition-colors border border-white/20 px-6 sm:px-8 py-4 text-sm font-medium tracking-[-0.03em] rounded-full backdrop-blur-sm"
+                className="bg-white/10 text-white hover:bg-white/20 transition-colors border border-white/20 px-6 sm:px-8 py-4 text-sm font-black tracking-[-0.03em] rounded-full backdrop-blur-sm"
               >
-                Agendar demonstração
+                Começar agora
               </Button>
-      <Button 
+              <Button 
                 variant="outline"
-                className="border border-white/20 text-white hover:bg-white/10 transition-colors px-6 sm:px-8 py-4 text-sm font-medium tracking-[-0.03em] rounded-full backdrop-blur-sm"
+                className="border border-white/20 text-white hover:bg-white/10 transition-colors px-6 sm:px-8 py-4 text-sm font-black tracking-[-0.03em] rounded-full backdrop-blur-sm"
               >
                 Saiba mais
-      </Button>
+              </Button>
             </motion.div>
           </motion.div>
         </div>
@@ -200,24 +202,24 @@ export default function HomePage() {
         <div className="container mx-auto max-w-7xl relative">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             {/* Left Column - Main Content */}
-    <motion.div 
-      initial={{ opacity: 0, y: 20 }} 
-      animate={{ opacity: 1, y: 0 }} 
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }} 
+              animate={{ opacity: 1, y: 0 }} 
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="space-y-8"
-    >
+            >
               <div className="space-y-4">
-                <h2 className="text-4xl font-bold text-white tracking-[-0.03em]">
+                <h2 className="text-4xl font-extrabold text-white tracking-[-0.03em]">
                   MED1 — o futuro chegou para clínicas e consultórios
-      </h2>
-                <p className="text-xl text-blue-100/80 tracking-[-0.03em] leading-relaxed">
+                </h2>
+                <p className="text-xl font-semibold text-blue-100/80 tracking-[-0.03em] leading-relaxed">
                   O primeiro CRM focado em aquisição e fidelização de pacientes por indicação.
                 </p>
-      </div>
+              </div>
 
-    <motion.div 
-      initial={{ opacity: 0, y: 20 }} 
-      animate={{ opacity: 1, y: 0 }} 
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }} 
+                animate={{ opacity: 1, y: 0 }} 
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="bg-blue-900/30 p-8 rounded-2xl border border-blue-800/30"
               >
@@ -271,7 +273,7 @@ export default function HomePage() {
                       color: 'from-yellow-400/10 to-yellow-500/10'
                     }
                   ].map((benefit, index) => (
-    <motion.div 
+                    <motion.div 
                       key={index}
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
@@ -295,11 +297,11 @@ export default function HomePage() {
                       </div>
                     </motion.div>
                   ))}
-      </div>
+                </div>
 
-    <motion.div 
-      initial={{ opacity: 0, y: 20 }} 
-      animate={{ opacity: 1, y: 0 }} 
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }} 
+                  animate={{ opacity: 1, y: 0 }} 
                   transition={{ duration: 0.5, delay: 0.8 }}
                   className="pt-8"
                 >
@@ -313,22 +315,22 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-      </div>
+        </div>
       </section>
 
       {/* Features Section */}
       <section className="py-16 sm:py-20 px-4 sm:px-6 bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800">
         <div className="container mx-auto max-w-6xl">
-    <motion.div 
-      initial={{ opacity: 0, y: 20 }} 
-      animate={{ opacity: 1, y: 0 }} 
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }} 
+            animate={{ opacity: 1, y: 0 }} 
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-center mb-12 sm:mb-16"
-    >
-            <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 text-white tracking-[-0.03em]">
+          >
+            <h2 className="text-2xl sm:text-3xl font-extrabold mb-3 sm:mb-4 text-white tracking-[-0.03em]">
               Funcionalidades do MED1
-      </h2>
-            <p className="text-blue-100/80 max-w-2xl mx-auto text-sm sm:text-base tracking-[-0.03em]">
+            </h2>
+            <p className="text-blue-100/80 max-w-2xl mx-auto text-sm sm:text-base font-medium tracking-[-0.03em]">
               Tudo que você precisa para transformar seu consultório em uma máquina de agendamentos
             </p>
           </motion.div>
@@ -458,26 +460,26 @@ export default function HomePage() {
                       </div>
                       <p className="text-blue-100/90 text-sm sm:text-base tracking-[-0.03em]">{item.title}</p>
                     </div>
-              </div>
+                  </div>
                 </motion.div>
               ))}
             </div>
           </div>
-      </div>
+        </div>
       </section>
 
       {/* Testimonials Section */}
       <section className="py-16 sm:py-20 px-4 sm:px-6 bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800">
         <div className="container mx-auto max-w-6xl text-center">
-    <motion.div 
-      initial={{ opacity: 0, y: 20 }} 
-      animate={{ opacity: 1, y: 0 }} 
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }} 
+            animate={{ opacity: 1, y: 0 }} 
             transition={{ duration: 0.5 }}
             className="mb-12 sm:mb-16"
-    >
+          >
             <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 text-white tracking-[-0.03em]">
               O que outros profissionais dizem
-      </h2>
+            </h2>
             <p className="text-blue-100/80 max-w-2xl mx-auto text-sm sm:text-base tracking-[-0.03em]">
               Veja como a MED1 está transformando a gestão de consultórios médicos
             </p>
@@ -519,20 +521,20 @@ export default function HomePage() {
                     <p className="text-white font-semibold text-base sm:text-lg tracking-[-0.03em]">{testimonial.author}</p>
                     <p className="text-blue-100/80 text-sm tracking-[-0.03em]">{testimonial.specialty}</p>
                     <p className="text-blue-100/60 text-xs sm:text-sm tracking-[-0.03em]">{testimonial.location}</p>
-              </div>
-            </div>
+                  </div>
+                </div>
               </motion.div>
-        ))}
-      </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Benefits Section */}
       <section className="py-16 sm:py-20 px-4 sm:px-6 bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800">
         <div className="container mx-auto max-w-6xl">
-    <motion.div 
-      initial={{ opacity: 0, y: 20 }} 
-      animate={{ opacity: 1, y: 0 }} 
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }} 
+            animate={{ opacity: 1, y: 0 }} 
             transition={{ duration: 0.5 }}
             className="text-center mb-12 sm:mb-16"
           >
@@ -639,27 +641,27 @@ export default function HomePage() {
                     <div>
                       <h4 className="text-white font-medium text-sm sm:text-base tracking-[-0.03em]">{item.title}</h4>
                       <p className="text-blue-100/80 text-sm tracking-[-0.03em]">{item.description}</p>
-            </div>
+                    </div>
                   </li>
-        ))}
+                ))}
               </ul>
             </motion.div>
           </div>
-      </div>
+        </div>
       </section>
 
       {/* Key Benefits Section */}
       <section className="py-20 px-6 bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800">
         <div className="container mx-auto max-w-6xl">
-    <motion.div 
-      initial={{ opacity: 0, y: 20 }} 
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }} 
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             className="text-center mb-16"
           >
             <h2 className="text-3xl font-bold mb-4 text-white tracking-[-0.03em]">
               Benefícios de transformar seu consultório com a MED1
-        </h2>
+            </h2>
             <p className="text-blue-100/80 max-w-2xl mx-auto tracking-[-0.03em]">
               Descubra como a MED1 pode revolucionar a gestão do seu consultório
             </p>
@@ -707,8 +709,8 @@ export default function HomePage() {
                     <h3 className="text-lg font-semibold text-white mb-2 tracking-[-0.03em]">{benefit.title}</h3>
                     <p className="text-blue-100/80 tracking-[-0.03em]">{benefit.description}</p>
                   </div>
-      </div>
-    </motion.div>
+                </div>
+              </motion.div>
             ))}
           </div>
         </div>

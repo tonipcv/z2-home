@@ -122,12 +122,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${montserrat.variable}`}>
       <head>
-        <link rel="canonical" href="https://boop.tech" />
+        <link rel="canonical" href="https://med1.app" />
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
         <link rel="alternate icon" href="/icon-192.png" type="image/png" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
-        <meta name="theme-color" content="#00F5D4" />
+        <meta name="theme-color" content="#2E8DFF" />
       </head>
       <body className="antialiased font-sans">
         {children}

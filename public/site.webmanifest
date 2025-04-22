@@ -1,6 +1,6 @@
 git{
-  "name": "BOOP - Unlock Your Potential",
-  "short_name": "BOOP",
+  "name": "MED1 | CRM Inteligente para Médicos",
+  "short_name": "MED1",
   "icons": [
     {
       "src": "/icon.svg",
@@ -19,9 +19,9 @@ git{
       "type": "image/png"
     }
   ],
-  "theme_color": "#00F5D4",
-  "background_color": "#000000",
-  "start_url": "https://boop.tech",
+  "theme_color": "#2E8DFF",
+  "background_color": "#FFFFFF",
+  "start_url": "/",
   "display": "standalone",
   "orientation": "portrait"
 } 
