@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
 import { ChatWidget } from "@/components/chatbot/ChatWidget";
+import Script from "next/script";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -122,6 +123,17 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${montserrat.variable}`}>
       <head>
+        {/* Google Tag Manager */}
+        <Script id="google-tag-manager" strategy="afterInteractive">
+          {`
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-WNKND9BM');
+          `}
+        </Script>
+        {/* End Google Tag Manager */}
         <link rel="canonical" href="https://med1.app" />
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
         <link rel="alternate icon" href="/icon-192.png" type="image/png" />
@@ -130,6 +142,16 @@ export default function RootLayout({
         <meta name="theme-color" content="#2E8DFF" />
       </head>
       <body className="antialiased font-sans">
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe 
+            src="https://www.googletagmanager.com/ns.html?id=GTM-WNKND9BM"
+            height="0" 
+            width="0" 
+            style={{display: 'none', visibility: 'hidden'}}
+          />
+        </noscript>
+        {/* End Google Tag Manager (noscript) */}
         {children}
         <ChatWidget />
       </body>
