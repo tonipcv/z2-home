@@ -1,11 +1,14 @@
-import prisma from '@/lib/prisma'
+import { PrismaClient } from '@prisma/client'
+
+const prisma = new PrismaClient()
 
 export interface CreateLeadData {
   name: string
   whatsapp: string
   email: string
-  segment: string
-  budget: string
+  segment?: string
+  budget?: string
+  profession: string
 }
 
 export async function createLead(data: CreateLeadData) {
@@ -15,9 +18,10 @@ export async function createLead(data: CreateLeadData) {
         name: data.name,
         whatsapp: data.whatsapp,
         email: data.email,
-        segment: data.segment,
-        budget: data.budget,
-      },
+        segment: data.segment || 'prompt',
+        budget: data.budget || 'N/A',
+        profession: data.profession
+      }
     })
     return lead
   } catch (error) {

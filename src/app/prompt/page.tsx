@@ -28,12 +28,17 @@ export default function PromptPage() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          profession: 'Médico',
+          segment: 'prompt',
+          budget: 'N/A'
+        }),
       })
 
       if (response.ok) {
         // Redirect to thank you page
-        window.location.href = `/obrigado?name=${encodeURIComponent(formData.name)}`
+        router.push('/obrigado')
       }
     } catch (error) {
       console.error('Error saving lead:', error)

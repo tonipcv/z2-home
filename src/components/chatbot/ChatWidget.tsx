@@ -11,83 +11,38 @@ interface Message {
   isUser: boolean;
 }
 
-interface UserData {
-  name: string;
-  whatsapp: string;
-  email: string;
-  segment?: string;
-  budget?: string;
+interface Question {
+  text: (userData: UserData) => string;
+  options?: string[];
+  isInput?: boolean;
+  key?: 'name' | 'profession';
 }
+
+interface UserData {
+  name?: string;
+  profession?: string;
+}
+
+const questions: Question[] = [
+  {
+    key: 'name',
+    text: () => 'Olá! Como posso te chamar? 👋',
+    isInput: true
+  },
+  {
+    key: 'profession',
+    text: (userData) => `Prazer, ${userData.name}! 👋\n\nVocê é?`,
+    options: ['Influencer', 'Infoprodutor(a)', 'Mentor(a)', 'Professor(a)']
+  }
+];
 
 export function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState<Message[]>([]);
+  const [messages, setMessages] = useState<Message[]>([{ text: questions[0].text({}), isUser: false }]);
   const [currentStep, setCurrentStep] = useState(0);
   const [inputValue, setInputValue] = useState('');
-  const [userData, setUserData] = useState<UserData>({
-    name: '',
-    whatsapp: '',
-    email: ''
-  });
+  const [userData, setUserData] = useState<UserData>({});
   const messagesEndRef = useRef<HTMLDivElement>(null);
-
-  const conversationFlow = [
-    {
-      question: "Olá! eu sou o Beto da Med1!\n\nDeixa eu te apresentar a Med1 e seus planos?",
-      options: ["Claro! Quero conhecer mais detalhes"]
-    },
-    {
-      question: "Qual é o seu nome?",
-      isInput: true,
-      onAnswer: (answer: string) => {
-        const newData = { ...userData, name: answer };
-        setUserData(newData);
-        return newData;
-      }
-    },
-    {
-      question: (data: UserData) => `Prazer, ${data.name}! 👋\n\nQual o seu whatsapp? para enviarmos as informações para você conhecer os nossos planos`,
-      isInput: true,
-      onAnswer: (answer: string) => {
-        const newData = { ...userData, whatsapp: answer };
-        setUserData(newData);
-        return newData;
-      }
-    },
-    {
-      question: (data: UserData) => `Confirma que seu numero de whatsapp está correto? ${data.whatsapp}, é importante que esteja certo para que nosso time consiga falar com você!`,
-      options: ["Sim, está correto"]
-    },
-    {
-      question: "Qual o seu e-mail mais utilizado?",
-      isInput: true,
-      onAnswer: (answer: string) => {
-        const newData = { ...userData, email: answer };
-        setUserData(newData);
-        return newData;
-      }
-    },
-    {
-      question: "Você tem uma empresa de qual segmento?",
-      options: [
-        "Médico",
-        "Dentista",
-        "Estética",
-        "Outros"
-      ]
-    },
-    {
-      question: "Nosso investimento mínimo anual é de R$2.880,00. Este valor está dentro do seu orçamento atual?",
-      options: [
-        "Sim, tenho orçamento para investir se tudo fizer sentido.",
-        "Não, meu orçamento é menor que R$2.880,00."
-      ]
-    },
-    {
-      question: "Obrigado pelas informações, em instantes o nosso time entrará em contato com você, fique atento(a)!",
-      isFinal: true
-    }
-  ];
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -99,99 +54,88 @@ export function ChatWidget() {
 
   useEffect(() => {
     if (isOpen && messages.length === 0) {
-      const firstQuestion = typeof conversationFlow[0].question === 'function' 
-        ? conversationFlow[0].question(userData)
-        : conversationFlow[0].question;
+      const firstQuestion = typeof questions[0].text === 'function' 
+        ? questions[0].text(userData)
+        : questions[0].text;
       setMessages([{ text: firstQuestion, isUser: false }]);
     }
   }, [isOpen]);
 
-  const handleSendMessage = () => {
+  const handleInputSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
     if (inputValue.trim() === '') return;
 
-    const currentQuestion = conversationFlow[currentStep];
-    let newUserData = userData;
+    const currentQuestion = questions[currentStep];
+    const updatedUserData = { ...userData };
 
-    // Store user data if needed
-    if (currentQuestion.onAnswer) {
-      newUserData = currentQuestion.onAnswer(inputValue);
-      setUserData(newUserData);
+    if (currentQuestion.key) {
+      updatedUserData[currentQuestion.key] = inputValue;
+      setUserData(updatedUserData);
     }
 
-    // Add user message
-    setMessages((prev) => [...prev, { text: inputValue, isUser: true }]);
+    setMessages([...messages, { text: inputValue, isUser: true }]);
     setInputValue('');
 
-    // Move to next step
-    setTimeout(() => {
-      if (currentStep < conversationFlow.length - 1) {
-        const nextStep = currentStep + 1;
-        setCurrentStep(nextStep);
-        const nextQuestion = conversationFlow[nextStep];
-        const questionText = typeof nextQuestion.question === 'function'
-          ? nextQuestion.question(newUserData)
-          : nextQuestion.question;
-        setMessages((prev) => [
-          ...prev,
-          { text: questionText, isUser: false },
-        ]);
-      }
-    }, 1000);
+    const nextStep = currentStep + 1;
+    if (questions[nextStep]) {
+      setCurrentStep(nextStep);
+      const nextQuestion = questions[nextStep].text(updatedUserData);
+      setMessages(prev => [...prev, { text: nextQuestion, isUser: false }]);
+    }
   };
 
-  const handleOptionClick = (option: string) => {
-    const currentQuestion = conversationFlow[currentStep];
-    let newUserData = userData;
+  const handleOptionClick = async (option: string) => {
+    const currentQuestion = questions[currentStep];
+    const updatedUserData = { ...userData };
 
-    // Store user data if needed
-    if (currentQuestion.onAnswer) {
-      newUserData = currentQuestion.onAnswer(option);
-      setUserData(newUserData);
+    if (currentQuestion.key) {
+      updatedUserData[currentQuestion.key] = option;
+      setUserData(updatedUserData);
     }
 
-    // Add user message
-    setMessages((prev) => [...prev, { text: option, isUser: true }]);
-    
-    setTimeout(() => {
-      if (currentStep < conversationFlow.length - 1) {
-        const nextStep = currentStep + 1;
-        setCurrentStep(nextStep);
-        const nextQuestion = conversationFlow[nextStep];
-        const questionText = typeof nextQuestion.question === 'function'
-          ? nextQuestion.question(newUserData)
-          : nextQuestion.question;
-        setMessages((prev) => [
-          ...prev,
-          { text: questionText, isUser: false },
-        ]);
+    setMessages([...messages, { text: option, isUser: true }]);
 
-        // If this is the final step, save the lead data
-        if (nextQuestion.isFinal) {
-          createLead({
-            name: newUserData.name,
-            whatsapp: newUserData.whatsapp,
-            email: newUserData.email,
-            segment: newUserData.segment || '',
-            budget: newUserData.budget || '',
-          }).catch(error => {
-            console.error('Error saving lead:', error);
-          });
+    if (currentQuestion.key === 'profession') {
+      try {
+        const response = await fetch('/api/leads', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: updatedUserData.name,
+            profession: option,
+          }),
+        });
+
+        if (response.ok) {
+          window.location.href = '/obrigado';
+          return;
         }
+      } catch (error) {
+        console.error('Error saving lead:', error);
       }
-    }, 1000);
+    }
+
+    const nextStep = currentStep + 1;
+    if (questions[nextStep]) {
+      setCurrentStep(nextStep);
+      const nextQuestion = questions[nextStep].text(updatedUserData);
+      setMessages(prev => [...prev, { text: nextQuestion, isUser: false }]);
+    }
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') {
-      handleSendMessage();
+      handleInputSubmit(e);
     }
   };
 
-  const currentQuestion = conversationFlow[currentStep];
-  const isFinalStep = currentQuestion.isFinal;
-  const currentQuestionText = typeof currentQuestion.question === 'function'
-    ? currentQuestion.question(userData)
-    : currentQuestion.question;
+  const currentQuestion = questions[currentStep];
+  const isFinalStep = currentQuestion.key === 'profession';
+  const currentQuestionText = typeof currentQuestion.text === 'function'
+    ? currentQuestion.text(userData)
+    : currentQuestion.text;
 
   return (
     <>
@@ -261,7 +205,7 @@ export function ChatWidget() {
                       className="flex-1 px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white text-gray-900 placeholder-gray-500"
                     />
                     <button
-                      onClick={handleSendMessage}
+                      onClick={handleInputSubmit}
                       className="bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-700 transition-colors"
                     >
                       <svg
@@ -293,10 +237,16 @@ export function ChatWidget() {
                 )
               ) : (
                 <button
-                  onClick={() => window.location.href = 'https://themembers.com.br'}
-                  className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                  onClick={() => {
+                    const message = encodeURIComponent("Olá, sou médico e quero acesso aos prompts!");
+                    window.location.href = `https://wa.me/5511999999999?text=${message}`;
+                  }}
+                  className="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2"
                 >
-                  Acessar agora!
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                  </svg>
+                  Acessar via WhatsApp
                 </button>
               )}
             </div>

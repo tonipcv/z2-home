@@ -1,18 +1,29 @@
 'use client'
 
-import { useSearchParams } from 'next/navigation'
-import Script from 'next/script'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function ThankYouPage() {
-  const searchParams = useSearchParams()
-  const name = searchParams.get('name') || ''
+  const [countdown, setCountdown] = useState(10)
 
   useEffect(() => {
-    // Track lead conversion when page loads
+    // Track lead conversion
     if ((window as any).fbq) {
       (window as any).fbq('track', 'Lead')
     }
+
+    const timer = setInterval(() => {
+      setCountdown((prev) => {
+        if (prev <= 1) {
+          clearInterval(timer)
+          const message = encodeURIComponent("Olá, sou médico e quero acesso aos prompts!")
+          window.location.href = `https://wa.me/5511976638147?text=${message}`
+          return 0
+        }
+        return prev - 1
+      })
+    }, 1000)
+
+    return () => clearInterval(timer)
   }, [])
 
   const handleWhatsAppClick = () => {
@@ -20,60 +31,30 @@ export default function ThankYouPage() {
     if ((window as any).fbq) {
       (window as any).fbq('track', 'Contact')
     }
-    // Redirect to WhatsApp
-    window.location.href = `https://wa.me/5511976638147?text=Olá! Me chamo ${name}. Gostaria de receber os prompts de IA para médicos.`
+    
+    const message = encodeURIComponent("Olá, sou médico e quero acesso aos prompts!")
+    window.location.href = `https://wa.me/5511976638147?text=${message}`
   }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-800 via-blue-700 to-blue-900 flex flex-col">
       <main className="flex-1 flex items-center justify-center px-4 py-12">
-        <div className="w-full max-w-2xl text-center">
-          <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 sm:p-12">
-            <h1 className="text-3xl sm:text-4xl font-bold text-white mb-6">
-              Parabéns! Você está a um passo de receber os prompts
-            </h1>
-
-            <div className="space-y-6 text-white/90 text-lg mb-8">
-              <p>
-                Você receberá acesso a 15 prompts poderosos que vão te ajudar a:
-              </p>
-              
-              <ul className="space-y-4 text-left list-none">
-                <li className="flex items-start gap-3">
-                  <span className="text-blue-300 mt-1">→</span>
-                  <span>Criar conteúdo médico persuasivo para redes sociais</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-blue-300 mt-1">→</span>
-                  <span>Otimizar sua agenda e aumentar o número de pacientes</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-blue-300 mt-1">→</span>
-                  <span>Melhorar a experiência e fidelização dos seus pacientes</span>
-                </li>
-              </ul>
-
-              <div className="bg-white/5 rounded-xl p-6 mt-8">
-                <h2 className="text-xl font-bold mb-4">Próximos passos:</h2>
-                <ol className="text-left space-y-3 list-decimal list-inside">
-                  <li>Clique no botão do WhatsApp abaixo</li>
-                  <li>Você receberá uma mensagem de boas-vindas</li>
-                  <li>Em seguida, enviaremos o acesso aos 15 prompts</li>
-                  <li>Bônus: Dicas exclusivas de como usar cada prompt</li>
-                </ol>
-              </div>
-            </div>
-
-            <button
-              onClick={handleWhatsAppClick}
-              className="bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-lg inline-flex items-center gap-2 transition-all transform hover:scale-105"
-            >
-              <svg viewBox="0 0 24 24" className="w-6 h-6 fill-current">
-                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm.029 18.88c-1.161 0-2.305-.292-3.318-.844l-3.677.964.984-3.595c-.607-1.052-.927-2.246-.926-3.468.001-3.825 3.113-6.937 6.937-6.937 1.856.001 3.598.723 4.907 2.034 1.31 1.311 2.031 3.054 2.03 4.908-.001 3.825-3.113 6.938-6.937 6.938z"/>
-              </svg>
-              Acessar os Prompts no WhatsApp
-            </button>
-          </div>
+        <div className="w-full max-w-md text-center">
+          <h1 className="text-3xl sm:text-4xl font-bold text-white mb-6 tracking-tight">
+            Obrigado!
+          </h1>
+          <p className="text-lg text-white/90 font-medium mb-8">
+            Redirecionando para o WhatsApp em {countdown} segundos...
+          </p>
+          <button
+            onClick={handleWhatsAppClick}
+            className="inline-flex items-center justify-center gap-2 bg-green-600 text-white font-bold py-4 px-8 rounded-lg hover:bg-green-700 transition-colors"
+          >
+            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Acessar Prompts
+          </button>
         </div>
       </main>
     </div>

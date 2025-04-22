@@ -1,16 +1,19 @@
 import { NextResponse } from 'next/server'
-import prisma from '@/lib/prisma'
+import { PrismaClient } from '@prisma/client'
+
+const prisma = new PrismaClient()
 
 export async function POST(request: Request) {
   try {
     const body = await request.json()
-    const { name, email, whatsapp } = body
+    const { name, profession } = body
 
     const lead = await prisma.lead.create({
       data: {
         name,
-        email,
-        whatsapp,
+        profession,
+        whatsapp: '',
+        email: '',
         segment: 'prompt',
         budget: 'N/A'
       }

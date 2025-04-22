@@ -38,12 +38,13 @@ model InsideSalesLead {
 }
 
 model Lead {
-  id        String   @id @default(cuid())
-  name      String
-  whatsapp  String
-  email     String
-  segment   String?
-  budget    String?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id         String   @id @default(cuid())
+  name       String
+  whatsapp   String
+  email      String
+  segment    String?
+  budget     String?
+  profession String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
 }
