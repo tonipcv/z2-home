@@ -24,7 +24,7 @@ export default function ThankYouPage() {
         if (prev <= 1) {
           clearInterval(timer)
           const message = encodeURIComponent("Olá, sou médico e quero acesso aos prompts!")
-          window.location.href = `https://wa.me/5511976638147?text=${message}`
+          window.location.href = `https://wa.me/5511937064833?text=${message}`
           return 0
         }
         return prev - 1
@@ -49,7 +49,7 @@ export default function ThankYouPage() {
     }
     
     const message = encodeURIComponent("Olá, sou médico e quero acesso aos prompts!")
-    window.location.href = `https://wa.me/5511976638147?text=${message}`
+    window.location.href = `https://wa.me/5511937064833?text=${message}`
   }
 
   return (
