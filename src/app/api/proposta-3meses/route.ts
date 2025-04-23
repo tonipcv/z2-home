@@ -7,21 +7,23 @@ export async function POST(request: Request) {
   try {
     const body = await request.json()
     
-    const lead = await prisma.lead.create({
+    const lead = await prisma.proposalLead.create({
       data: {
         name: body.name,
         email: body.email,
         whatsapp: body.whatsapp,
         profession: body.profession,
-        segment: body.segment || 'prompt',
+        knowsTechnology: body.knowsTechnology || 'Não',
+        revenue: body.revenue || 'Não informado',
+        status: 'new'
       },
     })
 
     return NextResponse.json(lead)
   } catch (error) {
-    console.error('Error creating lead:', error)
+    console.error('Error creating proposal lead:', error)
     return NextResponse.json(
-      { error: 'Error creating lead' },
+      { error: 'Error creating proposal lead' },
       { status: 500 }
     )
   }
