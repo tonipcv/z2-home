@@ -5,7 +5,14 @@ import { Button } from '../../components/ui/button';
 import { Input } from '../../components/ui/input';
 import { Logo } from '../../components/ui/logo';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronRightIcon, CheckIcon, BanknotesIcon, CursorArrowRaysIcon, ClockIcon, UserGroupIcon, RocketLaunchIcon, SparklesIcon, ArrowTrendingUpIcon } from '@heroicons/react/24/outline';
+import { BanknotesIcon, CursorArrowRaysIcon, ClockIcon, UserGroupIcon } from '@heroicons/react/24/outline';
+
+// Declare fbq for TypeScript
+declare global {
+  interface Window {
+    fbq: any;
+  }
+}
 
 export default function Proposta3MesesPage() {
   const [step, setStep] = useState(0);
@@ -59,7 +66,7 @@ export default function Proposta3MesesPage() {
           profession: formData.profession,
           revenue: formData.revenue
         });
-        window.location.replace(`/proposta/sucesso?${params.toString()}`);
+        window.location.replace(`/proposta-3meses/sucesso?${params.toString()}`);
       }
     } catch (error) {
       console.error('Error:', error);
@@ -105,7 +112,7 @@ export default function Proposta3MesesPage() {
       className="text-center w-full max-w-2xl mx-auto"
     >
       <h2 className="text-3xl font-light text-white mb-12">
-       Qual sua profissão?
+        Qual sua profissão?
       </h2>
       <div className="grid grid-cols-1 gap-4">
         {[
