@@ -136,63 +136,88 @@ export default function HomePage() {
       </AnimatePresence>
 
       {/* Hero Section */}
-      <section id="hero" className="min-h-screen flex items-center pt-20 pb-32 px-4 sm:px-6 bg-white relative">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#eaf212]/5 via-transparent to-transparent" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,_var(--tw-gradient-stops))] from-[#eaf212]/5 via-transparent to-transparent" />
+      <section id="hero" className="min-h-screen flex items-center pt-20 pb-32 px-4 sm:px-6 bg-[#f8f9fa] relative overflow-hidden">
+        {/* Geometric Shapes */}
+        <div className="absolute inset-0 pointer-events-none">
+          {/* Main background gradient */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#f8f9fa] via-[#ffffff] to-[#f8f9fa]" />
+          
+          {/* Large circles */}
+          <div className="absolute top-1/4 -left-32 w-[600px] h-[600px] border border-gray-200 rounded-full blur-2xl" />
+          <div className="absolute -bottom-48 -right-32 w-[800px] h-[800px] border border-gray-200 rounded-full blur-2xl" />
+          
+          {/* Accent circles */}
+          <div className="absolute top-1/3 right-1/4 w-64 h-64 border border-gray-200 rounded-full blur-xl animate-pulse" />
+          <div className="absolute bottom-1/4 left-1/3 w-96 h-96 border border-gray-200 rounded-full blur-xl animate-pulse" style={{ animationDelay: '1s' }} />
+          
+          {/* Decorative lines */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px]">
+            <div className="absolute inset-0 border border-gray-200 rounded-full" />
+            <div className="absolute inset-8 border border-gray-200 rounded-full" />
+            <div className="absolute inset-16 border border-gray-200 rounded-full" />
+          </div>
+          
+          {/* Floating elements */}
+          <div className="absolute top-1/4 right-1/4 w-32 h-32 border border-gray-200 rotate-45 blur-lg" />
+          <div className="absolute bottom-1/3 left-1/4 w-24 h-24 border border-gray-200 rotate-12 blur-lg" />
+
+          {/* Additional light elements */}
+          <div className="absolute top-1/2 left-1/4 w-48 h-48 bg-gray-100 rounded-full blur-2xl" />
+          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-gray-100 rounded-full blur-2xl" />
+        </div>
 
         <div className="container mx-auto max-w-7xl relative z-10">
           <motion.div 
             initial={{ opacity: 0, y: 20 }} 
             animate={{ opacity: 1, y: 0 }} 
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="max-w-5xl mx-auto px-4 sm:px-6"
+            className="max-w-4xl mx-auto px-4 sm:px-6"
           >
-    <motion.div 
-      initial={{ opacity: 0, y: 20 }} 
-      animate={{ opacity: 1, y: 0 }} 
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }} 
+              animate={{ opacity: 1, y: 0 }} 
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-              className="space-y-4"
+              className="space-y-8"
             >
-              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-gray-900 tracking-[-0.04em] leading-[0.95]">
-                BE THE 
-                <span className="bg-gradient-to-r from-[#eaf212] via-gray-900 to-[#eaf212] bg-clip-text text-transparent"> TOP1 </span>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black tracking-[-0.04em] leading-[1.1]">
+                <span className="bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800 bg-clip-text text-transparent">BE THE TOP1</span>
                 <br />
-                BE MED1
-      </h1>
+                <span className="bg-gradient-to-r from-gray-800 via-gray-600 to-gray-800 bg-clip-text text-transparent">BE MED1</span>
+              </h1>
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+                className="text-base sm:text-lg md:text-xl text-gray-600 mt-4 sm:mt-8 mb-6 sm:mb-10 max-w-2xl leading-relaxed tracking-[-0.03em] font-medium"
+              >
+                The first CRM focused on patient acquisition and retention through referrals
+              </motion.p>
             </motion.div>
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-              className="text-xl sm:text-2xl md:text-3xl text-gray-600 mt-6 mb-10 max-w-4xl leading-tight tracking-[-0.03em] font-medium"
-            >
-              The first CRM focused on patient acquisition and retention through referrals
-            </motion.p>
-    <motion.div 
-      initial={{ opacity: 0, y: 20 }} 
-      animate={{ opacity: 1, y: 0 }} 
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }} 
+              animate={{ opacity: 1, y: 0 }} 
               transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
-              className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-start"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-6 justify-start mt-8 sm:mt-12"
             >
               <Button 
                 onClick={handleDemoClick}
-                className="bg-[#eaf212] text-black hover:bg-[#eaf212]/90 transition-colors px-6 sm:px-8 py-4 text-sm font-medium tracking-[-0.03em] rounded-full"
+                className="bg-[#eaf212] text-gray-800 hover:bg-[#eaf212]/90 transition-all duration-300 px-4 sm:px-8 py-2.5 sm:py-3 text-sm font-medium tracking-[-0.03em] rounded-full shadow-lg hover:shadow-xl hover:scale-105 active:scale-95"
               >
                 Get Started
               </Button>
-      <Button 
+              <Button 
                 variant="outline"
-                className="border border-gray-200 text-gray-900 hover:bg-gray-50 transition-colors px-6 sm:px-8 py-4 text-sm font-medium tracking-[-0.03em] rounded-full"
+                className="border border-gray-300 text-gray-700 hover:bg-gray-50 transition-all duration-300 px-4 sm:px-8 py-2.5 sm:py-3 text-sm font-medium tracking-[-0.03em] rounded-full hover:scale-105 active:scale-95"
               >
                 Learn More
-      </Button>
+              </Button>
             </motion.div>
           </motion.div>
         </div>
       </section>
 
       {/* About Section */}
-      <section className="py-32 px-6 bg-white relative overflow-hidden">
+      <section className="py-16 sm:py-24 px-4 sm:px-6 bg-white relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-20 left-10 text-9xl font-bold text-[#eaf212]/5 tracking-[-0.03em]">4x</div>
@@ -202,26 +227,26 @@ export default function HomePage() {
         </div>
 
         <div className="container mx-auto max-w-7xl relative">
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-16 items-start">
             {/* Left Column - Main Content */}
-    <motion.div 
-      initial={{ opacity: 0, y: 20 }} 
-      animate={{ opacity: 1, y: 0 }} 
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }} 
+              animate={{ opacity: 1, y: 0 }} 
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="space-y-8"
-    >
-              <div className="space-y-4">
-                <h2 className="text-4xl font-extrabold text-gray-900 tracking-[-0.03em]">
+              className="space-y-6 sm:space-y-8"
+            >
+              <div className="space-y-3 sm:space-y-4">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 tracking-[-0.03em]">
                   MED1 — The Future of Clinics and Medical Practices
                 </h2>
-                <p className="text-xl font-semibold text-gray-600 tracking-[-0.03em] leading-relaxed">
+                <p className="text-lg sm:text-xl font-semibold text-gray-600 tracking-[-0.03em] leading-relaxed">
                   The first CRM focused on patient acquisition and retention through referrals.
                 </p>
-      </div>
+              </div>
 
-    <motion.div 
-      initial={{ opacity: 0, y: 20 }} 
-      animate={{ opacity: 1, y: 0 }} 
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }} 
+                animate={{ opacity: 1, y: 0 }} 
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="bg-gray-50 p-8 rounded-2xl border border-gray-100"
               >
@@ -275,7 +300,7 @@ export default function HomePage() {
                       color: 'from-yellow-400/10 to-yellow-500/10'
                     }
                   ].map((benefit, index) => (
-    <motion.div 
+                    <motion.div 
                       key={index}
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
@@ -299,11 +324,11 @@ export default function HomePage() {
                       </div>
                     </motion.div>
                   ))}
-      </div>
+                </div>
 
-    <motion.div 
-      initial={{ opacity: 0, y: 20 }} 
-      animate={{ opacity: 1, y: 0 }} 
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }} 
+                  animate={{ opacity: 1, y: 0 }} 
                   transition={{ duration: 0.5, delay: 0.8 }}
                   className="pt-8"
                 >
@@ -311,28 +336,28 @@ export default function HomePage() {
                     onClick={handleDemoClick}
                     className="bg-[#eaf212] text-black hover:bg-[#eaf212]/90 transition-colors px-8 py-4 text-sm font-medium tracking-[-0.03em] rounded-xl w-full"
                   >
-                    Quero saber mais
+                    Get Started
                   </Button>
                 </motion.div>
               </div>
             </div>
           </div>
-      </div>
+        </div>
       </section>
 
       {/* Features Section */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 bg-white">
+      <section className="py-12 sm:py-16 px-4 sm:px-6 bg-[#2f3739]">
         <div className="container mx-auto max-w-6xl">
-    <motion.div 
-      initial={{ opacity: 0, y: 20 }} 
-      animate={{ opacity: 1, y: 0 }} 
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }} 
+            animate={{ opacity: 1, y: 0 }} 
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-center mb-12 sm:mb-16"
-    >
-            <h2 className="text-2xl sm:text-3xl font-extrabold mb-3 sm:mb-4 text-gray-900 tracking-[-0.03em]">
+            className="text-center mb-8 sm:mb-12"
+          >
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold mb-2 sm:mb-3 text-white tracking-[-0.03em]">
               MED1 Features
             </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base font-medium tracking-[-0.03em]">
+            <p className="text-white/80 max-w-2xl mx-auto text-sm sm:text-base font-medium tracking-[-0.03em]">
               Everything you need to transform your practice into an appointment machine
             </p>
           </motion.div>
@@ -375,13 +400,13 @@ export default function HomePage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-                className="bg-gray-50 p-6 sm:p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow group border border-gray-100"
+                className="bg-white/5 p-4 sm:p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow group border border-white/10"
               >
-                <div className="mb-4 transition-transform group-hover:scale-110 duration-300">
+                <div className="mb-3 sm:mb-4 transition-transform group-hover:scale-110 duration-300">
                   {feature.icon}
                 </div>
-                <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3 text-gray-900 tracking-[-0.03em]">{feature.title}</h3>
-                <p className="text-gray-600 text-sm sm:text-base tracking-[-0.03em]">{feature.description}</p>
+                <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-2 text-white tracking-[-0.03em]">{feature.title}</h3>
+                <p className="text-white/80 text-sm sm:text-base tracking-[-0.03em]">{feature.description}</p>
               </motion.div>
             ))}
           </div>
@@ -389,7 +414,7 @@ export default function HomePage() {
       </section>
 
       {/* Flywheel Section */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 bg-white">
+      <section className="py-16 sm:py-20 px-4 sm:px-6 bg-[#2f3739]">
         <div className="container mx-auto max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -397,8 +422,8 @@ export default function HomePage() {
             transition={{ duration: 0.5 }}
             className="text-center mb-12 sm:mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 text-gray-900 tracking-[-0.03em]">How MED1's Flywheel Works</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base tracking-[-0.03em]">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 text-white tracking-[-0.03em]">How MED1's Flywheel Works</h2>
+            <p className="text-white/80 max-w-2xl mx-auto text-sm sm:text-base tracking-[-0.03em]">
               A continuous journey of organic growth, data-driven and powered by those who trust your service the most: your own patients.
             </p>
           </motion.div>
@@ -443,42 +468,35 @@ export default function HomePage() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: i * 0.1 }}
-                  className="relative bg-gray-50 p-6 rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
+                  className="relative bg-white/5 p-6 rounded-lg border border-white/10 shadow-sm hover:shadow-md transition-shadow"
                 >
-                  {/* Arrow connector */}
-                  {i < 5 && (
-                    <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2">
-                      <ChevronDownIcon className="w-6 h-6 text-[#eaf212]/30" />
-                    </div>
-                  )}
-                  
                   <div className="flex items-start space-x-4">
                     <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#eaf212]/10 flex items-center justify-center">
                       {item.icon}
                     </div>
                     <div>
                       <div className="flex items-center mb-2">
-                        <span className="text-[#eaf212] font-semibold mr-2 tracking-[-0.03em]">Passo {item.step}</span>
+                        <span className="text-[#eaf212] font-semibold mr-2 tracking-[-0.03em]">Step {item.step}</span>
                       </div>
-                      <p className="text-gray-900 text-sm sm:text-base tracking-[-0.03em]">{item.title}</p>
+                      <p className="text-white/90 text-sm sm:text-base tracking-[-0.03em]">{item.title}</p>
                     </div>
-              </div>
+                  </div>
                 </motion.div>
               ))}
             </div>
           </div>
-      </div>
+        </div>
       </section>
 
       {/* Testimonials Section */}
       <section className="py-16 sm:py-20 px-4 sm:px-6 bg-white">
         <div className="container mx-auto max-w-6xl text-center">
-    <motion.div 
-      initial={{ opacity: 0, y: 20 }} 
-      animate={{ opacity: 1, y: 0 }} 
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }} 
+            animate={{ opacity: 1, y: 0 }} 
             transition={{ duration: 0.5 }}
             className="mb-12 sm:mb-16"
-    >
+          >
             <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 text-gray-900 tracking-[-0.03em]">
               What Other Professionals Say
             </h2>
@@ -523,20 +541,20 @@ export default function HomePage() {
                     <p className="text-gray-900 font-semibold text-base sm:text-lg tracking-[-0.03em]">{testimonial.author}</p>
                     <p className="text-gray-600 text-sm tracking-[-0.03em]">{testimonial.specialty}</p>
                     <p className="text-gray-600 text-xs sm:text-sm tracking-[-0.03em]">{testimonial.location}</p>
-              </div>
-            </div>
+                  </div>
+                </div>
               </motion.div>
-        ))}
-      </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Benefits Section */}
       <section className="py-16 sm:py-20 px-4 sm:px-6 bg-white">
         <div className="container mx-auto max-w-6xl">
-    <motion.div 
-      initial={{ opacity: 0, y: 20 }} 
-      animate={{ opacity: 1, y: 0 }} 
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }} 
+            animate={{ opacity: 1, y: 0 }} 
             transition={{ duration: 0.5 }}
             className="text-center mb-12 sm:mb-16"
           >
@@ -643,27 +661,27 @@ export default function HomePage() {
                     <div>
                       <h4 className="text-gray-900 font-medium text-sm sm:text-base tracking-[-0.03em]">{item.title}</h4>
                       <p className="text-gray-600 text-sm tracking-[-0.03em]">{item.description}</p>
-            </div>
+                    </div>
                   </li>
-        ))}
+                ))}
               </ul>
             </motion.div>
           </div>
-      </div>
+        </div>
       </section>
 
       {/* Key Benefits Section */}
       <section className="py-20 px-6 bg-white">
         <div className="container mx-auto max-w-6xl">
-    <motion.div 
-      initial={{ opacity: 0, y: 20 }} 
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }} 
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             className="text-center mb-16"
           >
             <h2 className="text-3xl font-bold mb-4 text-gray-900 tracking-[-0.03em]">
               Benefits of Transforming Your Practice with MED1
-        </h2>
+            </h2>
             <p className="text-gray-600 max-w-2xl mx-auto tracking-[-0.03em]">
               Discover how MED1 can revolutionize your practice management
             </p>
@@ -711,25 +729,25 @@ export default function HomePage() {
                     <h3 className="text-lg font-semibold text-gray-900 mb-2 tracking-[-0.03em]">{benefit.title}</h3>
                     <p className="text-gray-600 tracking-[-0.03em]">{benefit.description}</p>
                   </div>
-      </div>
-    </motion.div>
+                </div>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 bg-white">
+      <section className="py-16 sm:py-20 px-4 sm:px-6 bg-[#2f3739]">
         <div className="container mx-auto max-4xl text-center">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-gray-900 tracking-[-0.03em]">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-white tracking-[-0.03em]">
               Ready to Transform Your Practice?
             </h2>
-            <p className="text-gray-600 mb-6 sm:mb-8 text-sm sm:text-base tracking-[-0.03em]">
+            <p className="text-white/80 mb-6 sm:mb-8 text-sm sm:text-base tracking-[-0.03em]">
               Schedule a free demo and discover how we can help your business grow
             </p>
             <Button 

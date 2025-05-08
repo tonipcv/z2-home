@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
-import { ChatManager } from "@/components/ChatManager";
 import { Analytics } from '@/components/Analytics'
 
 const inter = Inter({
@@ -180,7 +179,6 @@ export default function RootLayout({
         </noscript>
         {/* End Google Tag Manager (noscript) */}
         {children}
-        <ChatManager />
         <Analytics />
       </body>
     </html>
