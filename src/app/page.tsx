@@ -30,7 +30,7 @@ export default function HomePage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleDemoClick = () => {
-    router.push('/inside-sales');
+    router.push('/demo');
   };
 
   return (
@@ -50,7 +50,7 @@ export default function HomePage() {
                 Pricing
               </a>
               <Button 
-                onClick={handleDemoClick}
+                onClick={() => window.location.href = 'https://www.med1.app/auth/signin'}
                 className="bg-[#eaf212] text-black hover:bg-[#eaf212]/90 transition-colors px-6 py-2 text-sm font-medium tracking-[-0.03em] rounded-full"
               >
                 Sign In

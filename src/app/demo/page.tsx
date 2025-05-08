@@ -5,10 +5,11 @@ import { Button } from '../../components/ui/button';
 import { Input } from '../../components/ui/input';
 import { Logo } from '../../components/ui/logo';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronRightIcon, CheckIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import { ChevronRightIcon, CheckIcon, XMarkIcon, Bars3Icon } from '@heroicons/react/24/outline';
 import { useRouter } from 'next/navigation';
+import { CalendarIcon, ClockIcon, UserIcon, BuildingOfficeIcon } from '@heroicons/react/24/outline';
 
-export default function DemonstracaoGratisPage() {
+export default function DemoPage() {
   const [step, setStep] = useState(0);
   const [formData, setFormData] = useState({
     name: '',
@@ -19,7 +20,9 @@ export default function DemonstracaoGratisPage() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState('');
+  const [showConfirmation, setShowConfirmation] = useState(false);
   const router = useRouter();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -36,12 +39,11 @@ export default function DemonstracaoGratisPage() {
         [field]: value
       };
       
-      // Avançar para o próximo passo após selecionar
       setTimeout(() => {
         if (field === 'speciality') {
-          setStep(5); // Avançar para o próximo passo (horário)
+          setStep(5);
         } else if (field === 'bestTime') {
-          submitFormData(); // Enviar o formulário após selecionar o horário
+          submitFormData();
         }
       }, 500);
       
@@ -70,31 +72,34 @@ export default function DemonstracaoGratisPage() {
       setIsSubmitting(true);
       setSubmitError('');
       
-      console.log('Enviando dados do formulário:', formData);
-      
-      // Enviar dados para a API
       const response = await fetch('/api/demo-requests', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.whatsapp,
+          specialty: formData.speciality
+        }),
       });
-      
+
       const result = await response.json();
       
       if (!response.ok) {
-        throw new Error(result.error || 'Erro ao enviar dados');
+        throw new Error(result.error || 'Failed to submit demo request');
       }
       
-      console.log('Dados enviados com sucesso:', result);
-      
-      // Avançar para a página de confirmação
-      setStep(6);
+      if (!result.success) {
+        throw new Error(result.error || 'Failed to submit demo request');
+      }
+
+      setShowConfirmation(true);
       
     } catch (error) {
-      console.error('Erro ao enviar formulário:', error);
-      setSubmitError(error instanceof Error ? error.message : 'Erro ao enviar dados');
+      console.error('Error submitting form:', error);
+      setSubmitError(error instanceof Error ? error.message : 'Failed to submit demo request');
     } finally {
       setIsSubmitting(false);
     }
@@ -154,7 +159,7 @@ export default function DemonstracaoGratisPage() {
           className="bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white text-3xl py-8 px-6 placeholder:text-white/60 placeholder:text-3xl w-full focus:ring-2 focus:ring-white/50 focus:border-transparent"
           placeholder="Digite seu nome"
           autoFocus
-          style={{ fontSize: '1.875rem' }}
+          style={{ fontSize: '1.875rem', color: 'white' }}
         />
       </div>
       <Button 
@@ -191,7 +196,7 @@ export default function DemonstracaoGratisPage() {
           className="bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white text-3xl py-8 px-6 placeholder:text-white/60 placeholder:text-3xl w-full focus:ring-2 focus:ring-white/50 focus:border-transparent"
           placeholder="Digite seu e-mail"
           autoFocus
-          style={{ fontSize: '1.875rem' }}
+          style={{ fontSize: '1.875rem', color: 'white' }}
         />
       </div>
       <Button 
@@ -228,7 +233,7 @@ export default function DemonstracaoGratisPage() {
           className="bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white text-3xl py-8 px-6 placeholder:text-white/60 placeholder:text-3xl w-full focus:ring-2 focus:ring-white/50 focus:border-transparent"
           placeholder="(00) 00000-0000"
           autoFocus
-          style={{ fontSize: '1.875rem' }}
+          style={{ fontSize: '1.875rem', color: 'white' }}
         />
       </div>
       <Button 
@@ -382,40 +387,410 @@ export default function DemonstracaoGratisPage() {
   ];
 
   return (
-    <div className="min-h-[100dvh] bg-gradient-to-br from-blue-800 via-blue-700 to-blue-900 flex flex-col relative">
-      {/* Botão de sair */}
-      <button 
-        onClick={() => router.push('/')}
-        className="absolute top-4 right-4 text-white/60 hover:text-white transition-colors flex items-center text-xs"
-      >
-        <span className="mr-1">Sair</span>
-        <XMarkIcon className="h-4 w-4" />
-      </button>
+    <div className="min-h-screen bg-white">
+      {/* Header */}
+      <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm border-b border-gray-100">
+        <div className="container mx-auto px-6 py-4">
+          <div className="flex items-center justify-between">
+            <Logo className="h-8" variant="dark" />
+            
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center space-x-10">
+              <a href="/partners" className="text-gray-600 hover:text-gray-900 transition-colors text-sm tracking-[-0.03em]">
+                Partners
+              </a>
+              <a href="/pricing" className="text-gray-600 hover:text-gray-900 transition-colors text-sm tracking-[-0.03em]">
+                Pricing
+              </a>
+              <Button 
+                onClick={() => window.location.href = 'https://www.med1.app/auth/signin'}
+                className="bg-[#eaf212] text-black hover:bg-[#eaf212]/90 transition-colors px-6 py-2 text-sm font-medium tracking-[-0.03em] rounded-full"
+              >
+                Sign In
+              </Button>
+            </div>
 
-      <div className="container mx-auto px-4 py-8 flex-1 flex flex-col">
-        <div className="flex justify-center mb-16 pt-8">
-          <Logo className="scale-150" variant="light" />
+            {/* Mobile Menu Button */}
+            <button
+              className="md:hidden p-2.5 text-gray-900 hover:text-gray-600 transition-colors bg-white rounded-full shadow-sm"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? (
+                <XMarkIcon className="h-5 w-5" />
+              ) : (
+                <Bars3Icon className="h-5 w-5" />
+              )}
+            </button>
+          </div>
         </div>
+      </header>
 
-        <div className="flex-1 flex items-center justify-center px-4 py-12">
-          <AnimatePresence mode="wait">
-            {steps[step]}
-          </AnimatePresence>
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40"
+              onClick={() => setIsMenuOpen(false)}
+            />
+            
+            {/* Menu Panel */}
+            <motion.div
+              initial={{ opacity: 0, x: 100 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 100 }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              className="fixed top-0 right-0 bottom-0 w-full max-w-sm bg-white z-50 shadow-xl overflow-y-auto"
+            >
+              <div className="p-6">
+                <div className="flex justify-between items-center mb-8">
+                  <Logo className="h-8" variant="dark" />
+                  <button
+                    onClick={() => setIsMenuOpen(false)}
+                    className="p-2 text-gray-900 hover:text-gray-600 transition-colors"
+                  >
+                    <XMarkIcon className="h-6 w-6" />
+                  </button>
+                </div>
+                
+                <div className="flex flex-col space-y-4">
+                  <a
+                    href="/partners"
+                    className="text-base text-gray-900 hover:text-gray-600 transition-colors tracking-[-0.03em] py-2"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Partners
+                  </a>
+                  <a
+                    href="/pricing"
+                    className="text-base text-gray-900 hover:text-gray-600 transition-colors tracking-[-0.03em] py-2"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Pricing
+                  </a>
+                  <Button
+                    onClick={() => {
+                      window.location.href = 'https://www.med1.app/auth/signin';
+                      setIsMenuOpen(false);
+                    }}
+                    className="w-full bg-[#eaf212] text-gray-800 hover:bg-[#eaf212]/90 transition-colors py-3 text-base font-medium tracking-[-0.03em] rounded-full mt-4"
+                  >
+                    Sign In
+                  </Button>
+                </div>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+
+      {/* Main Content */}
+      <section className="pt-32 pb-16 px-4 sm:px-6 relative overflow-hidden">
+        <div className="container mx-auto max-w-7xl">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Column - Text Content */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="space-y-6"
+            >
+              <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 tracking-[-0.03em] leading-tight">
+                Schedule Your Free Demo
+              </h1>
+              <p className="text-xl text-gray-600 tracking-[-0.03em]">
+                Discover how MED1 can transform your practice with our personalized demo session.
+              </p>
+              <div className="space-y-4">
+                <div className="flex items-center space-x-3">
+                  <div className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center">
+                    <ClockIcon className="w-5 h-5 text-gray-900" />
+                  </div>
+                  <p className="text-gray-700">30-minute personalized session</p>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center">
+                    <UserIcon className="w-5 h-5 text-gray-900" />
+                  </div>
+                  <p className="text-gray-700">One-on-one with our specialists</p>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center">
+                    <BuildingOfficeIcon className="w-5 h-5 text-gray-900" />
+                  </div>
+                  <p className="text-gray-700">Tailored to your practice needs</p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Right Column - Form */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="bg-gray-50 p-8 rounded-2xl border border-gray-100 shadow-sm"
+            >
+              <form className="space-y-6" onSubmit={async (e) => {
+                e.preventDefault();
+                const formData = new FormData(e.currentTarget);
+                
+                try {
+                  const response = await fetch('/api/demo-requests', {
+                    method: 'POST',
+                    headers: {
+                      'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                      name: formData.get('name'),
+                      email: formData.get('email'),
+                      phone: formData.get('phone'),
+                      specialty: formData.get('specialty')
+                    }),
+                  });
+
+                  const result = await response.json();
+
+                  if (!response.ok) {
+                    throw new Error(result.error || 'Failed to submit demo request');
+                  }
+
+                  if (!result.success) {
+                    throw new Error(result.error || 'Failed to submit demo request');
+                  }
+
+                  // Show modal instead of redirecting
+                  setShowConfirmation(true);
+                } catch (error) {
+                  console.error('Error submitting form:', error);
+                  alert(error instanceof Error ? error.message : 'Failed to submit demo request. Please try again.');
+                }
+              }}>
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                    Full Name
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    id="name"
+                    required
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#eaf212] focus:border-transparent bg-white text-gray-900"
+                    placeholder="Dr. John Smith"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    required
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#eaf212] focus:border-transparent bg-white text-gray-900"
+                    placeholder="john@example.com"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+                    Phone
+                  </label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    id="phone"
+                    required
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#eaf212] focus:border-transparent bg-white text-gray-900"
+                    placeholder="+1 (555) 000-0000"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="specialty" className="block text-sm font-medium text-gray-700 mb-1">
+                    Specialty
+                  </label>
+                  <input
+                    type="text"
+                    name="specialty"
+                    id="specialty"
+                    required
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#eaf212] focus:border-transparent bg-white text-gray-900"
+                    placeholder="e.g., Cardiology"
+                  />
+                </div>
+                <Button
+                  type="submit"
+                  className="w-full bg-[#eaf212] text-gray-900 hover:bg-[#eaf212]/90 transition-colors py-3 rounded-full font-medium tracking-[-0.03em]"
+                >
+                  Schedule Demo
+                </Button>
+              </form>
+            </motion.div>
+          </div>
         </div>
+      </section>
 
-        <div className="mt-auto pb-12 flex justify-center">
-          <div className="flex space-x-3">
-            {[0, 1, 2, 3, 4, 5, 6].map((i) => (
-              <div 
-                key={i} 
-                className={`h-3 w-3 rounded-full transition-all duration-300 ${
-                  i === step ? 'bg-white w-8' : 'bg-white/30'
-                }`}
-              />
+      {/* What to Expect Section */}
+      <section className="py-16 px-4 sm:px-6 bg-gray-50">
+        <div className="container mx-auto max-w-7xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl font-bold mb-4 text-gray-900 tracking-[-0.03em]">
+              What to Expect in Your Demo
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Get a comprehensive overview of how MED1 can help your practice grow
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                title: 'Platform Overview',
+                description: 'See how our intuitive interface makes practice management effortless'
+              },
+              {
+                title: 'Custom Solutions',
+                description: 'Learn how we can adapt to your specific practice needs'
+              },
+              {
+                title: 'ROI Analysis',
+                description: 'Understand the potential return on investment for your practice'
+              },
+              {
+                title: 'Feature Deep-Dive',
+                description: 'Explore the key features that will transform your practice'
+              },
+              {
+                title: 'Implementation Plan',
+                description: 'Get a clear roadmap for getting started with MED1'
+              },
+              {
+                title: 'Q&A Session',
+                description: 'Get all your questions answered by our experts'
+              }
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-100"
+              >
+                <h3 className="text-lg font-semibold text-gray-900 mb-2 tracking-[-0.03em]">
+                  {item.title}
+                </h3>
+                <p className="text-gray-600 tracking-[-0.03em]">{item.description}</p>
+              </motion.div>
             ))}
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16 px-4 sm:px-6 bg-white">
+        <div className="container mx-auto max-w-4xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl font-bold mb-4 text-gray-900 tracking-[-0.03em]">
+              Frequently Asked Questions
+            </h2>
+          </motion.div>
+
+          <div className="space-y-6">
+            {[
+              {
+                question: 'How long is the demo?',
+                answer: 'Our demos typically last 30 minutes, with additional time for questions if needed.'
+              },
+              {
+                question: 'Is the demo personalized to my practice?',
+                answer: 'Yes, we tailor each demo to your specific practice needs and specialty.'
+              },
+              {
+                question: 'What should I prepare for the demo?',
+                answer: 'Just come with your questions! Our team will guide you through everything else.'
+              },
+              {
+                question: 'Can I invite my team members?',
+                answer: 'Absolutely! We encourage including key team members in the demo.'
+              }
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="bg-gray-50 p-6 rounded-lg"
+              >
+                <h3 className="text-lg font-semibold text-gray-900 mb-2 tracking-[-0.03em]">
+                  {item.question}
+                </h3>
+                <p className="text-gray-600 tracking-[-0.03em]">{item.answer}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-6 sm:py-8 px-4 sm:px-6 border-t border-gray-100 bg-white">
+        <div className="container mx-auto max-w-6xl">
+          <div className="flex flex-col sm:flex-row justify-between items-center">
+            <Logo className="h-6 mb-4 sm:mb-0" variant="light" />
+            <p className="text-gray-600 text-xs sm:text-sm tracking-[-0.03em]">
+              © 2024 MED1. All rights reserved.
+            </p>
+          </div>
+        </div>
+      </footer>
+
+      {/* Confirmation Modal */}
+      <AnimatePresence>
+        {showConfirmation && (
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] flex items-center justify-center"
+              onClick={() => setShowConfirmation(false)}
+            >
+              {/* Modal */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                className="w-full max-w-sm bg-white rounded-xl shadow-2xl z-[101] p-8 mx-4"
+              >
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-black rounded-full flex items-center justify-center mx-auto mb-6">
+                    <CheckIcon className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-black mb-4">
+                    Request Received!
+                  </h3>
+                  <p className="text-gray-600">
+                    We'll contact you soon to schedule your demo.
+                  </p>
+                </div>
+              </motion.div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </div>
   );
 } 
