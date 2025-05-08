@@ -23,6 +23,7 @@ import {
 } from '@heroicons/react/24/outline';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import Link from 'next/link';
 
 export default function HomePage() {
   const router = useRouter();
@@ -35,24 +36,24 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-white text-gray-900 font-satoshi tracking-[-0.03em]">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-transparent">
-        <div className="container mx-auto px-6 py-6">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm border-b border-gray-100">
+        <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <Logo className="h-8" variant="light" />
+            <Logo className="h-8" variant="dark" />
             
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-10">
-              <a href="#features" className="text-white/70 hover:text-white transition-colors text-sm tracking-[-0.03em]">
-                Funcionalidades
+              <a href="#features" className="text-gray-600 hover:text-gray-900 transition-colors text-sm tracking-[-0.03em]">
+                Features
               </a>
-              <a href="#benefits" className="text-white/70 hover:text-white transition-colors text-sm tracking-[-0.03em]">
-                Benefícios
+              <a href="#benefits" className="text-gray-600 hover:text-gray-900 transition-colors text-sm tracking-[-0.03em]">
+                Benefits
               </a>
               <Button 
                 onClick={handleDemoClick}
-                className="bg-white/10 text-white hover:bg-white/20 transition-colors border border-white/20 px-6 py-2 text-sm font-black tracking-[-0.03em]"
+                className="bg-[#eaf212] text-black hover:bg-[#eaf212]/90 transition-colors px-6 py-2 text-sm font-medium tracking-[-0.03em] rounded-full"
               >
-                Entrar
+                Sign In
               </Button>
             </div>
 
@@ -109,14 +110,14 @@ export default function HomePage() {
                     className="text-lg text-gray-900 hover:text-gray-600 transition-colors tracking-[-0.03em] py-3"
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    Funcionalidades
+                    Features
                   </a>
                   <a
                     href="#benefits"
                     className="text-lg text-gray-900 hover:text-gray-600 transition-colors tracking-[-0.03em] py-3"
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    Benefícios
+                    Benefits
                   </a>
                   <Button
                     onClick={() => {
@@ -125,7 +126,7 @@ export default function HomePage() {
                     }}
                     className="w-full bg-gray-900 text-white hover:bg-gray-800 transition-colors py-6 text-lg tracking-[-0.03em] rounded-2xl mt-4"
                   >
-                    Agendar demonstração
+                    Sign In
                   </Button>
                 </div>
               </div>
@@ -135,9 +136,9 @@ export default function HomePage() {
       </AnimatePresence>
 
       {/* Hero Section */}
-      <section id="hero" className="min-h-screen flex items-center pt-20 pb-32 px-4 sm:px-6 bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800 relative">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-400/10 via-transparent to-transparent" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,_var(--tw-gradient-stops))] from-blue-300/10 via-transparent to-transparent" />
+      <section id="hero" className="min-h-screen flex items-center pt-20 pb-32 px-4 sm:px-6 bg-white relative">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#eaf212]/5 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,_var(--tw-gradient-stops))] from-[#eaf212]/5 via-transparent to-transparent" />
 
         <div className="container mx-auto max-w-7xl relative z-10">
           <motion.div 
@@ -152,19 +153,20 @@ export default function HomePage() {
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
               className="space-y-4"
             >
-              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white tracking-[-0.04em] leading-[0.95]">
-                CRESÇA SEU 
-                <span className="bg-gradient-to-r from-blue-200 via-white to-blue-200 bg-clip-text text-transparent"> CONSULTÓRIO </span>
-                EM ATÉ 10X
+              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-gray-900 tracking-[-0.04em] leading-[0.95]">
+                BE THE 
+                <span className="bg-gradient-to-r from-[#eaf212] via-gray-900 to-[#eaf212] bg-clip-text text-transparent"> TOP1 </span>
+                <br />
+                BE MED1
       </h1>
             </motion.div>
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-              className="text-xl sm:text-2xl md:text-3xl text-blue-100/90 mt-6 mb-10 max-w-4xl leading-tight tracking-[-0.03em] font-medium"
+              className="text-xl sm:text-2xl md:text-3xl text-gray-600 mt-6 mb-10 max-w-4xl leading-tight tracking-[-0.03em] font-medium"
             >
-              O primeiro CRM focado em aquisição e fidelização de pacientes por indicação
+              The first CRM focused on patient acquisition and retention through referrals
             </motion.p>
     <motion.div 
       initial={{ opacity: 0, y: 20 }} 
@@ -174,15 +176,15 @@ export default function HomePage() {
             >
               <Button 
                 onClick={handleDemoClick}
-                className="bg-white/10 text-white hover:bg-white/20 transition-colors border border-white/20 px-6 sm:px-8 py-4 text-sm font-black tracking-[-0.03em] rounded-full backdrop-blur-sm"
+                className="bg-[#eaf212] text-black hover:bg-[#eaf212]/90 transition-colors px-6 sm:px-8 py-4 text-sm font-medium tracking-[-0.03em] rounded-full"
               >
-                Começar agora
+                Get Started
               </Button>
       <Button 
                 variant="outline"
-                className="border border-white/20 text-white hover:bg-white/10 transition-colors px-6 sm:px-8 py-4 text-sm font-black tracking-[-0.03em] rounded-full backdrop-blur-sm"
+                className="border border-gray-200 text-gray-900 hover:bg-gray-50 transition-colors px-6 sm:px-8 py-4 text-sm font-medium tracking-[-0.03em] rounded-full"
               >
-                Saiba mais
+                Learn More
       </Button>
             </motion.div>
           </motion.div>
@@ -190,11 +192,11 @@ export default function HomePage() {
       </section>
 
       {/* About Section */}
-      <section className="py-32 px-6 bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800 relative overflow-hidden">
+      <section className="py-32 px-6 bg-white relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-20 left-10 text-9xl font-bold text-blue-900/20 tracking-[-0.03em]">4x</div>
-          <div className="absolute bottom-20 right-10 text-8xl font-bold bg-gradient-to-r from-blue-400/10 to-blue-500/10 bg-clip-text text-transparent tracking-[-0.03em]">
+          <div className="absolute top-20 left-10 text-9xl font-bold text-[#eaf212]/5 tracking-[-0.03em]">4x</div>
+          <div className="absolute bottom-20 right-10 text-8xl font-bold bg-gradient-to-r from-[#eaf212]/5 to-[#eaf212]/5 bg-clip-text text-transparent tracking-[-0.03em]">
             +300%
           </div>
         </div>
@@ -209,11 +211,11 @@ export default function HomePage() {
               className="space-y-8"
     >
               <div className="space-y-4">
-                <h2 className="text-4xl font-extrabold text-white tracking-[-0.03em]">
-                  MED1 — o futuro chegou para clínicas e consultórios
-      </h2>
-                <p className="text-xl font-semibold text-blue-100/80 tracking-[-0.03em] leading-relaxed">
-                  O primeiro CRM focado em aquisição e fidelização de pacientes por indicação.
+                <h2 className="text-4xl font-extrabold text-gray-900 tracking-[-0.03em]">
+                  MED1 — The Future of Clinics and Medical Practices
+                </h2>
+                <p className="text-xl font-semibold text-gray-600 tracking-[-0.03em] leading-relaxed">
+                  The first CRM focused on patient acquisition and retention through referrals.
                 </p>
       </div>
 
@@ -221,12 +223,12 @@ export default function HomePage() {
       initial={{ opacity: 0, y: 20 }} 
       animate={{ opacity: 1, y: 0 }} 
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="bg-blue-900/30 p-8 rounded-2xl border border-blue-800/30"
+                className="bg-gray-50 p-8 rounded-2xl border border-gray-100"
               >
-                <p className="text-lg text-blue-100/90 leading-relaxed tracking-[-0.03em]">
-                  Criado para transformar seu consultório em uma máquina previsível de agendamentos, 
-                  ele te ajuda a se tornar referência no seu nicho, aumentar em até 4x o faturamento, 
-                  e escalar sem depender de tráfego pago.
+                <p className="text-lg text-gray-600 leading-relaxed tracking-[-0.03em]">
+                  Created to transform your practice into a predictable appointment machine, 
+                  it helps you become a reference in your niche, increase revenue by up to 4x, 
+                  and scale without depending on paid traffic.
                 </p>
               </motion.div>
             </motion.div>
@@ -237,7 +239,7 @@ export default function HomePage() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5 }}
-                className="absolute -left-8 top-12 bottom-12 w-px bg-gradient-to-b from-transparent via-blue-400/20 to-transparent"
+                className="absolute -left-8 top-12 bottom-12 w-px bg-gradient-to-b from-transparent via-[#eaf212]/10 to-transparent"
               />
               
               <div className="space-y-6">
@@ -245,31 +247,31 @@ export default function HomePage() {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: 0.3 }}
-                  className="text-xl font-semibold text-white mb-8 tracking-[-0.03em]"
+                  className="text-xl font-semibold text-gray-900 mb-8 tracking-[-0.03em]"
                 >
-                  Com a MED1, você:
+                  With MED1, you:
                 </motion.h3>
 
                 <div className="space-y-4">
                   {[
                     {
-                      icon: <ChartBarIcon className="w-6 h-6 text-white" />,
-                      title: 'Aumenta a geração de leads',
+                      icon: <ChartBarIcon className="w-6 h-6 text-gray-900" />,
+                      title: 'Increase lead generation',
                       color: 'from-blue-400/10 to-blue-500/10'
                     },
                     {
-                      icon: <ArrowTrendingUpIcon className="w-6 h-6 text-white" />,
-                      title: 'Melhora a conversão de agendamentos',
+                      icon: <ArrowTrendingUpIcon className="w-6 h-6 text-gray-900" />,
+                      title: 'Improve appointment conversion',
                       color: 'from-green-400/10 to-green-500/10'
                     },
                     {
-                      icon: <MagnifyingGlassIcon className="w-6 h-6 text-white" />,
-                      title: 'Descobre exatamente de onde vem seus pacientes',
+                      icon: <MagnifyingGlassIcon className="w-6 h-6 text-gray-900" />,
+                      title: 'Discover exactly where your patients come from',
                       color: 'from-purple-400/10 to-purple-500/10'
                     },
                     {
-                      icon: <UserGroupIcon className="w-6 h-6 text-white" />,
-                      title: 'Transforma cada paciente em um promotor do seu serviço',
+                      icon: <UserGroupIcon className="w-6 h-6 text-gray-900" />,
+                      title: 'Transform each patient into a service promoter',
                       color: 'from-yellow-400/10 to-yellow-500/10'
                     }
                   ].map((benefit, index) => (
@@ -283,13 +285,13 @@ export default function HomePage() {
                       <div className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"
                            style={{ background: `linear-gradient(to right, ${benefit.color})` }}
                       />
-                      <div className="relative bg-blue-900/30 hover:shadow-lg transition-shadow duration-300 p-6 rounded-xl border border-blue-800/30">
+                      <div className="relative bg-gray-50 hover:shadow-lg transition-shadow duration-300 p-6 rounded-xl border border-gray-100">
                         <div className="flex items-start space-x-4">
-                          <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-blue-400 to-blue-500 flex items-center justify-center">
+                          <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#eaf212]/10 flex items-center justify-center">
                             {benefit.icon}
                           </div>
                           <div className="flex-grow">
-                            <p className="text-white font-medium leading-relaxed tracking-[-0.03em]">
+                            <p className="text-gray-900 font-medium leading-relaxed tracking-[-0.03em]">
                               {benefit.title}
                             </p>
                           </div>
@@ -307,7 +309,7 @@ export default function HomePage() {
                 >
                   <Button 
                     onClick={handleDemoClick}
-                    className="bg-white/10 text-white hover:bg-white/20 transition-colors border border-white/20 px-8 py-4 text-sm font-medium tracking-[-0.03em] rounded-xl w-full"
+                    className="bg-[#eaf212] text-black hover:bg-[#eaf212]/90 transition-colors px-8 py-4 text-sm font-medium tracking-[-0.03em] rounded-xl w-full"
                   >
                     Quero saber mais
                   </Button>
@@ -319,7 +321,7 @@ export default function HomePage() {
       </section>
 
       {/* Features Section */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800">
+      <section className="py-16 sm:py-20 px-4 sm:px-6 bg-white">
         <div className="container mx-auto max-w-6xl">
     <motion.div 
       initial={{ opacity: 0, y: 20 }} 
@@ -327,45 +329,45 @@ export default function HomePage() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-center mb-12 sm:mb-16"
     >
-            <h2 className="text-2xl sm:text-3xl font-extrabold mb-3 sm:mb-4 text-white tracking-[-0.03em]">
-              Funcionalidades do MED1
-      </h2>
-            <p className="text-blue-100/80 max-w-2xl mx-auto text-sm sm:text-base font-medium tracking-[-0.03em]">
-              Tudo que você precisa para transformar seu consultório em uma máquina de agendamentos
+            <h2 className="text-2xl sm:text-3xl font-extrabold mb-3 sm:mb-4 text-gray-900 tracking-[-0.03em]">
+              MED1 Features
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base font-medium tracking-[-0.03em]">
+              Everything you need to transform your practice into an appointment machine
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {[
               {
-                icon: <LinkIcon className="w-6 h-6 sm:w-8 sm:h-8 text-blue-400" />,
-                title: 'Link de agendamento inteligente',
-                description: 'Com múltiplas origens e redirecionamentos'
+                icon: <LinkIcon className="w-6 h-6 sm:w-8 sm:h-8 text-[#eaf212]" />,
+                title: 'Smart Scheduling Link',
+                description: 'With multiple origins and redirects'
               },
               {
-                icon: <ChartPieIcon className="w-6 h-6 sm:w-8 sm:h-8 text-blue-400" />,
-                title: 'Tecnologia de rastreamento',
-                description: 'De origem dos leads (Instagram, Google, Indicação, etc.)'
+                icon: <ChartPieIcon className="w-6 h-6 sm:w-8 sm:h-8 text-[#eaf212]" />,
+                title: 'Tracking Technology',
+                description: 'For lead origins (Instagram, Google, Referrals, etc.)'
               },
               {
-                icon: <ShareIcon className="w-6 h-6 sm:w-8 sm:h-8 text-blue-400" />,
-                title: 'Geração de links personalizados',
-                description: 'Para pacientes, com metrificação de indicações e premiação dos mais engajados'
+                icon: <ShareIcon className="w-6 h-6 sm:w-8 sm:h-8 text-[#eaf212]" />,
+                title: 'Personalized Link Generation',
+                description: 'For patients, with referral metrics and rewards for the most engaged'
               },
               {
-                icon: <QrCodeIcon className="w-6 h-6 sm:w-8 sm:h-8 text-blue-400" />,
-                title: 'Gerador de QR Code rastreável',
-                description: 'Ideal para cartões, recepção ou redes sociais'
+                icon: <QrCodeIcon className="w-6 h-6 sm:w-8 sm:h-8 text-[#eaf212]" />,
+                title: 'Trackable QR Code Generator',
+                description: 'Perfect for cards, reception, or social media'
               },
               {
-                icon: <PresentationChartLineIcon className="w-6 h-6 sm:w-8 sm:h-8 text-blue-400" />,
-                title: 'Dashboard Profissional',
-                description: 'Com todos os dados em tempo real'
+                icon: <PresentationChartLineIcon className="w-6 h-6 sm:w-8 sm:h-8 text-[#eaf212]" />,
+                title: 'Professional Dashboard',
+                description: 'With all data in real-time'
               },
               {
-                icon: <FunnelIcon className="w-6 h-6 sm:w-8 sm:h-8 text-blue-400" />,
-                title: 'Pipeline visual completo',
-                description: 'Mostrando em que etapa cada lead está na jornada de compra'
+                icon: <FunnelIcon className="w-6 h-6 sm:w-8 sm:h-8 text-[#eaf212]" />,
+                title: 'Complete Visual Pipeline',
+                description: 'Showing where each lead is in the buying journey'
               }
             ].map((feature, index) => (
               <motion.div
@@ -373,13 +375,13 @@ export default function HomePage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-                className="bg-blue-900/30 p-6 sm:p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow group border border-blue-800/30"
+                className="bg-gray-50 p-6 sm:p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow group border border-gray-100"
               >
                 <div className="mb-4 transition-transform group-hover:scale-110 duration-300">
                   {feature.icon}
                 </div>
-                <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3 text-white tracking-[-0.03em]">{feature.title}</h3>
-                <p className="text-blue-100/80 text-sm sm:text-base tracking-[-0.03em]">{feature.description}</p>
+                <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3 text-gray-900 tracking-[-0.03em]">{feature.title}</h3>
+                <p className="text-gray-600 text-sm sm:text-base tracking-[-0.03em]">{feature.description}</p>
               </motion.div>
             ))}
           </div>
@@ -387,7 +389,7 @@ export default function HomePage() {
       </section>
 
       {/* Flywheel Section */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800">
+      <section className="py-16 sm:py-20 px-4 sm:px-6 bg-white">
         <div className="container mx-auto max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -395,9 +397,9 @@ export default function HomePage() {
             transition={{ duration: 0.5 }}
             className="text-center mb-12 sm:mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 text-white tracking-[-0.03em]">Como funciona o Flywheel da MED1</h2>
-            <p className="text-blue-100/80 max-w-2xl mx-auto text-sm sm:text-base tracking-[-0.03em]">
-              Uma jornada contínua de crescimento orgânico, baseada em dados e impulsionada por quem mais confia no seu serviço: seus próprios pacientes.
+            <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 text-gray-900 tracking-[-0.03em]">How MED1's Flywheel Works</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base tracking-[-0.03em]">
+              A continuous journey of organic growth, data-driven and powered by those who trust your service the most: your own patients.
             </p>
           </motion.div>
 
@@ -407,33 +409,33 @@ export default function HomePage() {
               {[
                 {
                   step: 1,
-                  title: 'Paciente agenda e origem é registrada automaticamente',
-                  icon: <UserGroupIcon className="w-6 h-6 text-blue-400" />
+                  title: 'Patient schedules and origin is automatically recorded',
+                  icon: <UserGroupIcon className="w-6 h-6 text-[#eaf212]" />
                 },
                 {
                   step: 2,
-                  title: 'Você acompanha a jornada até o agendamento',
-                  icon: <ChartBarIcon className="w-6 h-6 text-blue-400" />
+                  title: 'You track the journey until the appointment',
+                  icon: <ChartBarIcon className="w-6 h-6 text-[#eaf212]" />
                 },
                 {
                   step: 3,
-                  title: 'Após atendimento, ele recebe link rastreável para indicar amigos',
-                  icon: <ShareIcon className="w-6 h-6 text-blue-400" />
+                  title: 'After service, they receive a trackable link to refer friends',
+                  icon: <ShareIcon className="w-6 h-6 text-[#eaf212]" />
                 },
                 {
                   step: 4,
-                  title: 'Você cria campanhas de incentivo para quem mais indicar',
-                  icon: <GiftIcon className="w-6 h-6 text-blue-400" />
+                  title: 'You create incentive campaigns for top referrers',
+                  icon: <GiftIcon className="w-6 h-6 text-[#eaf212]" />
                 },
                 {
                   step: 5,
-                  title: 'Você vê quais canais geram mais pacientes',
-                  icon: <ChartPieIcon className="w-6 h-6 text-blue-400" />
+                  title: 'You see which channels generate more patients',
+                  icon: <ChartPieIcon className="w-6 h-6 text-[#eaf212]" />
                 },
                 {
                   step: 6,
-                  title: 'Reinveste nos canais com melhor ROI',
-                  icon: <ArrowTrendingUpIcon className="w-6 h-6 text-blue-400" />
+                  title: 'Reinvest in channels with better ROI',
+                  icon: <ArrowTrendingUpIcon className="w-6 h-6 text-[#eaf212]" />
                 }
               ].map((item, i) => (
                 <motion.div
@@ -441,24 +443,24 @@ export default function HomePage() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: i * 0.1 }}
-                  className="relative bg-blue-900/30 p-6 rounded-lg border border-blue-800/30 shadow-sm hover:shadow-md transition-shadow"
+                  className="relative bg-gray-50 p-6 rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
                 >
                   {/* Arrow connector */}
                   {i < 5 && (
                     <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2">
-                      <ChevronDownIcon className="w-6 h-6 text-blue-400/30" />
+                      <ChevronDownIcon className="w-6 h-6 text-[#eaf212]/30" />
                     </div>
                   )}
                   
                   <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-blue-800/50 flex items-center justify-center">
+                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#eaf212]/10 flex items-center justify-center">
                       {item.icon}
                     </div>
                     <div>
                       <div className="flex items-center mb-2">
-                        <span className="text-blue-400 font-semibold mr-2 tracking-[-0.03em]">Passo {item.step}</span>
+                        <span className="text-[#eaf212] font-semibold mr-2 tracking-[-0.03em]">Passo {item.step}</span>
                       </div>
-                      <p className="text-blue-100/90 text-sm sm:text-base tracking-[-0.03em]">{item.title}</p>
+                      <p className="text-gray-900 text-sm sm:text-base tracking-[-0.03em]">{item.title}</p>
                     </div>
               </div>
                 </motion.div>
@@ -469,7 +471,7 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800">
+      <section className="py-16 sm:py-20 px-4 sm:px-6 bg-white">
         <div className="container mx-auto max-w-6xl text-center">
     <motion.div 
       initial={{ opacity: 0, y: 20 }} 
@@ -477,33 +479,33 @@ export default function HomePage() {
             transition={{ duration: 0.5 }}
             className="mb-12 sm:mb-16"
     >
-            <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 text-white tracking-[-0.03em]">
-              O que outros profissionais dizem
-      </h2>
-            <p className="text-blue-100/80 max-w-2xl mx-auto text-sm sm:text-base tracking-[-0.03em]">
-              Veja como a MED1 está transformando a gestão de consultórios médicos
+            <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 text-gray-900 tracking-[-0.03em]">
+              What Other Professionals Say
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base tracking-[-0.03em]">
+              See how MED1 is transforming medical practice management
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {[
               {
-                quote: "Desde que comecei a usar a MED1, triplicamos os agendamentos e sabemos exatamente de onde cada paciente veio. A fidelização aumentou significativamente.",
-                author: "Dr. Carlos Silva",
-                specialty: "Cardiologista",
-                location: "São Paulo, SP"
+                quote: "Since I started using MED1, we've tripled appointments and know exactly where each patient comes from. Retention has increased significantly.",
+                author: "Dr. John Smith",
+                specialty: "Cardiologist",
+                location: "New York, NY"
               },
               {
-                quote: "O sistema de indicações premiadas foi um divisor de águas. Nossos pacientes se tornaram verdadeiros promotores do consultório.",
-                author: "Dra. Ana Oliveira",
-                specialty: "Dermatologista",
-                location: "Rio de Janeiro, RJ"
+                quote: "The rewarded referral system was a game-changer. Our patients have become true promoters of the practice.",
+                author: "Dr. Sarah Johnson",
+                specialty: "Dermatologist",
+                location: "Los Angeles, CA"
               },
               {
-                quote: "A visibilidade que temos hoje sobre a origem dos pacientes nos permitiu otimizar nossos investimentos em marketing.",
-                author: "Dr. Marcos Santos",
-                specialty: "Ortopedista",
-                location: "Belo Horizonte, MG"
+                quote: "The visibility we have today on patient origins has allowed us to optimize our marketing investments.",
+                author: "Dr. Michael Brown",
+                specialty: "Orthopedist",
+                location: "Chicago, IL"
               }
             ].map((testimonial, i) => (
               <motion.div
@@ -511,16 +513,16 @@ export default function HomePage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: i * 0.1 }}
-                className="bg-blue-900/30 p-6 sm:p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow border border-blue-800/30"
+                className="bg-gray-50 p-6 sm:p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-100"
               >
                 <div className="flex flex-col h-full">
-                  <p className="text-blue-100/90 italic mb-4 sm:mb-6 flex-grow text-sm sm:text-base tracking-[-0.03em]">
+                  <p className="text-gray-900 italic mb-4 sm:mb-6 flex-grow text-sm sm:text-base tracking-[-0.03em]">
                     "{testimonial.quote}"
                   </p>
                   <div>
-                    <p className="text-white font-semibold text-base sm:text-lg tracking-[-0.03em]">{testimonial.author}</p>
-                    <p className="text-blue-100/80 text-sm tracking-[-0.03em]">{testimonial.specialty}</p>
-                    <p className="text-blue-100/60 text-xs sm:text-sm tracking-[-0.03em]">{testimonial.location}</p>
+                    <p className="text-gray-900 font-semibold text-base sm:text-lg tracking-[-0.03em]">{testimonial.author}</p>
+                    <p className="text-gray-600 text-sm tracking-[-0.03em]">{testimonial.specialty}</p>
+                    <p className="text-gray-600 text-xs sm:text-sm tracking-[-0.03em]">{testimonial.location}</p>
               </div>
             </div>
               </motion.div>
@@ -530,7 +532,7 @@ export default function HomePage() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800">
+      <section className="py-16 sm:py-20 px-4 sm:px-6 bg-white">
         <div className="container mx-auto max-w-6xl">
     <motion.div 
       initial={{ opacity: 0, y: 20 }} 
@@ -538,11 +540,11 @@ export default function HomePage() {
             transition={{ duration: 0.5 }}
             className="text-center mb-12 sm:mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 text-white tracking-[-0.03em]">
-              Por que escolher a MED1?
+            <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 text-gray-900 tracking-[-0.03em]">
+              Why Choose MED1?
             </h2>
-            <p className="text-blue-100/80 max-w-2xl mx-auto text-sm sm:text-base tracking-[-0.03em]">
-              Compare como a MED1 transforma a gestão do seu consultório
+            <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base tracking-[-0.03em]">
+              Compare how MED1 transforms your practice management
             </p>
           </motion.div>
 
@@ -551,37 +553,37 @@ export default function HomePage() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
-              className="bg-blue-900/30 p-6 sm:p-8 rounded-lg border border-blue-800/30 shadow-sm hover:shadow-md transition-shadow"
+              className="bg-gray-50 p-6 sm:p-8 rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
             >
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 rounded-full bg-red-900/30 flex items-center justify-center mr-4">
                   <XMarkIcon className="w-6 h-6 text-red-400" />
                 </div>
-                <h3 className="text-lg sm:text-xl font-semibold text-white tracking-[-0.03em]">
-                  Sem a MED1
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 tracking-[-0.03em]">
+                  Without MED1
                 </h3>
               </div>
               <ul className="space-y-4">
                 {[
                   {
-                    title: 'Origem dos pacientes',
-                    description: 'Não sabe de onde vêm os pacientes e perde oportunidades de otimização'
+                    title: 'Patient Origin',
+                    description: 'Don\'t know where patients come from and miss optimization opportunities'
                   },
                   {
-                    title: 'Indicações',
-                    description: 'Sistema de indicação improvisado e sem incentivos para pacientes'
+                    title: 'Referrals',
+                    description: 'Improvised referral system without patient incentives'
                   },
                   {
-                    title: 'Custos de aquisição',
-                    description: 'CAC alto e sem controle sobre os investimentos em marketing'
+                    title: 'Acquisition Costs',
+                    description: 'High CAC and no control over marketing investments'
                   },
                   {
-                    title: 'Gestão de leads',
-                    description: 'Leads se perdem no WhatsApp e não há acompanhamento da jornada'
+                    title: 'Lead Management',
+                    description: 'Leads get lost in WhatsApp with no journey tracking'
                   },
                   {
-                    title: 'Tomada de decisão',
-                    description: 'Decisões baseadas em suposições, sem dados concretos'
+                    title: 'Decision Making',
+                    description: 'Decisions based on assumptions, without concrete data'
                   }
                 ].map((item, index) => (
                   <li key={index} className="flex items-start">
@@ -589,8 +591,8 @@ export default function HomePage() {
                       <span className="text-red-400 text-sm">•</span>
                     </div>
                     <div>
-                      <h4 className="text-white font-medium text-sm sm:text-base tracking-[-0.03em]">{item.title}</h4>
-                      <p className="text-blue-100/80 text-sm tracking-[-0.03em]">{item.description}</p>
+                      <h4 className="text-gray-900 font-medium text-sm sm:text-base tracking-[-0.03em]">{item.title}</h4>
+                      <p className="text-gray-600 text-sm tracking-[-0.03em]">{item.description}</p>
                     </div>
                   </li>
                 ))}
@@ -601,37 +603,37 @@ export default function HomePage() {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
-              className="bg-blue-900/30 p-6 sm:p-8 rounded-lg border border-blue-800/30 shadow-sm hover:shadow-md transition-shadow"
+              className="bg-gray-50 p-6 sm:p-8 rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
             >
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 rounded-full bg-green-900/30 flex items-center justify-center mr-4">
                   <CheckIcon className="w-6 h-6 text-green-400" />
                 </div>
-                <h3 className="text-lg sm:text-xl font-semibold text-white tracking-[-0.03em]">
-                  Com a MED1
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 tracking-[-0.03em]">
+                  With MED1
                 </h3>
               </div>
               <ul className="space-y-4">
                 {[
                   {
-                    title: 'Rastreamento completo',
-                    description: 'Sabe exatamente a origem de cada paciente e otimiza os canais mais eficientes'
+                    title: 'Complete Tracking',
+                    description: 'Know exactly the origin of each patient and optimize the most efficient channels'
                   },
                   {
-                    title: 'Sistema de indicações',
-                    description: 'Links rastreáveis e sistema de premiação que incentiva indicações'
+                    title: 'Referral System',
+                    description: 'Trackable links and reward system that encourages referrals'
                   },
                   {
-                    title: 'Custos otimizados',
-                    description: 'Aquisição orgânica e previsível, com redução significativa do CAC'
+                    title: 'Optimized Costs',
+                    description: 'Organic and predictable acquisition with significant CAC reduction'
                   },
                   {
-                    title: 'Pipeline profissional',
-                    description: 'Acompanhamento completo da jornada do lead até a conversão'
+                    title: 'Professional Pipeline',
+                    description: 'Complete tracking of the lead journey until conversion'
                   },
                   {
-                    title: 'Decisões baseadas em dados',
-                    description: 'Dashboard completo com métricas em tempo real para tomada de decisão'
+                    title: 'Data-Driven Decisions',
+                    description: 'Complete dashboard with real-time metrics for decision making'
                   }
                 ].map((item, index) => (
                   <li key={index} className="flex items-start">
@@ -639,8 +641,8 @@ export default function HomePage() {
                       <CheckIcon className="w-3 h-3 text-green-400" />
                     </div>
                     <div>
-                      <h4 className="text-white font-medium text-sm sm:text-base tracking-[-0.03em]">{item.title}</h4>
-                      <p className="text-blue-100/80 text-sm tracking-[-0.03em]">{item.description}</p>
+                      <h4 className="text-gray-900 font-medium text-sm sm:text-base tracking-[-0.03em]">{item.title}</h4>
+                      <p className="text-gray-600 text-sm tracking-[-0.03em]">{item.description}</p>
             </div>
                   </li>
         ))}
@@ -651,7 +653,7 @@ export default function HomePage() {
       </section>
 
       {/* Key Benefits Section */}
-      <section className="py-20 px-6 bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800">
+      <section className="py-20 px-6 bg-white">
         <div className="container mx-auto max-w-6xl">
     <motion.div 
       initial={{ opacity: 0, y: 20 }} 
@@ -659,39 +661,39 @@ export default function HomePage() {
             transition={{ duration: 0.5 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl font-bold mb-4 text-white tracking-[-0.03em]">
-              Benefícios de transformar seu consultório com a MED1
+            <h2 className="text-3xl font-bold mb-4 text-gray-900 tracking-[-0.03em]">
+              Benefits of Transforming Your Practice with MED1
         </h2>
-            <p className="text-blue-100/80 max-w-2xl mx-auto tracking-[-0.03em]">
-              Descubra como a MED1 pode revolucionar a gestão do seu consultório
+            <p className="text-gray-600 max-w-2xl mx-auto tracking-[-0.03em]">
+              Discover how MED1 can revolutionize your practice management
             </p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                title: 'Aumento real na taxa de agendamentos',
-                description: 'Transforme cada paciente em um promotor do seu serviço e veja seus agendamentos crescerem organicamente'
+                title: 'Real increase in appointment rates',
+                description: 'Transform each patient into a service promoter and watch your appointments grow organically'
               },
               {
-                title: 'Redução do custo por paciente',
-                description: 'Com aquisição orgânica e previsível, reduza significativamente seu CAC'
+                title: 'Reduced cost per patient',
+                description: 'With organic and predictable acquisition, significantly reduce your CAC'
               },
               {
-                title: 'Mais fidelização e mais indicações',
-                description: 'Sistema de premiação que incentiva seus pacientes a indicarem mais'
+                title: 'More retention and more referrals',
+                description: 'Reward system that encourages your patients to refer more'
               },
               {
-                title: 'Visão completa da performance',
-                description: 'Dashboard profissional com todos os dados em tempo real'
+                title: 'Complete performance view',
+                description: 'Professional dashboard with all data in real-time'
               },
               {
-                title: 'Time com mais controle',
-                description: 'Pipeline visual completo para acompanhar cada lead na jornada'
+                title: 'Team with more control',
+                description: 'Complete visual pipeline to track each lead in the journey'
               },
               {
-                title: 'Menos improviso',
-                description: 'Processos claros e automatizados para toda a equipe'
+                title: 'Less improvisation',
+                description: 'Clear and automated processes for the entire team'
               }
             ].map((benefit, index) => (
               <motion.div
@@ -699,15 +701,15 @@ export default function HomePage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="bg-blue-900/30 p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow border border-blue-800/30"
+                className="bg-gray-50 p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-100"
               >
                 <div className="flex items-start">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-blue-800/50 flex items-center justify-center mr-4">
-                    <span className="text-blue-400 text-xl">✓</span>
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#eaf212]/10 flex items-center justify-center mr-4">
+                    <span className="text-[#eaf212] text-xl">✓</span>
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-white mb-2 tracking-[-0.03em]">{benefit.title}</h3>
-                    <p className="text-blue-100/80 tracking-[-0.03em]">{benefit.description}</p>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2 tracking-[-0.03em]">{benefit.title}</h3>
+                    <p className="text-gray-600 tracking-[-0.03em]">{benefit.description}</p>
                   </div>
       </div>
     </motion.div>
@@ -717,36 +719,36 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800">
-        <div className="container mx-auto max-w-4xl text-center">
+      <section className="py-16 sm:py-20 px-4 sm:px-6 bg-white">
+        <div className="container mx-auto max-4xl text-center">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-white tracking-[-0.03em]">
-              Pronto para transformar seu consultório?
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-gray-900 tracking-[-0.03em]">
+              Ready to Transform Your Practice?
             </h2>
-            <p className="text-blue-100/80 mb-6 sm:mb-8 text-sm sm:text-base tracking-[-0.03em]">
-              Agende uma demonstração gratuita e descubra como podemos ajudar seu negócio a crescer
+            <p className="text-gray-600 mb-6 sm:mb-8 text-sm sm:text-base tracking-[-0.03em]">
+              Schedule a free demo and discover how we can help your business grow
             </p>
             <Button 
               onClick={handleDemoClick}
-              className="bg-white/10 text-white hover:bg-white/20 transition-colors border border-white/20 px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg w-full sm:w-auto tracking-[-0.03em]"
+              className="bg-[#eaf212] text-black hover:bg-[#eaf212]/90 transition-colors px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg w-full sm:w-auto tracking-[-0.03em] rounded-full"
             >
-              Agendar demonstração
+              Schedule Demo
             </Button>
           </motion.div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-6 sm:py-8 px-4 sm:px-6 border-t border-blue-800/30 bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800">
+      <footer className="py-6 sm:py-8 px-4 sm:px-6 border-t border-gray-100 bg-white">
         <div className="container mx-auto max-w-6xl">
           <div className="flex flex-col sm:flex-row justify-between items-center">
             <Logo className="h-6 mb-4 sm:mb-0" variant="light" />
-            <p className="text-blue-100/60 text-xs sm:text-sm tracking-[-0.03em]">
-              © 2024 MED1. Todos os direitos reservados.
+            <p className="text-gray-600 text-xs sm:text-sm tracking-[-0.03em]">
+              © 2024 MED1. All rights reserved.
             </p>
           </div>
         </div>

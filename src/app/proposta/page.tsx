@@ -89,7 +89,7 @@ export default function Proposta3MesesPage() {
         Caso esteja aprovado estamos dispostos a lhe dar 3 meses de acesso grátis.
       </p>
       <Button
-        className="bg-blue-600 text-white hover:bg-blue-700 hover:scale-105 active:scale-95 transition-all duration-300 shadow-xl px-8 py-6 text-lg rounded-lg"
+        className="bg-[#eaf212] text-black hover:bg-[#eaf212]/90 hover:scale-105 active:scale-95 transition-all duration-300 shadow-xl px-8 py-6 text-lg rounded-lg"
         onClick={handleNext}
       >
         Começar
@@ -119,7 +119,7 @@ export default function Proposta3MesesPage() {
           <button
             key={option}
             onClick={() => handleOptionSelect('profession', option)}
-            className="text-left text-xl py-6 px-6 rounded-lg backdrop-blur-sm border-2 border-white/30 text-white hover:bg-white/20 transition-all"
+            className="text-left text-xl py-6 px-6 rounded-lg backdrop-blur-sm border-2 border-[#cbc9c5] text-white hover:bg-[#cbc9c5]/20 transition-all"
           >
             {option}
           </button>
@@ -143,7 +143,7 @@ export default function Proposta3MesesPage() {
           <button
             key={option}
             onClick={() => handleOptionSelect('knowsTechnology', option)}
-            className="text-left text-xl py-6 px-6 rounded-lg backdrop-blur-sm border-2 border-white/30 text-white hover:bg-white/20 transition-all"
+            className="text-left text-xl py-6 px-6 rounded-lg backdrop-blur-sm border-2 border-[#cbc9c5] text-white hover:bg-[#cbc9c5]/20 transition-all"
           >
             {option}
           </button>
@@ -163,7 +163,7 @@ export default function Proposta3MesesPage() {
         A Med1 é uma tecnologia focada em gerar leads para médicos de forma gratuita
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/30 hover:scale-105 transition-transform duration-300">
+        <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-[#cbc9c5] hover:scale-105 transition-transform duration-300">
           <div className="w-16 h-16 mx-auto mb-6 text-white">
             <BanknotesIcon className="w-full h-full" />
           </div>
@@ -171,7 +171,7 @@ export default function Proposta3MesesPage() {
           <p className="text-white/80">Economize com anúncios e obtenha leads de forma orgânica</p>
         </div>
         
-        <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/30 hover:scale-105 transition-transform duration-300">
+        <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-[#cbc9c5] hover:scale-105 transition-transform duration-300">
           <div className="w-16 h-16 mx-auto mb-6 text-white">
             <CursorArrowRaysIcon className="w-full h-full" />
           </div>
@@ -179,7 +179,7 @@ export default function Proposta3MesesPage() {
           <p className="text-white/80">Interface intuitiva que não exige conhecimento técnico</p>
         </div>
         
-        <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/30 hover:scale-105 transition-transform duration-300">
+        <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-[#cbc9c5] hover:scale-105 transition-transform duration-300">
           <div className="w-16 h-16 mx-auto mb-6 text-white">
             <ClockIcon className="w-full h-full" />
           </div>
@@ -187,7 +187,7 @@ export default function Proposta3MesesPage() {
           <p className="text-white/80">Configure rapidamente e comece a receber leads</p>
         </div>
         
-        <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-white/30 hover:scale-105 transition-transform duration-300">
+        <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-[#cbc9c5] hover:scale-105 transition-transform duration-300">
           <div className="w-16 h-16 mx-auto mb-6 text-white">
             <UserGroupIcon className="w-full h-full" />
           </div>
@@ -197,7 +197,7 @@ export default function Proposta3MesesPage() {
       </div>
       
       <Button
-        className="bg-blue-600 text-white hover:bg-blue-700 hover:scale-105 active:scale-95 transition-all duration-300 shadow-xl px-8 py-6 text-lg rounded-lg mt-12"
+        className="bg-[#eaf212] text-black hover:bg-[#eaf212]/90 hover:scale-105 active:scale-95 transition-all duration-300 shadow-xl px-8 py-6 text-lg rounded-lg mt-12"
         onClick={handleNext}
       >
         Continuar
@@ -224,7 +224,7 @@ export default function Proposta3MesesPage() {
           <button
             key={option}
             onClick={() => handleOptionSelect('revenue', option)}
-            className="text-left text-xl py-6 px-6 rounded-lg backdrop-blur-sm border-2 border-white/30 text-white hover:bg-white/20 transition-all"
+            className="text-left text-xl py-6 px-6 rounded-lg backdrop-blur-sm border-2 border-[#cbc9c5] text-white hover:bg-[#cbc9c5]/20 transition-all"
           >
             {option}
           </button>
@@ -240,7 +240,7 @@ export default function Proposta3MesesPage() {
       exit={{ opacity: 0, y: -20 }}
       className="text-center w-full max-w-2xl mx-auto"
     >
-      <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/20">
+      <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-[#cbc9c5]">
         <h2 className="text-3xl font-bold text-white mb-8">
           Resultados reais dos nossos clientes
         </h2>
@@ -269,7 +269,7 @@ export default function Proposta3MesesPage() {
       </div>
       
       <Button
-        className="bg-green-600 text-white hover:bg-green-700 transition-all duration-300 shadow-xl px-8 py-6 text-lg rounded-lg mt-8 w-full"
+        className="bg-[#eaf212] text-black hover:bg-[#eaf212]/90 hover:scale-105 active:scale-95 transition-all duration-300 shadow-xl px-8 py-6 text-lg rounded-lg mt-8 w-full"
         onClick={handleNext}
       >
         Quero Aumentar Meu Faturamento
@@ -295,7 +295,7 @@ export default function Proposta3MesesPage() {
           value={formData.name}
           onChange={handleInputChange}
           required
-          className="bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white text-xl py-6 px-6 rounded-lg placeholder:text-white/60"
+          className="bg-white/10 backdrop-blur-sm border-2 border-[#cbc9c5] text-white text-xl py-6 px-6 rounded-lg placeholder:text-white/60"
         />
         <Input
           type="email"
@@ -304,7 +304,7 @@ export default function Proposta3MesesPage() {
           value={formData.email}
           onChange={handleInputChange}
           required
-          className="bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white text-xl py-6 px-6 rounded-lg placeholder:text-white/60"
+          className="bg-white/10 backdrop-blur-sm border-2 border-[#cbc9c5] text-white text-xl py-6 px-6 rounded-lg placeholder:text-white/60"
         />
         <Input
           type="tel"
@@ -313,11 +313,11 @@ export default function Proposta3MesesPage() {
           value={formData.whatsapp}
           onChange={handleInputChange}
           required
-          className="bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white text-xl py-6 px-6 rounded-lg placeholder:text-white/60"
+          className="bg-white/10 backdrop-blur-sm border-2 border-[#cbc9c5] text-white text-xl py-6 px-6 rounded-lg placeholder:text-white/60"
         />
         <Button
           type="submit"
-          className="w-full bg-blue-600 text-white hover:bg-blue-700 hover:scale-105 active:scale-95 transition-all duration-300 shadow-xl px-8 py-6 text-lg rounded-lg"
+          className="w-full bg-[#eaf212] text-black hover:bg-[#eaf212]/90 hover:scale-105 active:scale-95 transition-all duration-300 shadow-xl px-8 py-6 text-lg rounded-lg"
           disabled={isSubmitting}
         >
           {isSubmitting ? 'Enviando...' : 'Enviar'}
@@ -327,7 +327,7 @@ export default function Proposta3MesesPage() {
   ];
 
   return (
-    <div className="min-h-[100dvh] bg-gradient-to-br from-blue-800 via-blue-700 to-blue-900 flex flex-col">
+    <div className="min-h-[100dvh] bg-gradient-to-br from-black via-black to-black flex flex-col">
       <div className="container mx-auto px-4 py-8 flex-1 flex flex-col">
         <div className="flex justify-center mb-16 pt-8">
           <Logo className="scale-150" variant="light" />
