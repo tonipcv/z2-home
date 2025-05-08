@@ -43,11 +43,11 @@ export default function HomePage() {
             
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-10">
-              <a href="#features" className="text-gray-600 hover:text-gray-900 transition-colors text-sm tracking-[-0.03em]">
-                Features
+              <a href="/partners" className="text-gray-600 hover:text-gray-900 transition-colors text-sm tracking-[-0.03em]">
+                Partners
               </a>
-              <a href="#benefits" className="text-gray-600 hover:text-gray-900 transition-colors text-sm tracking-[-0.03em]">
-                Benefits
+              <a href="/pricing" className="text-gray-600 hover:text-gray-900 transition-colors text-sm tracking-[-0.03em]">
+                Pricing
               </a>
               <Button 
                 onClick={handleDemoClick}
@@ -104,27 +104,27 @@ export default function HomePage() {
                   </button>
                 </div>
                 
-                <div className="flex flex-col space-y-6">
+                <div className="flex flex-col space-y-4">
                   <a
-                    href="#features"
-                    className="text-lg text-gray-900 hover:text-gray-600 transition-colors tracking-[-0.03em] py-3"
+                    href="/partners"
+                    className="text-base text-gray-900 hover:text-gray-600 transition-colors tracking-[-0.03em] py-2"
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    Features
+                    Partners
                   </a>
                   <a
-                    href="#benefits"
-                    className="text-lg text-gray-900 hover:text-gray-600 transition-colors tracking-[-0.03em] py-3"
+                    href="/pricing"
+                    className="text-base text-gray-900 hover:text-gray-600 transition-colors tracking-[-0.03em] py-2"
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    Benefits
+                    Pricing
                   </a>
                   <Button
                     onClick={() => {
                       handleDemoClick();
                       setIsMenuOpen(false);
                     }}
-                    className="w-full bg-gray-900 text-white hover:bg-gray-800 transition-colors py-6 text-lg tracking-[-0.03em] rounded-2xl mt-4"
+                    className="w-full bg-[#eaf212] text-gray-800 hover:bg-[#eaf212]/90 transition-colors py-3 text-base font-medium tracking-[-0.03em] rounded-full mt-4"
                   >
                     Sign In
                   </Button>
@@ -218,28 +218,20 @@ export default function HomePage() {
 
       {/* About Section */}
       <section className="py-16 sm:py-24 px-4 sm:px-6 bg-white relative overflow-hidden">
-        {/* Background decorative elements */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-20 left-10 text-9xl font-bold text-[#eaf212]/5 tracking-[-0.03em]">4x</div>
-          <div className="absolute bottom-20 right-10 text-8xl font-bold bg-gradient-to-r from-[#eaf212]/5 to-[#eaf212]/5 bg-clip-text text-transparent tracking-[-0.03em]">
-            +300%
-          </div>
-        </div>
-
         <div className="container mx-auto max-w-7xl relative">
-          <div className="grid lg:grid-cols-2 gap-8 sm:gap-16 items-start">
+          <div className="grid lg:grid-cols-2 gap-12 sm:gap-16 items-center">
             {/* Left Column - Main Content */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }} 
               animate={{ opacity: 1, y: 0 }} 
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="space-y-6 sm:space-y-8"
+              className="space-y-8"
             >
-              <div className="space-y-3 sm:space-y-4">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 tracking-[-0.03em]">
-                  MED1 — The Future of Clinics and Medical Practices
+              <div className="space-y-4">
+                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-[-0.03em] leading-tight">
+                  + 52.432 users
                 </h2>
-                <p className="text-lg sm:text-xl font-semibold text-gray-600 tracking-[-0.03em] leading-relaxed">
+                <p className="text-xl font-medium text-gray-600 tracking-[-0.03em] leading-relaxed">
                   The first CRM focused on patient acquisition and retention through referrals.
                 </p>
               </div>
@@ -248,7 +240,7 @@ export default function HomePage() {
                 initial={{ opacity: 0, y: 20 }} 
                 animate={{ opacity: 1, y: 0 }} 
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="bg-gray-50 p-8 rounded-2xl border border-gray-100"
+                className="bg-gray-50 p-6 sm:p-8 rounded-2xl border border-gray-100"
               >
                 <p className="text-lg text-gray-600 leading-relaxed tracking-[-0.03em]">
                   Created to transform your practice into a predictable appointment machine, 
@@ -264,7 +256,7 @@ export default function HomePage() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5 }}
-                className="absolute -left-8 top-12 bottom-12 w-px bg-gradient-to-b from-transparent via-[#eaf212]/10 to-transparent"
+                className="absolute -left-8 top-12 bottom-12 w-px bg-gradient-to-b from-transparent via-gray-200 to-transparent"
               />
               
               <div className="space-y-6">
@@ -272,7 +264,7 @@ export default function HomePage() {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: 0.3 }}
-                  className="text-xl font-semibold text-gray-900 mb-8 tracking-[-0.03em]"
+                  className="text-2xl font-semibold text-gray-900 mb-8 tracking-[-0.03em]"
                 >
                   With MED1, you:
                 </motion.h3>
@@ -282,22 +274,22 @@ export default function HomePage() {
                     {
                       icon: <ChartBarIcon className="w-6 h-6 text-gray-900" />,
                       title: 'Increase lead generation',
-                      color: 'from-blue-400/10 to-blue-500/10'
+                      description: 'Generate more qualified leads through an optimized referral system'
                     },
                     {
                       icon: <ArrowTrendingUpIcon className="w-6 h-6 text-gray-900" />,
                       title: 'Improve appointment conversion',
-                      color: 'from-green-400/10 to-green-500/10'
+                      description: 'Track and optimize your conversion rates at every step'
                     },
                     {
                       icon: <MagnifyingGlassIcon className="w-6 h-6 text-gray-900" />,
                       title: 'Discover exactly where your patients come from',
-                      color: 'from-purple-400/10 to-purple-500/10'
+                      description: 'Get detailed insights into your patient acquisition channels'
                     },
                     {
                       icon: <UserGroupIcon className="w-6 h-6 text-gray-900" />,
                       title: 'Transform each patient into a service promoter',
-                      color: 'from-yellow-400/10 to-yellow-500/10'
+                      description: 'Turn satisfied patients into your best marketing channel'
                     }
                   ].map((benefit, index) => (
                     <motion.div 
@@ -307,17 +299,17 @@ export default function HomePage() {
                       transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
                       className="group relative"
                     >
-                      <div className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"
-                           style={{ background: `linear-gradient(to right, ${benefit.color})` }}
-                      />
-                      <div className="relative bg-gray-50 hover:shadow-lg transition-shadow duration-300 p-6 rounded-xl border border-gray-100">
+                      <div className="relative bg-white hover:shadow-lg transition-all duration-300 p-6 rounded-xl border border-gray-100">
                         <div className="flex items-start space-x-4">
-                          <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#eaf212]/10 flex items-center justify-center">
+                          <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gray-50 flex items-center justify-center">
                             {benefit.icon}
                           </div>
                           <div className="flex-grow">
-                            <p className="text-gray-900 font-medium leading-relaxed tracking-[-0.03em]">
+                            <h4 className="text-gray-900 font-semibold text-lg mb-1 tracking-[-0.03em]">
                               {benefit.title}
+                            </h4>
+                            <p className="text-gray-600 text-sm tracking-[-0.03em]">
+                              {benefit.description}
                             </p>
                           </div>
                         </div>
@@ -334,7 +326,7 @@ export default function HomePage() {
                 >
                   <Button 
                     onClick={handleDemoClick}
-                    className="bg-[#eaf212] text-black hover:bg-[#eaf212]/90 transition-colors px-8 py-4 text-sm font-medium tracking-[-0.03em] rounded-xl w-full"
+                    className="bg-[#eaf212] text-gray-800 hover:bg-[#eaf212]/90 transition-colors px-8 py-4 text-sm font-medium tracking-[-0.03em] rounded-full w-full"
                   >
                     Get Started
                   </Button>
@@ -346,7 +338,7 @@ export default function HomePage() {
       </section>
 
       {/* Features Section */}
-      <section className="py-12 sm:py-16 px-4 sm:px-6 bg-[#2f3739]">
+      <section className="py-12 sm:py-16 px-4 sm:px-6 bg-white">
         <div className="container mx-auto max-w-6xl">
           <motion.div 
             initial={{ opacity: 0, y: 20 }} 
@@ -354,10 +346,10 @@ export default function HomePage() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-center mb-8 sm:mb-12"
           >
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold mb-2 sm:mb-3 text-white tracking-[-0.03em]">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold mb-2 sm:mb-3 text-gray-900 tracking-[-0.03em]">
               MED1 Features
             </h2>
-            <p className="text-white/80 max-w-2xl mx-auto text-sm sm:text-base font-medium tracking-[-0.03em]">
+            <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base font-medium tracking-[-0.03em]">
               Everything you need to transform your practice into an appointment machine
             </p>
           </motion.div>
@@ -365,32 +357,32 @@ export default function HomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {[
               {
-                icon: <LinkIcon className="w-6 h-6 sm:w-8 sm:h-8 text-[#eaf212]" />,
+                icon: <LinkIcon className="w-6 h-6 sm:w-8 sm:h-8 text-gray-900" />,
                 title: 'Smart Scheduling Link',
                 description: 'With multiple origins and redirects'
               },
               {
-                icon: <ChartPieIcon className="w-6 h-6 sm:w-8 sm:h-8 text-[#eaf212]" />,
+                icon: <ChartPieIcon className="w-6 h-6 sm:w-8 sm:h-8 text-gray-900" />,
                 title: 'Tracking Technology',
                 description: 'For lead origins (Instagram, Google, Referrals, etc.)'
               },
               {
-                icon: <ShareIcon className="w-6 h-6 sm:w-8 sm:h-8 text-[#eaf212]" />,
+                icon: <ShareIcon className="w-6 h-6 sm:w-8 sm:h-8 text-gray-900" />,
                 title: 'Personalized Link Generation',
                 description: 'For patients, with referral metrics and rewards for the most engaged'
               },
               {
-                icon: <QrCodeIcon className="w-6 h-6 sm:w-8 sm:h-8 text-[#eaf212]" />,
+                icon: <QrCodeIcon className="w-6 h-6 sm:w-8 sm:h-8 text-gray-900" />,
                 title: 'Trackable QR Code Generator',
                 description: 'Perfect for cards, reception, or social media'
               },
               {
-                icon: <PresentationChartLineIcon className="w-6 h-6 sm:w-8 sm:h-8 text-[#eaf212]" />,
+                icon: <PresentationChartLineIcon className="w-6 h-6 sm:w-8 sm:h-8 text-gray-900" />,
                 title: 'Professional Dashboard',
                 description: 'With all data in real-time'
               },
               {
-                icon: <FunnelIcon className="w-6 h-6 sm:w-8 sm:h-8 text-[#eaf212]" />,
+                icon: <FunnelIcon className="w-6 h-6 sm:w-8 sm:h-8 text-gray-900" />,
                 title: 'Complete Visual Pipeline',
                 description: 'Showing where each lead is in the buying journey'
               }
@@ -400,13 +392,13 @@ export default function HomePage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-                className="bg-white/5 p-4 sm:p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow group border border-white/10"
+                className="bg-gray-50 p-4 sm:p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow group border border-gray-100"
               >
                 <div className="mb-3 sm:mb-4 transition-transform group-hover:scale-110 duration-300">
                   {feature.icon}
                 </div>
-                <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-2 text-white tracking-[-0.03em]">{feature.title}</h3>
-                <p className="text-white/80 text-sm sm:text-base tracking-[-0.03em]">{feature.description}</p>
+                <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-2 text-gray-900 tracking-[-0.03em]">{feature.title}</h3>
+                <p className="text-gray-600 text-sm sm:text-base tracking-[-0.03em]">{feature.description}</p>
               </motion.div>
             ))}
           </div>
@@ -414,7 +406,7 @@ export default function HomePage() {
       </section>
 
       {/* Flywheel Section */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 bg-[#2f3739]">
+      <section className="py-16 sm:py-20 px-4 sm:px-6 bg-white">
         <div className="container mx-auto max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -422,8 +414,8 @@ export default function HomePage() {
             transition={{ duration: 0.5 }}
             className="text-center mb-12 sm:mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 text-white tracking-[-0.03em]">How MED1's Flywheel Works</h2>
-            <p className="text-white/80 max-w-2xl mx-auto text-sm sm:text-base tracking-[-0.03em]">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 text-gray-900 tracking-[-0.03em]">How MED1's Flywheel Works</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base tracking-[-0.03em]">
               A continuous journey of organic growth, data-driven and powered by those who trust your service the most: your own patients.
             </p>
           </motion.div>
@@ -435,32 +427,32 @@ export default function HomePage() {
                 {
                   step: 1,
                   title: 'Patient schedules and origin is automatically recorded',
-                  icon: <UserGroupIcon className="w-6 h-6 text-[#eaf212]" />
+                  icon: <UserGroupIcon className="w-6 h-6 text-gray-900" />
                 },
                 {
                   step: 2,
                   title: 'You track the journey until the appointment',
-                  icon: <ChartBarIcon className="w-6 h-6 text-[#eaf212]" />
+                  icon: <ChartBarIcon className="w-6 h-6 text-gray-900" />
                 },
                 {
                   step: 3,
                   title: 'After service, they receive a trackable link to refer friends',
-                  icon: <ShareIcon className="w-6 h-6 text-[#eaf212]" />
+                  icon: <ShareIcon className="w-6 h-6 text-gray-900" />
                 },
                 {
                   step: 4,
                   title: 'You create incentive campaigns for top referrers',
-                  icon: <GiftIcon className="w-6 h-6 text-[#eaf212]" />
+                  icon: <GiftIcon className="w-6 h-6 text-gray-900" />
                 },
                 {
                   step: 5,
                   title: 'You see which channels generate more patients',
-                  icon: <ChartPieIcon className="w-6 h-6 text-[#eaf212]" />
+                  icon: <ChartPieIcon className="w-6 h-6 text-gray-900" />
                 },
                 {
                   step: 6,
                   title: 'Reinvest in channels with better ROI',
-                  icon: <ArrowTrendingUpIcon className="w-6 h-6 text-[#eaf212]" />
+                  icon: <ArrowTrendingUpIcon className="w-6 h-6 text-gray-900" />
                 }
               ].map((item, i) => (
                 <motion.div
@@ -468,17 +460,17 @@ export default function HomePage() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: i * 0.1 }}
-                  className="relative bg-white/5 p-6 rounded-lg border border-white/10 shadow-sm hover:shadow-md transition-shadow"
+                  className="relative bg-gray-50 p-6 rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
                 >
                   <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#eaf212]/10 flex items-center justify-center">
+                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center">
                       {item.icon}
                     </div>
                     <div>
                       <div className="flex items-center mb-2">
-                        <span className="text-[#eaf212] font-semibold mr-2 tracking-[-0.03em]">Step {item.step}</span>
+                        <span className="text-gray-900 font-semibold mr-2 tracking-[-0.03em]">Step {item.step}</span>
                       </div>
-                      <p className="text-white/90 text-sm sm:text-base tracking-[-0.03em]">{item.title}</p>
+                      <p className="text-gray-600 text-sm sm:text-base tracking-[-0.03em]">{item.title}</p>
                     </div>
                   </div>
                 </motion.div>
@@ -566,7 +558,7 @@ export default function HomePage() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -574,8 +566,8 @@ export default function HomePage() {
               className="bg-gray-50 p-6 sm:p-8 rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
             >
               <div className="flex items-center mb-6">
-                <div className="w-12 h-12 rounded-full bg-red-900/30 flex items-center justify-center mr-4">
-                  <XMarkIcon className="w-6 h-6 text-red-400" />
+                <div className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center mr-4">
+                  <XMarkIcon className="w-6 h-6 text-gray-400" />
                 </div>
                 <h3 className="text-lg sm:text-xl font-semibold text-gray-900 tracking-[-0.03em]">
                   Without MED1
@@ -605,12 +597,12 @@ export default function HomePage() {
                   }
                 ].map((item, index) => (
                   <li key={index} className="flex items-start">
-                    <div className="flex-shrink-0 w-5 h-5 rounded-full bg-red-900/30 flex items-center justify-center mr-3 mt-0.5">
-                      <span className="text-red-400 text-sm">•</span>
+                    <div className="flex-shrink-0 w-5 h-5 rounded-full bg-gray-100 flex items-center justify-center mr-3 mt-0.5">
+                      <span className="text-gray-400 text-sm">•</span>
                     </div>
                     <div>
                       <h4 className="text-gray-900 font-medium text-sm sm:text-base tracking-[-0.03em]">{item.title}</h4>
-                      <p className="text-gray-600 text-sm tracking-[-0.03em]">{item.description}</p>
+                      <p className="text-gray-500 text-sm tracking-[-0.03em]">{item.description}</p>
                     </div>
                   </li>
                 ))}
@@ -624,8 +616,8 @@ export default function HomePage() {
               className="bg-gray-50 p-6 sm:p-8 rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
             >
               <div className="flex items-center mb-6">
-                <div className="w-12 h-12 rounded-full bg-green-900/30 flex items-center justify-center mr-4">
-                  <CheckIcon className="w-6 h-6 text-green-400" />
+                <div className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center mr-4">
+                  <CheckIcon className="w-6 h-6 text-gray-900" />
                 </div>
                 <h3 className="text-lg sm:text-xl font-semibold text-gray-900 tracking-[-0.03em]">
                   With MED1
@@ -655,12 +647,12 @@ export default function HomePage() {
                   }
                 ].map((item, index) => (
                   <li key={index} className="flex items-start">
-                    <div className="flex-shrink-0 w-5 h-5 rounded-full bg-green-900/30 flex items-center justify-center mr-3 mt-0.5">
-                      <CheckIcon className="w-3 h-3 text-green-400" />
+                    <div className="flex-shrink-0 w-5 h-5 rounded-full bg-gray-100 flex items-center justify-center mr-3 mt-0.5">
+                      <CheckIcon className="w-3 h-3 text-gray-900" />
                     </div>
                     <div>
                       <h4 className="text-gray-900 font-medium text-sm sm:text-base tracking-[-0.03em]">{item.title}</h4>
-                      <p className="text-gray-600 text-sm tracking-[-0.03em]">{item.description}</p>
+                      <p className="text-gray-500 text-sm tracking-[-0.03em]">{item.description}</p>
                     </div>
                   </li>
                 ))}
@@ -680,7 +672,7 @@ export default function HomePage() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl font-bold mb-4 text-gray-900 tracking-[-0.03em]">
-              Benefits of Transforming Your Practice with MED1
+              Benefits
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto tracking-[-0.03em]">
               Discover how MED1 can revolutionize your practice management
@@ -722,12 +714,12 @@ export default function HomePage() {
                 className="bg-gray-50 p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-100"
               >
                 <div className="flex items-start">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#eaf212]/10 flex items-center justify-center mr-4">
-                    <span className="text-[#eaf212] text-xl">✓</span>
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center mr-4">
+                    <CheckIcon className="w-5 h-5 text-gray-900" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-2 tracking-[-0.03em]">{benefit.title}</h3>
-                    <p className="text-gray-600 tracking-[-0.03em]">{benefit.description}</p>
+                    <p className="text-gray-500 tracking-[-0.03em]">{benefit.description}</p>
                   </div>
                 </div>
               </motion.div>
@@ -737,22 +729,22 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 bg-[#2f3739]">
+      <section className="py-16 sm:py-20 px-4 sm:px-6 bg-white">
         <div className="container mx-auto max-4xl text-center">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-white tracking-[-0.03em]">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-gray-900 tracking-[-0.03em]">
               Ready to Transform Your Practice?
             </h2>
-            <p className="text-white/80 mb-6 sm:mb-8 text-sm sm:text-base tracking-[-0.03em]">
+            <p className="text-gray-600 mb-6 sm:mb-8 text-sm sm:text-base tracking-[-0.03em]">
               Schedule a free demo and discover how we can help your business grow
             </p>
             <Button 
               onClick={handleDemoClick}
-              className="bg-[#eaf212] text-black hover:bg-[#eaf212]/90 transition-colors px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg w-full sm:w-auto tracking-[-0.03em] rounded-full"
+              className="bg-[#eaf212] text-gray-800 hover:bg-[#eaf212]/90 transition-colors px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg w-full sm:w-auto tracking-[-0.03em] rounded-full"
             >
               Schedule Demo
             </Button>
