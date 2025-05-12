@@ -12,7 +12,7 @@ export default function PricingPage() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm border-b border-gray-100">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <Logo className="h-8" variant="dark" />
+            <img src="/logo.png" alt="Logo" className="h-8" />
             <Button 
               variant="outline"
               className="border border-gray-300 text-gray-700 hover:bg-gray-50 transition-all duration-300 px-6 py-2 text-sm font-medium tracking-[-0.03em] rounded-full"

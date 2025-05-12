@@ -38,7 +38,7 @@ export default function PartnersPage() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <Logo className="h-8" variant="dark" />
+            <img src="/logo.png" alt="Logo" className="h-8" />
             <div className="flex items-center gap-6">
               <a href="/partners" className="text-gray-600 hover:text-gray-900 transition-colors text-sm tracking-[-0.03em] hidden md:block">
                 Partners
@@ -66,7 +66,7 @@ export default function PartnersPage() {
       <div className="fixed inset-0 z-50 bg-white md:hidden hidden">
         <div className="flex flex-col h-full">
           <div className="flex items-center justify-between p-6 border-b border-gray-100">
-            <Logo className="h-8" variant="dark" />
+            <img src="/logo.png" alt="Logo" className="h-8" />
             <button className="text-gray-600 hover:text-gray-900 transition-colors">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />

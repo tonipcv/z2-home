@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     description: "Track your habits, sales, achieve your goals, and unlock your full potential with BOOP.",
     images: [
       {
-        url: "/icon-512.png",
+        url: "/icon.png",
         width: 512,
         height: 512,
         alt: "BOOP - Unlock Your Potential",
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     title: "BOOP | Unlock Your Potential",
     description: "Track your habits, sales, achieve your goals, and unlock your full potential with BOOP.",
     creator: "@booptech",
-    images: ["/icon-512.png"],
+    images: ["/icon.png"],
   },
   robots: {
     index: true,
@@ -78,21 +78,8 @@ export const metadata: Metadata = {
   },
   manifest: "/site.webmanifest",
   icons: {
-    icon: [
-      { url: "/icon.svg", type: "image/svg+xml" },
-      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
-      { url: "/icon-512.png", sizes: "512x512", type: "image/png" }
-    ],
-    apple: [
-      { url: "/apple-touch-icon.png", sizes: "180x180" }
-    ],
-    other: [
-      {
-        rel: "mask-icon",
-        url: "/icon.svg",
-        color: "#00F5D4"
-      }
-    ],
+    icon: '/icon.png',
+    apple: '/icon.png',
   },
   viewport: {
     width: "device-width",
@@ -161,9 +148,8 @@ export default function RootLayout({
         {/* End Facebook Pixel Code */}
 
         <link rel="canonical" href="https://med1.app" />
-        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
-        <link rel="alternate icon" href="/icon-192.png" type="image/png" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="icon" href="/icon.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="theme-color" content="#2E8DFF" />
       </head>
