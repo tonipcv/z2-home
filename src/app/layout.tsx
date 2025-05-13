@@ -78,8 +78,9 @@ export const metadata: Metadata = {
   },
   manifest: "/site.webmanifest",
   icons: {
-    icon: '/icon.png?v=1',
-    apple: '/icon.png?v=1',
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
   },
   viewport: {
     width: "device-width",
@@ -148,8 +149,9 @@ export default function RootLayout({
         {/* End Facebook Pixel Code */}
 
         <link rel="canonical" href="https://med1.app" />
-        <link rel="icon" href="/icon.png?v=1" type="image/png" />
-        <link rel="apple-touch-icon" href="/icon.png?v=1" />
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="theme-color" content="#2E8DFF" />
       </head>
