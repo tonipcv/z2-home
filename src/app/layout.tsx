@@ -19,49 +19,49 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://med1.app'),
-  title: "MED1 | CRM Inteligente para Médicos",
-  description: "CRM inteligente para médicos e clínicas privadas crescerem até 10x mais rápido.",
+  title: "MED1 | Smart CRM for Healthcare Professionals",
+  description: "The first intelligent CRM focused on patient acquisition and retention through referrals. Be TOP1 in your niche.",
   keywords: [
-    "habit tracking",
-    "sales tracking",
-    "goal achievement",
-    "personal development",
-    "performance tracking",
-    "potential unlocking",
-    "productivity tools",
-    "success metrics",
-    "personal growth",
-    "achievement tracking",
-    "BOOP platform",
-    "performance analytics",
-    "goal setting",
-    "habit formation",
-    "success tracking"
+    "healthcare crm",
+    "medical practice management",
+    "patient acquisition",
+    "patient retention",
+    "medical referrals",
+    "healthcare analytics",
+    "practice growth",
+    "medical marketing",
+    "patient tracking",
+    "healthcare automation",
+    "medical practice software",
+    "patient relationship management",
+    "medical scheduling",
+    "healthcare technology",
+    "medical practice growth"
   ],
-  authors: [{ name: "BOOP" }],
-  category: "Technology",
+  authors: [{ name: "MED1" }],
+  category: "Healthcare Technology",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://boop.tech",
-    siteName: "BOOP",
-    title: "BOOP | Unlock Your Potential",
-    description: "Track your habits, sales, achieve your goals, and unlock your full potential with BOOP.",
+    url: "https://med1.app",
+    siteName: "MED1",
+    title: "MED1 | Be TOP1 in Healthcare",
+    description: "Transform your medical practice with our intelligent CRM. Increase patient acquisition and retention through smart referrals.",
     images: [
       {
-        url: "/icon.png",
+        url: "/icon.png?v=1",
         width: 512,
         height: 512,
-        alt: "BOOP - Unlock Your Potential",
+        alt: "MED1 - Smart Healthcare CRM",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "BOOP | Unlock Your Potential",
-    description: "Track your habits, sales, achieve your goals, and unlock your full potential with BOOP.",
-    creator: "@booptech",
-    images: ["/icon.png"],
+    title: "MED1 | Be TOP1 in Healthcare",
+    description: "Transform your medical practice with our intelligent CRM. Increase patient acquisition and retention through smart referrals.",
+    creator: "@med1app",
+    images: ["/icon.png?v=1"],
   },
   robots: {
     index: true,
@@ -78,8 +78,8 @@ export const metadata: Metadata = {
   },
   manifest: "/site.webmanifest",
   icons: {
-    icon: '/icon.png',
-    apple: '/icon.png',
+    icon: '/icon.png?v=1',
+    apple: '/icon.png?v=1',
   },
   viewport: {
     width: "device-width",
@@ -94,11 +94,11 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://boop.tech",
+    canonical: "https://med1.app",
   },
   other: {
-    "msapplication-TileColor": "#00F5D4",
-    "theme-color": "#000000"
+    "msapplication-TileColor": "#2E8DFF",
+    "theme-color": "#2E8DFF"
   }
 };
 
@@ -148,8 +148,8 @@ export default function RootLayout({
         {/* End Facebook Pixel Code */}
 
         <link rel="canonical" href="https://med1.app" />
-        <link rel="icon" href="/icon.png" type="image/png" />
-        <link rel="apple-touch-icon" href="/icon.png" />
+        <link rel="icon" href="/icon.png?v=1" type="image/png" />
+        <link rel="apple-touch-icon" href="/icon.png?v=1" />
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="theme-color" content="#2E8DFF" />
       </head>
