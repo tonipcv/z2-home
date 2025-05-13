@@ -7,20 +7,36 @@ const nextConfig = {
   images: {
     domains: ['med1.app'],
   },
-  // Disable default favicon
+  // Properly handle favicons and static assets
   webpack: (config) => {
     config.plugins = config.plugins || [];
+    
+    // Disable the default favicon handling
+    config.module.rules.push({
+      test: /\.(ico|png)$/i,
+      type: 'asset/resource',
+    });
+    
     return config;
   },
-  // Ensure static assets are handled correctly
+  // Ensure static assets are handled correctly with proper caching
   async headers() {
     return [
       {
-        source: '/icon.png',
+        source: '/:path*',
         headers: [
           {
             key: 'Cache-Control',
-            value: 'no-cache, no-store, must-revalidate',
+            value: 'no-store, must-revalidate',
+          },
+        ],
+      },
+      {
+        source: '/:path*.ico',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=0, must-revalidate',
           },
         ],
       },
