@@ -867,32 +867,32 @@ export default function HomePage() {
             className="mb-12 sm:mb-16"
           >
             <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 text-gray-900 tracking-[-0.03em]">
-              What Other Professionals Say
+              What Our Partners Say
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base tracking-[-0.03em]">
-              See how MED1 is transforming medical practice management
+              See how MED1 is transforming client experiences and driving practice growth
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {[
               {
-                quote: "Since I started using MED1, we've tripled appointments and know exactly where each patient comes from. Retention has increased significantly.",
-                author: "Dr. John Smith",
-                specialty: "Cardiologist",
-                location: "New York, NY"
+                quote: "MED1 transformed how our clients experience care. The personalized client areas and AI support make every interaction feel special. Our client satisfaction scores have never been higher.",
+                author: "Dr. Elena Rodriguez",
+                specialty: "Aesthetic Medicine",
+                location: "Miami, FL"
               },
               {
-                quote: "The rewarded referral system was a game-changer. Our patients have become true promoters of the practice.",
-                author: "Dr. Sarah Johnson",
-                specialty: "Dermatologist",
-                location: "Los Angeles, CA"
+                quote: "MED1's AI knows exactly when to ask for reviews - our 5-star ratings increased by 300%. The personalized client experience allowed us to increase our service prices by 40% because clients see the premium value we deliver.",
+                author: "Dr. James Chen",
+                specialty: "Wellness Practitioner", 
+                location: "San Francisco, CA"
               },
               {
-                quote: "The visibility we have today on patient origins has allowed us to optimize our marketing investments.",
-                author: "Dr. Michael Brown",
-                specialty: "Orthopedist",
-                location: "Chicago, IL"
+                quote: "Our clients have become our biggest advocates. The referral system is seamless, and we're seeing 40% of new clients come from existing ones. It's organic growth at its finest.",
+                author: "Dr. Sarah Williams",
+                specialty: "Functional Medicine",
+                location: "Austin, TX"
               }
             ].map((testimonial, i) => (
               <motion.div
