@@ -786,7 +786,7 @@ export default function HomePage() {
               <ul className="space-y-4 mb-8">
                 {[
                   'Up to 1,000 clients',
-                  'WhatsApp Integration + 500+ platforms',
+                  'Integration + 500+ platforms',
                   'Unlimited Procedures',
                   'Unlimited Courses',
                   'AI that not only answers — it guides members through their entire journey',
