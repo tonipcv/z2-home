@@ -358,129 +358,213 @@ export default function HomePage() {
         </div>
       </section>
 
-   
-
-      {/* About Section */}
+      {/* About Section - Client Journey Timeline */}
       <section className="py-16 sm:py-24 px-4 sm:px-6 bg-white relative overflow-hidden">
         <div className="container mx-auto max-w-7xl relative">
-          <div className="grid lg:grid-cols-2 gap-12 sm:gap-16 items-center">
-            {/* Left Column - Main Content */}
+          {/* Header */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }} 
+            animate={{ opacity: 1, y: 0 }} 
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-[-0.03em] leading-tight mb-6">
+              Create an exclusive experience
+            </h2>
+            <p className="text-xl font-medium text-gray-600 tracking-[-0.03em] leading-relaxed mb-8 max-w-3xl mx-auto">
+              A complete tech solution to support your patients, personalise care, and turn clients into advocates.
+            </p>
             <motion.div 
               initial={{ opacity: 0, y: 20 }} 
               animate={{ opacity: 1, y: 0 }} 
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="space-y-8"
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="bg-gray-50 p-6 sm:p-8 rounded-2xl border border-gray-100 max-w-4xl mx-auto"
             >
-              <div className="space-y-4">
-                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-[-0.03em] leading-tight">
-                  Create an exclusive experience
-                </h2>
-                <p className="text-xl font-medium text-gray-600 tracking-[-0.03em] leading-relaxed">
-                  A complete tech solution to support your patients, personalise care, and turn clients into advocates.
-                </p>
-              </div>
-
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }} 
-                animate={{ opacity: 1, y: 0 }} 
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="bg-gray-50 p-6 sm:p-8 rounded-2xl border border-gray-100"
-              >
-                <p className="text-lg text-gray-600 leading-relaxed tracking-[-0.03em]">
-                  Built to elevate every client experience through intelligent automation, personalized care journeys, and meaningful connections that transform satisfied clients into your most powerful advocates.
-                </p>
-              </motion.div>
+              <p className="text-lg text-gray-600 leading-relaxed tracking-[-0.03em]">
+                Built to elevate every client experience through intelligent automation, personalized care journeys, and meaningful connections that transform satisfied clients into your most powerful advocates.
+              </p>
             </motion.div>
+          </motion.div>
 
-            {/* Right Column - Benefits */}
-            <div className="relative">
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5 }}
-                className="absolute -left-8 top-12 bottom-12 w-px bg-gradient-to-b from-transparent via-gray-200 to-transparent"
-              />
-              
-              <div className="space-y-6">
-                <motion.h3
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: 0.3 }}
-                  className="text-2xl font-semibold text-gray-900 mb-8 tracking-[-0.03em]"
-                >
-                  With MED1, you:
-                </motion.h3>
-
-                <div className="space-y-4">
-                  {[
-                    {
-                      icon: <UserGroupIcon className="w-6 h-6 text-gray-900" />,
-                      title: 'Create a truly personal Client Area',
-                      description: 'Give each client a smart, branded space that remembers their journey, preferences, and needs — from the first contact to loyal fan.'
-                    },
-                    {
-                      icon: <ArrowTrendingUpIcon className="w-6 h-6 text-gray-900" />,
-                      title: 'Deliver tailored follow-ups that feel one-on-one',
-                      description: 'MED1 tracks every interaction and stage, sending reminders, content, and offers that match exactly where the client is in their journey.'
-                    },
-                    {
-                      icon: <ChartBarIcon className="w-6 h-6 text-gray-900" />,
-                      title: 'Turn each journey into a source of insight',
-                      description: 'Understand what each client has seen, clicked, and felt — and use that to improve every next interaction.'
-                    },
-                    {
-                      icon: <CheckIcon className="w-6 h-6 text-gray-900" />,
-                      title: 'Automated Client Support',
-                      description: 'AI-powered automation handles follow-ups, reminders, and support with a personal touch that delights clients'
-                    },
-                    {
-                      icon: <GiftIcon className="w-6 h-6 text-gray-900" />,
-                      title: 'Grow through love — and track every referral',
-                      description: 'MED1 invites satisfied clients to share their experience, refer friends, and leave glowing reviews — all tracked and rewarded.'
-                    }
-                  ].map((benefit, index) => (
-                    <motion.div 
-                      key={index}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-                      className="group relative"
-                    >
-                      <div className="relative bg-white hover:shadow-lg transition-all duration-300 p-6 rounded-xl border border-gray-100">
-                        <div className="flex items-start space-x-4">
-                          <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gray-50 flex items-center justify-center">
-                            {benefit.icon}
-                          </div>
-                          <div className="flex-grow">
-                            <h4 className="text-gray-900 font-semibold text-lg mb-1 tracking-[-0.03em]">
-                              {benefit.title}
-                            </h4>
-                            <p className="text-gray-600 text-sm tracking-[-0.03em]">
-                              {benefit.description}
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-
+          {/* Timeline - Mobile First Design */}
+          <div className="relative">
+            {/* Mobile Timeline (Vertical Stack) */}
+            <div className="block lg:hidden space-y-8">
+              {[
+                {
+                  step: "01",
+                  icon: <UserGroupIcon className="w-6 h-6 text-white" />,
+                  title: 'Create a truly personal Client Area',
+                  description: 'Give each client a smart, branded space that remembers their journey, preferences, and needs — from the first contact to loyal fan.',
+                  color: 'bg-blue-500'
+                },
+                {
+                  step: "02", 
+                  icon: <ArrowTrendingUpIcon className="w-6 h-6 text-white" />,
+                  title: 'Deliver tailored follow-ups that feel one-on-one',
+                  description: 'MED1 tracks every interaction and stage, sending reminders, content, and offers that match exactly where the client is in their journey.',
+                  color: 'bg-green-500'
+                },
+                {
+                  step: "03",
+                  icon: <ChartBarIcon className="w-6 h-6 text-white" />,
+                  title: 'Turn each journey into a source of insight',
+                  description: 'Understand what each client has seen, clicked, and felt — and use that to improve every next interaction.',
+                  color: 'bg-purple-500'
+                },
+                {
+                  step: "04",
+                  icon: <CheckIcon className="w-6 h-6 text-white" />,
+                  title: 'Automated Client Support',
+                  description: 'AI-powered automation handles follow-ups, reminders, and support with a personal touch that delights clients',
+                  color: 'bg-orange-500'
+                },
+                {
+                  step: "05",
+                  icon: <GiftIcon className="w-6 h-6 text-white" />,
+                  title: 'Grow through love — and track every referral',
+                  description: 'MED1 invites satisfied clients to share their experience, refer friends, and leave glowing reviews — all tracked and rewarded.',
+                  color: 'bg-pink-500'
+                }
+              ].map((item, index) => (
                 <motion.div 
-                  initial={{ opacity: 0, y: 20 }} 
-                  animate={{ opacity: 1, y: 0 }} 
-                  transition={{ duration: 0.5, delay: 0.8 }}
-                  className="pt-8"
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
+                  className="flex items-start space-x-4"
                 >
-                  <Button 
-                    onClick={handleDemoClick}
-                    className="bg-[#eaf212] text-gray-800 hover:bg-[#eaf212]/90 transition-colors px-8 py-4 text-sm font-medium tracking-[-0.03em] rounded-full w-full"
-                  >
-                    Get Started
-                  </Button>
+                  {/* Mobile Icon */}
+                  <div className="flex-shrink-0">
+                    <div className={`w-12 h-12 ${item.color} rounded-full flex items-center justify-center shadow-lg`}>
+                      {item.icon}
+                    </div>
+                  </div>
+                  
+                  {/* Mobile Content */}
+                  <div className="flex-1">
+                    <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+                      <div className="mb-2">
+                        <span className="text-xs font-bold text-gray-400 tracking-wider">
+                          STEP {item.step}
+                        </span>
+                      </div>
+                      <h3 className="text-lg font-bold text-gray-900 mb-2 tracking-[-0.03em]">
+                        {item.title}
+                      </h3>
+                      <p className="text-gray-600 text-sm leading-relaxed tracking-[-0.03em]">
+                        {item.description}
+                      </p>
+                    </div>
+                  </div>
                 </motion.div>
+              ))}
+            </div>
+
+            {/* Desktop Timeline (Original Design) */}
+            <div className="hidden lg:block">
+              {/* Central Timeline Line */}
+              <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-gray-200 via-gray-300 to-gray-200 h-full"></div>
+              
+              {/* Timeline Steps */}
+              <div className="space-y-16">
+                {[
+                  {
+                    step: "01",
+                    icon: <UserGroupIcon className="w-8 h-8 text-white" />,
+                    title: 'Create a truly personal Client Area',
+                    description: 'Give each client a smart, branded space that remembers their journey, preferences, and needs — from the first contact to loyal fan.',
+                    side: 'left',
+                    color: 'bg-blue-500'
+                  },
+                  {
+                    step: "02", 
+                    icon: <ArrowTrendingUpIcon className="w-8 h-8 text-white" />,
+                    title: 'Deliver tailored follow-ups that feel one-on-one',
+                    description: 'MED1 tracks every interaction and stage, sending reminders, content, and offers that match exactly where the client is in their journey.',
+                    side: 'right',
+                    color: 'bg-green-500'
+                  },
+                  {
+                    step: "03",
+                    icon: <ChartBarIcon className="w-8 h-8 text-white" />,
+                    title: 'Turn each journey into a source of insight',
+                    description: 'Understand what each client has seen, clicked, and felt — and use that to improve every next interaction.',
+                    side: 'left',
+                    color: 'bg-purple-500'
+                  },
+                  {
+                    step: "04",
+                    icon: <CheckIcon className="w-8 h-8 text-white" />,
+                    title: 'Automated Client Support',
+                    description: 'AI-powered automation handles follow-ups, reminders, and support with a personal touch that delights clients',
+                    side: 'right',
+                    color: 'bg-orange-500'
+                  },
+                  {
+                    step: "05",
+                    icon: <GiftIcon className="w-8 h-8 text-white" />,
+                    title: 'Grow through love — and track every referral',
+                    description: 'MED1 invites satisfied clients to share their experience, refer friends, and leave glowing reviews — all tracked and rewarded.',
+                    side: 'left',
+                    color: 'bg-pink-500'
+                  }
+                ].map((item, index) => (
+                  <motion.div 
+                    key={index}
+                    initial={{ opacity: 0, x: item.side === 'left' ? -50 : 50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: 0.3 + index * 0.2 }}
+                    className={`relative flex items-center ${item.side === 'left' ? 'justify-start' : 'justify-end'}`}
+                  >
+                    {/* Timeline Content */}
+                    <div className={`w-full max-w-md ${item.side === 'left' ? 'pr-8' : 'pl-8'}`}>
+                      <div className={`bg-white p-6 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 ${item.side === 'right' ? 'text-right' : ''}`}>
+                        <div className={`flex items-center mb-4 ${item.side === 'right' ? 'justify-end' : 'justify-start'}`}>
+                          <span className="text-sm font-bold text-gray-400 tracking-wider">
+                            STEP {item.step}
+                          </span>
+                        </div>
+                        <h3 className="text-xl font-bold text-gray-900 mb-3 tracking-[-0.03em]">
+                          {item.title}
+                        </h3>
+                        <p className="text-gray-600 leading-relaxed tracking-[-0.03em]">
+                          {item.description}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Timeline Node */}
+                    <div className="absolute left-1/2 transform -translate-x-1/2 z-10">
+                      <motion.div 
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        transition={{ duration: 0.4, delay: 0.5 + index * 0.2 }}
+                        className={`w-16 h-16 ${item.color} rounded-full flex items-center justify-center shadow-lg border-4 border-white`}
+                      >
+                        {item.icon}
+                      </motion.div>
+                    </div>
+                  </motion.div>
+                ))}
               </div>
             </div>
           </div>
+
+          {/* Call to Action */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }} 
+            animate={{ opacity: 1, y: 0 }} 
+            transition={{ duration: 0.5, delay: 1.5 }}
+            className="text-center mt-16"
+          >
+            <Button 
+              onClick={handleDemoClick}
+              className="bg-[#eaf212] text-gray-800 hover:bg-[#eaf212]/90 transition-colors px-8 py-4 text-lg font-medium tracking-[-0.03em] rounded-full"
+            >
+              Start Your Client Journey
+            </Button>
+          </motion.div>
         </div>
       </section>
 
