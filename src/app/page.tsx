@@ -568,74 +568,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-12 sm:py-16 px-4 sm:px-6 bg-white">
-        <div className="container mx-auto max-w-6xl">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }} 
-            animate={{ opacity: 1, y: 0 }} 
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-center mb-8 sm:mb-12"
-          >
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold mb-2 sm:mb-3 text-gray-900 tracking-[-0.03em]">
-              All the tools to grow a loyal customer base
-            </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base font-medium tracking-[-0.03em]">
-              Everything you need to transform your practice into an appointment machine
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-            {[
-              {
-                icon: <UserGroupIcon className="w-6 h-6 sm:w-8 sm:h-8 text-gray-900" />,
-                title: 'Smart Client Communication',
-                description: 'Unify every conversation across WhatsApp, email, and SMS in one place, with a human-like smart agent that responds 24/7, follows up on treatment plans, and builds real relationships over time.'
-              },
-              {
-                icon: <ArrowTrendingUpIcon className="w-6 h-6 sm:w-8 sm:h-8 text-gray-900" />,
-                title: 'Lead Growth & Nurturing',
-                description: 'Automatically capture and manage new leads while tracking every interaction—turning interest into loyal, long-term clients with intelligent follow-ups and conversion tools.'
-              },
-              {
-                icon: <PresentationChartLineIcon className="w-6 h-6 sm:w-8 sm:h-8 text-gray-900" />,
-                title: 'Personalized Membership Area',
-                description: 'Deliver an on-demand, branded experience with customized videos, recipes, schedules, and daily checklists—all in one private membership space tailored to each client\'s protocol.'
-              },
-              {
-                icon: <CheckIcon className="w-6 h-6 sm:w-8 sm:h-8 text-gray-900" />,
-                title: 'Engagement & Adherence Engine',
-                description: 'Support better results with interactive, trackable treatment checklists and smart reminders that help clients stay on schedule—and feel fully supported every step of the way.'
-              },
-              {
-                icon: <GiftIcon className="w-6 h-6 sm:w-8 sm:h-8 text-gray-900" />,
-                title: 'Loyalty & Referral System',
-                description: 'Reward your community with personalized referral links, built-in loyalty perks, and smart tracking that helps you grow your client base while deepening retention.'
-              },
-              {
-                icon: <ChartBarIcon className="w-6 h-6 sm:w-8 sm:h-8 text-gray-900" />,
-                title: 'Insights & Optimization Dashboard',
-                description: 'Track real-time engagement, client progress, and platform usage in one powerful dashboard—so you can continuously improve care and client experience.'
-              }
-            ].map((feature, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-                className="bg-gray-50 p-4 sm:p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow group border border-gray-100"
-              >
-                <div className="mb-3 sm:mb-4 transition-transform group-hover:scale-110 duration-300">
-                  {feature.icon}
-                </div>
-                <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-2 text-gray-900 tracking-[-0.03em]">{feature.title}</h3>
-                <p className="text-gray-600 text-sm sm:text-base tracking-[-0.03em]">{feature.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
+      
       {/* Who We Serve Section */}
       <section className="py-16 sm:py-20 px-4 sm:px-6 bg-gray-50">
         <div className="container mx-auto max-w-6xl">
