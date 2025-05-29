@@ -392,7 +392,7 @@ export default function DemoPage() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm border-b border-gray-100">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <img src="@logo.png" alt="Logo" className="h-8" />
+            <img src="/logo.png" alt="Logo" className="h-8" />
             
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-10">
@@ -448,7 +448,7 @@ export default function DemoPage() {
             >
               <div className="p-6">
                 <div className="flex justify-between items-center mb-8">
-                  <img src="@logo.png" alt="Logo" className="h-8" />
+                  <img src="/logo.png" alt="Logo" className="h-8" />
                   <button
                     onClick={() => setIsMenuOpen(false)}
                     className="p-2 text-gray-900 hover:text-gray-600 transition-colors"
@@ -748,7 +748,7 @@ export default function DemoPage() {
       <footer className="py-6 sm:py-8 px-4 sm:px-6 border-t border-gray-100 bg-white">
         <div className="container mx-auto max-w-6xl">
           <div className="flex flex-col sm:flex-row justify-between items-center">
-            <img src="@logo.png" alt="Logo" className="h-6 mb-4 sm:mb-0" />
+            <img src="/logo.png" alt="Logo" className="h-6 mb-4 sm:mb-0" />
             <p className="text-gray-600 text-xs sm:text-sm tracking-[-0.03em]">
               © 2024 MED1. All rights reserved.
             </p>

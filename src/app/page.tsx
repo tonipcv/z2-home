@@ -180,9 +180,9 @@ export default function HomePage() {
               className="space-y-8"
             >
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black tracking-[-0.04em] leading-[1.1]">
-                <span className="bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800 bg-clip-text text-transparent">BE THE TOP1</span>
+                <span className="bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800 bg-clip-text text-transparent">Supercharge Growth by</span>
                 <br />
-                <span className="bg-gradient-to-r from-gray-800 via-gray-600 to-gray-800 bg-clip-text text-transparent">BE MED1</span>
+                <span className="bg-gradient-to-r from-gray-800 via-gray-600 to-gray-800 bg-clip-text text-transparent">Elevating Every Experience</span>
               </h1>
               <motion.p 
                 initial={{ opacity: 0, y: 20 }}
@@ -190,7 +190,7 @@ export default function HomePage() {
                 transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
                 className="text-base sm:text-lg md:text-xl text-gray-600 mt-4 sm:mt-8 mb-6 sm:mb-10 max-w-2xl leading-relaxed tracking-[-0.03em] font-medium"
               >
-                The first CRM focused on patient acquisition and retention through referrals
+                A complete tech solution to support your patients, personalise care, and turn clients into advocates.
               </motion.p>
             </motion.div>
             <motion.div 
@@ -203,18 +203,162 @@ export default function HomePage() {
                 onClick={handleDemoClick}
                 className="bg-[#eaf212] text-gray-800 hover:bg-[#eaf212]/90 transition-all duration-300 px-4 sm:px-8 py-2.5 sm:py-3 text-sm font-medium tracking-[-0.03em] rounded-full shadow-lg hover:shadow-xl hover:scale-105 active:scale-95"
               >
-                Get Started
+                See demo
               </Button>
               <Button 
                 variant="outline"
                 className="border border-gray-300 text-gray-700 hover:bg-gray-50 transition-all duration-300 px-4 sm:px-8 py-2.5 sm:py-3 text-sm font-medium tracking-[-0.03em] rounded-full hover:scale-105 active:scale-95"
               >
-                Learn More
+                Get started
               </Button>
             </motion.div>
           </motion.div>
         </div>
       </section>
+
+      {/* Integrations Carousel Section */}
+      <section className="py-8 sm:py-12 px-4 sm:px-6 bg-white border-b border-gray-100">
+        <div className="container mx-auto max-w-6xl">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }} 
+            animate={{ opacity: 1, y: 0 }} 
+            transition={{ duration: 0.5 }}
+            className="text-center mb-6 sm:mb-8"
+          >
+            <p className="text-gray-500 text-xs sm:text-sm tracking-[-0.03em] uppercase font-medium">
+              We integrate with the most trusted tools:
+            </p>
+          </motion.div>
+
+          {/* Carousel Container */}
+          <div className="relative overflow-hidden">
+            <motion.div 
+              className="flex space-x-6 sm:space-x-8"
+              animate={{ x: [0, -1000] }}
+              transition={{
+                x: {
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  duration: 25,
+                  ease: "linear",
+                },
+              }}
+            >
+              {/* First set of logos */}
+              {[
+                { src: "/su1.webp", alt: "Integration 1" },
+                { src: "/su2.webp", alt: "Integration 2" },
+                { src: "/su3.png", alt: "Integration 3" },
+                { src: "/su4.png", alt: "Integration 4" },
+                { src: "/su5.png", alt: "Integration 5" },
+                { src: "/su6.svg.png", alt: "Integration 6" },
+              ].map((logo, index) => (
+                <div
+                  key={index}
+                  className="flex-shrink-0 w-24 sm:w-32 h-12 sm:h-16 flex items-center justify-center bg-white rounded-lg p-3 sm:p-4"
+                >
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
+                    className="max-w-full max-h-full object-contain filter grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                  />
+                </div>
+              ))}
+              
+              {/* Duplicate set for seamless loop */}
+              {[
+                { src: "/su1.webp", alt: "Integration 1" },
+                { src: "/su2.webp", alt: "Integration 2" },
+                { src: "/su3.png", alt: "Integration 3" },
+                { src: "/su4.png", alt: "Integration 4" },
+                { src: "/su5.png", alt: "Integration 5" },
+                { src: "/su6.svg.png", alt: "Integration 6" },
+              ].map((logo, index) => (
+                <div
+                  key={`duplicate-${index}`}
+                  className="flex-shrink-0 w-24 sm:w-32 h-12 sm:h-16 flex items-center justify-center bg-white rounded-lg p-3 sm:p-4"
+                >
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
+                    className="max-w-full max-h-full object-contain filter grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                  />
+                </div>
+              ))}
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-12 sm:py-16 px-4 sm:px-6 bg-white">
+        <div className="container mx-auto max-w-6xl">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }} 
+            animate={{ opacity: 1, y: 0 }} 
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-center mb-8 sm:mb-12"
+          >
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold mb-2 sm:mb-3 text-gray-900 tracking-[-0.03em]">
+              All the tools to grow a loyal customer base
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base font-medium tracking-[-0.03em]">
+              Everything you need to transform your practice into an appointment machine
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+            {[
+              {
+                icon: <UserGroupIcon className="w-6 h-6 sm:w-8 sm:h-8 text-gray-900" />,
+                title: 'Smart Client Communication',
+                description: 'Unify conversations across WhatsApp, email, and SMS with AI that automatically answers common questions from your FAQ, prepares clients for their next steps, and prompts satisfied clients for reviews and referrals—enhancing experience and driving growth.'
+              },
+              {
+                icon: <ArrowTrendingUpIcon className="w-6 h-6 sm:w-8 sm:h-8 text-gray-900" />,
+                title: 'Lead Growth & Nurturing',
+                description: 'Automatically capture and manage new leads while tracking every interaction—turning interest into loyal, long-term clients with intelligent follow-ups and conversion tools.'
+              },
+              {
+                icon: <PresentationChartLineIcon className="w-6 h-6 sm:w-8 sm:h-8 text-gray-900" />,
+                title: 'Personalized Membership Area',
+                description: 'Deliver an on-demand, branded experience with customized videos, recipes, schedules, and daily checklists—all in one private membership space tailored to each client\'s protocol.'
+              },
+              {
+                icon: <CheckIcon className="w-6 h-6 sm:w-8 sm:h-8 text-gray-900" />,
+                title: 'Automated Client Support',
+                description: 'AI-powered automation handles follow-ups, reminders, and support with a personal touch that delights clients'
+              },
+              {
+                icon: <GiftIcon className="w-6 h-6 sm:w-8 sm:h-8 text-gray-900" />,
+                title: 'Loyalty & Referral System',
+                description: 'Reward your community with personalized referral links, built-in loyalty perks, and smart tracking that helps you grow your client base while deepening retention.'
+              },
+              {
+                icon: <ChartBarIcon className="w-6 h-6 sm:w-8 sm:h-8 text-gray-900" />,
+                title: 'Insights & Optimization Dashboard',
+                description: 'Track real-time engagement, client progress, and platform usage in one powerful dashboard—so you can continuously improve care and client experience.'
+              }
+            ].map((feature, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
+                className="bg-gray-50 p-4 sm:p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow group border border-gray-100"
+              >
+                <div className="mb-3 sm:mb-4 transition-transform group-hover:scale-110 duration-300">
+                  {feature.icon}
+                </div>
+                <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-2 text-gray-900 tracking-[-0.03em]">{feature.title}</h3>
+                <p className="text-gray-600 text-sm sm:text-base tracking-[-0.03em]">{feature.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+   
 
       {/* About Section */}
       <section className="py-16 sm:py-24 px-4 sm:px-6 bg-white relative overflow-hidden">
@@ -229,10 +373,10 @@ export default function HomePage() {
             >
               <div className="space-y-4">
                 <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-[-0.03em] leading-tight">
-                  + 52.432 users
+                  Create an exclusive experience
                 </h2>
                 <p className="text-xl font-medium text-gray-600 tracking-[-0.03em] leading-relaxed">
-                  The first CRM focused on patient acquisition and retention through referrals.
+                  A complete tech solution to support your patients, personalise care, and turn clients into advocates.
                 </p>
               </div>
 
@@ -243,9 +387,7 @@ export default function HomePage() {
                 className="bg-gray-50 p-6 sm:p-8 rounded-2xl border border-gray-100"
               >
                 <p className="text-lg text-gray-600 leading-relaxed tracking-[-0.03em]">
-                  Created to transform your practice into a predictable appointment machine, 
-                  it helps you become a reference in your niche, increase revenue by up to 4x, 
-                  and scale without depending on paid traffic.
+                  Built to elevate every client experience through intelligent automation, personalized care journeys, and meaningful connections that transform satisfied clients into your most powerful advocates.
                 </p>
               </motion.div>
             </motion.div>
@@ -272,24 +414,29 @@ export default function HomePage() {
                 <div className="space-y-4">
                   {[
                     {
-                      icon: <ChartBarIcon className="w-6 h-6 text-gray-900" />,
-                      title: 'Increase lead generation',
-                      description: 'Generate more qualified leads through an optimized referral system'
+                      icon: <UserGroupIcon className="w-6 h-6 text-gray-900" />,
+                      title: 'Create a truly personal Client Area',
+                      description: 'Give each client a smart, branded space that remembers their journey, preferences, and needs — from the first contact to loyal fan.'
                     },
                     {
                       icon: <ArrowTrendingUpIcon className="w-6 h-6 text-gray-900" />,
-                      title: 'Improve appointment conversion',
-                      description: 'Track and optimize your conversion rates at every step'
+                      title: 'Deliver tailored follow-ups that feel one-on-one',
+                      description: 'MED1 tracks every interaction and stage, sending reminders, content, and offers that match exactly where the client is in their journey.'
                     },
                     {
-                      icon: <MagnifyingGlassIcon className="w-6 h-6 text-gray-900" />,
-                      title: 'Discover exactly where your patients come from',
-                      description: 'Get detailed insights into your patient acquisition channels'
+                      icon: <ChartBarIcon className="w-6 h-6 text-gray-900" />,
+                      title: 'Turn each journey into a source of insight',
+                      description: 'Understand what each client has seen, clicked, and felt — and use that to improve every next interaction.'
                     },
                     {
-                      icon: <UserGroupIcon className="w-6 h-6 text-gray-900" />,
-                      title: 'Transform each patient into a service promoter',
-                      description: 'Turn satisfied patients into your best marketing channel'
+                      icon: <CheckIcon className="w-6 h-6 text-gray-900" />,
+                      title: 'Automated Client Support',
+                      description: 'AI-powered automation handles follow-ups, reminders, and support with a personal touch that delights clients'
+                    },
+                    {
+                      icon: <GiftIcon className="w-6 h-6 text-gray-900" />,
+                      title: 'Grow through love — and track every referral',
+                      description: 'MED1 invites satisfied clients to share their experience, refer friends, and leave glowing reviews — all tracked and rewarded.'
                     }
                   ].map((benefit, index) => (
                     <motion.div 
@@ -347,7 +494,7 @@ export default function HomePage() {
             className="text-center mb-8 sm:mb-12"
           >
             <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold mb-2 sm:mb-3 text-gray-900 tracking-[-0.03em]">
-              MED1 Features
+              All the tools to grow a loyal customer base
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base font-medium tracking-[-0.03em]">
               Everything you need to transform your practice into an appointment machine
@@ -357,34 +504,34 @@ export default function HomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {[
               {
-                icon: <LinkIcon className="w-6 h-6 sm:w-8 sm:h-8 text-gray-900" />,
-                title: 'Smart Scheduling Link',
-                description: 'With multiple origins and redirects'
+                icon: <UserGroupIcon className="w-6 h-6 sm:w-8 sm:h-8 text-gray-900" />,
+                title: 'Smart Client Communication',
+                description: 'Unify every conversation across WhatsApp, email, and SMS in one place, with a human-like smart agent that responds 24/7, follows up on treatment plans, and builds real relationships over time.'
               },
               {
-                icon: <ChartPieIcon className="w-6 h-6 sm:w-8 sm:h-8 text-gray-900" />,
-                title: 'Tracking Technology',
-                description: 'For lead origins (Instagram, Google, Referrals, etc.)'
-              },
-              {
-                icon: <ShareIcon className="w-6 h-6 sm:w-8 sm:h-8 text-gray-900" />,
-                title: 'Personalized Link Generation',
-                description: 'For patients, with referral metrics and rewards for the most engaged'
-              },
-              {
-                icon: <QrCodeIcon className="w-6 h-6 sm:w-8 sm:h-8 text-gray-900" />,
-                title: 'Trackable QR Code Generator',
-                description: 'Perfect for cards, reception, or social media'
+                icon: <ArrowTrendingUpIcon className="w-6 h-6 sm:w-8 sm:h-8 text-gray-900" />,
+                title: 'Lead Growth & Nurturing',
+                description: 'Automatically capture and manage new leads while tracking every interaction—turning interest into loyal, long-term clients with intelligent follow-ups and conversion tools.'
               },
               {
                 icon: <PresentationChartLineIcon className="w-6 h-6 sm:w-8 sm:h-8 text-gray-900" />,
-                title: 'Professional Dashboard',
-                description: 'With all data in real-time'
+                title: 'Personalized Membership Area',
+                description: 'Deliver an on-demand, branded experience with customized videos, recipes, schedules, and daily checklists—all in one private membership space tailored to each client\'s protocol.'
               },
               {
-                icon: <FunnelIcon className="w-6 h-6 sm:w-8 sm:h-8 text-gray-900" />,
-                title: 'Complete Visual Pipeline',
-                description: 'Showing where each lead is in the buying journey'
+                icon: <CheckIcon className="w-6 h-6 sm:w-8 sm:h-8 text-gray-900" />,
+                title: 'Engagement & Adherence Engine',
+                description: 'Support better results with interactive, trackable treatment checklists and smart reminders that help clients stay on schedule—and feel fully supported every step of the way.'
+              },
+              {
+                icon: <GiftIcon className="w-6 h-6 sm:w-8 sm:h-8 text-gray-900" />,
+                title: 'Loyalty & Referral System',
+                description: 'Reward your community with personalized referral links, built-in loyalty perks, and smart tracking that helps you grow your client base while deepening retention.'
+              },
+              {
+                icon: <ChartBarIcon className="w-6 h-6 sm:w-8 sm:h-8 text-gray-900" />,
+                title: 'Insights & Optimization Dashboard',
+                description: 'Track real-time engagement, client progress, and platform usage in one powerful dashboard—so you can continuously improve care and client experience.'
               }
             ].map((feature, index) => (
               <motion.div
@@ -405,78 +552,224 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Flywheel Section */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 bg-white">
+      {/* Who We Serve Section */}
+      <section className="py-16 sm:py-20 px-4 sm:px-6 bg-gray-50">
         <div className="container mx-auto max-w-6xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }} 
+            animate={{ opacity: 1, y: 0 }} 
             transition={{ duration: 0.5 }}
             className="text-center mb-12 sm:mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 text-gray-900 tracking-[-0.03em]">How MED1's Flywheel Works</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base tracking-[-0.03em]">
-              A continuous journey of organic growth, data-driven and powered by those who trust your service the most: your own patients.
+            <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 text-gray-900 tracking-[-0.03em]">
+              Who we serve
+            </h2>
+            <p className="text-gray-600 max-w-4xl mx-auto text-sm sm:text-base tracking-[-0.03em] leading-relaxed">
+              We support forward-thinking clinics and health practitioners in diverse fields to grow their client base and deliver exceptional experiences through tech solutions that turn patients into loyal advocates.
             </p>
           </motion.div>
 
-          <div className="relative">
-            {/* Flywheel Steps */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[
-                {
-                  step: 1,
-                  title: 'Patient schedules and origin is automatically recorded',
-                  icon: <UserGroupIcon className="w-6 h-6 text-gray-900" />
-                },
-                {
-                  step: 2,
-                  title: 'You track the journey until the appointment',
-                  icon: <ChartBarIcon className="w-6 h-6 text-gray-900" />
-                },
-                {
-                  step: 3,
-                  title: 'After service, they receive a trackable link to refer friends',
-                  icon: <ShareIcon className="w-6 h-6 text-gray-900" />
-                },
-                {
-                  step: 4,
-                  title: 'You create incentive campaigns for top referrers',
-                  icon: <GiftIcon className="w-6 h-6 text-gray-900" />
-                },
-                {
-                  step: 5,
-                  title: 'You see which channels generate more patients',
-                  icon: <ChartPieIcon className="w-6 h-6 text-gray-900" />
-                },
-                {
-                  step: 6,
-                  title: 'Reinvest in channels with better ROI',
-                  icon: <ArrowTrendingUpIcon className="w-6 h-6 text-gray-900" />
-                }
-              ].map((item, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: i * 0.1 }}
-                  className="relative bg-gray-50 p-6 rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
-                >
-                  <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center">
-                      {item.icon}
-                    </div>
-                    <div>
-                      <div className="flex items-center mb-2">
-                        <span className="text-gray-900 font-semibold mr-2 tracking-[-0.03em]">Step {item.step}</span>
-                      </div>
-                      <p className="text-gray-600 text-sm sm:text-base tracking-[-0.03em]">{item.title}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6">
+            {[
+              {
+                title: 'Boutique Clinics',
+                icon: <UserGroupIcon className="w-8 h-8 text-gray-900" />
+              },
+              {
+                title: 'Solo Practitioners',
+                icon: <UserGroupIcon className="w-8 h-8 text-gray-900" />
+              },
+              {
+                title: 'Doctors',
+                icon: <UserGroupIcon className="w-8 h-8 text-gray-900" />
+              },
+              {
+                title: 'Health Specialists',
+                icon: <UserGroupIcon className="w-8 h-8 text-gray-900" />
+              },
+              {
+                title: 'Aesthetic Health Practitioners',
+                icon: <UserGroupIcon className="w-8 h-8 text-gray-900" />
+              },
+              {
+                title: 'Wellness Professionals',
+                icon: <UserGroupIcon className="w-8 h-8 text-gray-900" />
+              }
+            ].map((category, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-100 text-center"
+              >
+                <div className="flex justify-center mb-4">
+                  {category.icon}
+                </div>
+                <h3 className="text-sm sm:text-base font-semibold text-gray-900 tracking-[-0.03em] leading-tight">
+                  {category.title}
+                </h3>
+              </motion.div>
+            ))}
           </div>
+        </div>
+      </section>
+
+      {/* MED1 Plans Section */}
+      <section className="py-16 sm:py-20 px-4 sm:px-6 bg-white">
+        <div className="container mx-auto max-w-7xl">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }} 
+            animate={{ opacity: 1, y: 0 }} 
+            transition={{ duration: 0.5 }}
+            className="text-center mb-12 sm:mb-16"
+          >
+            <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 text-gray-900 tracking-[-0.03em]">
+              MED1 Plans
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base tracking-[-0.03em]">
+              Choose the right experience for your clinic — and your clients.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
+            {/* Starter Plan */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="bg-white p-6 sm:p-8 rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg transition-shadow"
+            >
+              <div className="mb-6">
+                <div className="flex items-center mb-3">
+                  <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center mr-3">
+                    <ArrowTrendingUpIcon className="w-5 h-5 text-gray-900" />
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 tracking-[-0.03em]">Starter</h3>
+                </div>
+                <p className="text-gray-600 text-sm tracking-[-0.03em]">
+                  Perfect for getting started with smart client engagement.
+                </p>
+              </div>
+
+              <ul className="space-y-4 mb-8">
+                {[
+                  'Premium Client Area with a High-End Experience',
+                  'Personalized Protocols & Patient Journeys',
+                  'Course Library to Share Educational Content',
+                  'AI-Powered Customer Success (Auto-responds using your FAQ — and gets smarter over time)',
+                  'Up to 100 clients'
+                ].map((feature, index) => (
+                  <li key={index} className="flex items-start">
+                    <CheckIcon className="w-4 h-4 text-gray-900 mr-3 mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-600 text-sm tracking-[-0.03em] leading-relaxed">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            {/* Growth Plan */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="bg-white p-6 sm:p-8 rounded-2xl border-2 border-[#eaf212] shadow-lg relative transform scale-105"
+            >
+              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                <span className="bg-[#eaf212] text-gray-900 px-4 py-1 rounded-full text-xs font-semibold tracking-[-0.03em]">
+                  MOST POPULAR
+                </span>
+              </div>
+              
+              <div className="mb-6">
+                <div className="flex items-center mb-3">
+                  <div className="w-10 h-10 rounded-full bg-[#eaf212] flex items-center justify-center mr-3">
+                    <ChartBarIcon className="w-5 h-5 text-gray-900" />
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 tracking-[-0.03em]">Growth</h3>
+                </div>
+                <p className="text-gray-600 text-sm tracking-[-0.03em]">
+                  Ideal for growing clinics with more patients and integrations.
+                </p>
+              </div>
+
+              <div className="mb-4">
+                <p className="text-gray-900 font-semibold text-sm tracking-[-0.03em] mb-3">
+                  Everything in Starter, plus:
+                </p>
+              </div>
+
+              <ul className="space-y-4 mb-8">
+                {[
+                  'Up to 1,000 clients',
+                  'WhatsApp Integration + 500+ platforms',
+                  'Unlimited Procedures',
+                  'Unlimited Courses',
+                  'AI that not only answers — it guides members through their entire journey',
+                  'Referral System (Every client receives a personal referral link. Create rules to reward and recognize top referrers.)',
+                  'Smart Review Booster (AI detects positive sentiment and asks for reviews at the perfect moment — boosting review rates by 3x)'
+                ].map((feature, index) => (
+                  <li key={index} className="flex items-start">
+                    <CheckIcon className="w-4 h-4 text-gray-900 mr-3 mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-600 text-sm tracking-[-0.03em] leading-relaxed">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            {/* Enterprise Plan */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="bg-white p-6 sm:p-8 rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg transition-shadow"
+            >
+              <div className="mb-6">
+                <div className="flex items-center mb-3">
+                  <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center mr-3">
+                    <UserGroupIcon className="w-5 h-5 text-gray-900" />
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 tracking-[-0.03em]">Enterprise</h3>
+                </div>
+                <p className="text-gray-600 text-sm tracking-[-0.03em]">
+                  Built for large-scale operations, franchises, and enterprise-level clinics.
+                </p>
+              </div>
+
+              <div className="mb-4">
+                <p className="text-gray-900 font-semibold text-sm tracking-[-0.03em] mb-3">
+                  Everything in Growth, plus:
+                </p>
+              </div>
+
+              <ul className="space-y-4 mb-8">
+                {[
+                  'Unlimited client base (Supports 1,000+ physicians)',
+                  'White Label Solution — Your brand, your platform',
+                  'Dedicated Support & Custom Solutions'
+                ].map((feature, index) => (
+                  <li key={index} className="flex items-start">
+                    <CheckIcon className="w-4 h-4 text-gray-900 mr-3 mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-600 text-sm tracking-[-0.03em] leading-relaxed">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          </div>
+
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }} 
+            animate={{ opacity: 1, y: 0 }} 
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="text-center mt-12"
+          >
+            <Button 
+              onClick={handleDemoClick}
+              className="bg-[#eaf212] text-gray-800 hover:bg-[#eaf212]/90 transition-colors px-8 py-4 text-base font-medium tracking-[-0.03em] rounded-full"
+            >
+              See demo
+            </Button>
+          </motion.div>
         </div>
       </section>
 
@@ -554,7 +847,7 @@ export default function HomePage() {
               Why Choose MED1?
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base tracking-[-0.03em]">
-              Compare how MED1 transforms your practice management
+              Compare how MED1 transforms your client experience and practice growth
             </p>
           </motion.div>
 
@@ -576,24 +869,24 @@ export default function HomePage() {
               <ul className="space-y-4">
                 {[
                   {
-                    title: 'Patient Origin',
-                    description: 'Don\'t know where patients come from and miss optimization opportunities'
+                    title: 'Generic Client Experience',
+                    description: 'One-size-fits-all approach with no personalization or journey tracking'
                   },
                   {
-                    title: 'Referrals',
-                    description: 'Improvised referral system without patient incentives'
+                    title: 'Manual Follow-ups',
+                    description: 'Time-consuming manual reminders and generic communication that feels impersonal'
                   },
                   {
-                    title: 'Acquisition Costs',
-                    description: 'High CAC and no control over marketing investments'
+                    title: 'Scattered Client Data',
+                    description: 'Client information spread across multiple platforms with no unified view'
                   },
                   {
-                    title: 'Lead Management',
-                    description: 'Leads get lost in WhatsApp with no journey tracking'
+                    title: 'Limited Engagement',
+                    description: 'No dedicated client area or tools to keep clients engaged between visits'
                   },
                   {
-                    title: 'Decision Making',
-                    description: 'Decisions based on assumptions, without concrete data'
+                    title: 'Missed Growth Opportunities',
+                    description: 'No systematic way to turn satisfied clients into advocates and referral sources'
                   }
                 ].map((item, index) => (
                   <li key={index} className="flex items-start">
@@ -626,24 +919,24 @@ export default function HomePage() {
               <ul className="space-y-4">
                 {[
                   {
-                    title: 'Complete Tracking',
-                    description: 'Know exactly the origin of each patient and optimize the most efficient channels'
+                    title: 'Personalized Client Journeys',
+                    description: 'Every client gets a tailored experience with smart, branded spaces that remember their preferences and needs'
                   },
                   {
-                    title: 'Referral System',
-                    description: 'Trackable links and reward system that encourages referrals'
+                    title: 'Intelligent Automation',
+                    description: 'AI-powered follow-ups and reminders that feel personal and arrive at the perfect moment'
                   },
                   {
-                    title: 'Optimized Costs',
-                    description: 'Organic and predictable acquisition with significant CAC reduction'
+                    title: 'Unified Client Hub',
+                    description: 'Complete 360° view of each client with all interactions, progress, and insights in one place'
                   },
                   {
-                    title: 'Professional Pipeline',
-                    description: 'Complete tracking of the lead journey until conversion'
+                    title: 'Engaging Membership Experience',
+                    description: 'Dedicated client areas with personalized content, checklists, and resources that keep clients connected'
                   },
                   {
-                    title: 'Data-Driven Decisions',
-                    description: 'Complete dashboard with real-time metrics for decision making'
+                    title: 'Advocacy & Growth Engine',
+                    description: 'Systematic approach to turn satisfied clients into loyal advocates with trackable referral systems'
                   }
                 ].map((item, index) => (
                   <li key={index} className="flex items-start">
@@ -675,35 +968,35 @@ export default function HomePage() {
               Benefits
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto tracking-[-0.03em]">
-              Discover how MED1 can revolutionize your practice management
+              Discover how MED1 transforms client experiences and drives sustainable growth
             </p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                title: 'Real increase in appointment rates',
-                description: 'Transform each patient into a service promoter and watch your appointments grow organically'
+                title: 'Elevated Client Satisfaction',
+                description: 'Create personalized experiences that make every client feel valued and understood, leading to higher satisfaction and loyalty'
               },
               {
-                title: 'Reduced cost per patient',
-                description: 'With organic and predictable acquisition, significantly reduce your CAC'
+                title: 'Automated Client Support',
+                description: 'AI-powered automation handles follow-ups, reminders, and support with a personal touch that delights clients'
               },
               {
-                title: 'More retention and more referrals',
-                description: 'Reward system that encourages your patients to refer more'
+                title: 'Organic Growth Through Advocacy',
+                description: 'Transform satisfied clients into passionate advocates who naturally refer friends and family to your practice'
               },
               {
-                title: 'Complete performance view',
-                description: 'Professional dashboard with all data in real-time'
+                title: 'Complete Client Intelligence',
+                description: 'Gain deep insights into client journeys, preferences, and engagement to continuously improve their experience'
               },
               {
-                title: 'Team with more control',
-                description: 'Complete visual pipeline to track each lead in the journey'
+                title: 'Streamlined Team Operations',
+                description: 'Empower your team with smart tools and automated workflows that reduce manual work and increase efficiency'
               },
               {
-                title: 'Less improvisation',
-                description: 'Clear and automated processes for the entire team'
+                title: 'Predictable Practice Growth',
+                description: 'Build sustainable growth through systematic client engagement, retention strategies, and measurable results'
               }
             ].map((benefit, index) => (
               <motion.div
@@ -722,6 +1015,65 @@ export default function HomePage() {
                     <p className="text-gray-500 tracking-[-0.03em]">{benefit.description}</p>
                   </div>
                 </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Included in All Plans Section */}
+      <section className="py-16 sm:py-20 px-4 sm:px-6 bg-gray-50">
+        <div className="container mx-auto max-w-6xl">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }} 
+            animate={{ opacity: 1, y: 0 }} 
+            transition={{ duration: 0.5 }}
+            className="text-center mb-12 sm:mb-16"
+          >
+            <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 text-gray-900 tracking-[-0.03em]">
+              Included in all plans
+            </h2>
+          </motion.div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+            {[
+              {
+                icon: <ArrowTrendingUpIcon className="w-8 h-8 text-gray-900" />,
+                title: 'Data Conversion',
+                description: 'No loss of data when you switch over'
+              },
+              {
+                icon: <UserGroupIcon className="w-8 h-8 text-gray-900" />,
+                title: 'Training',
+                description: 'Dedicated training time as per your convenience'
+              },
+              {
+                icon: <CheckIcon className="w-8 h-8 text-gray-900" />,
+                title: 'Implementation Support',
+                description: '60-days of hand-holding for your success'
+              },
+              {
+                icon: <GiftIcon className="w-8 h-8 text-gray-900" />,
+                title: 'Post Go Live Support',
+                description: 'A Life-time of Free Support'
+              }
+            ].map((feature, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="bg-white p-6 sm:p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-100 text-center"
+              >
+                <div className="flex justify-center mb-4">
+                  {feature.icon}
+                </div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-3 tracking-[-0.03em]">
+                  {feature.title}
+                </h3>
+                <p className="text-gray-600 text-sm sm:text-base tracking-[-0.03em] leading-relaxed">
+                  {feature.description}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -748,6 +1100,29 @@ export default function HomePage() {
             >
               Schedule Demo
             </Button>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Privacy Section */}
+      <section className="py-8 sm:py-12 px-4 sm:px-6 bg-gray-50 border-t border-gray-100">
+        <div className="container mx-auto max-w-4xl text-center">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="flex flex-col items-center space-y-4"
+          >
+            <div className="w-12 h-12 flex items-center justify-center">
+              <img
+                src="/safe.png"
+                alt="Security & Privacy"
+                className="max-w-full max-h-full object-contain"
+              />
+            </div>
+            <p className="text-gray-600 text-sm sm:text-base tracking-[-0.03em] font-medium max-w-2xl">
+              We take privacy seriously. MED1 follows strict data protection standards under UK & EU regulations.
+            </p>
           </motion.div>
         </div>
       </section>
