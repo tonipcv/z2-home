@@ -50,13 +50,13 @@ export default function HomePage() {
                 Pricing
               </a>
               <Button 
-                onClick={() => window.location.href = 'https://www.cxlus.com/auth/signin'}
+                onClick={() => window.location.href = 'https://app.cxlus.com/auth/signin'}
                 className="bg-[#eaf212] text-black hover:bg-[#eaf212]/90 transition-colors px-6 py-2 text-sm font-medium tracking-[-0.03em] rounded-full"
               >
                 Sign In
               </Button>
             </div>
-
+    
             {/* Mobile Menu Button */}
             <button
               className="md:hidden p-2.5 text-gray-900 hover:text-gray-600 transition-colors bg-white rounded-full shadow-sm"

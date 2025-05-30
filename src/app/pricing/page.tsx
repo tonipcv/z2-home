@@ -34,7 +34,7 @@ export default function PricingPage() {
                 Pricing
               </a>
               <Button 
-                onClick={() => window.location.href = 'https://www.cxlus.com/auth/signin'}
+                onClick={() => window.location.href = 'https://app.cxlus.com/auth/signin'}
                 className="bg-[#eaf212] text-black hover:bg-[#eaf212]/90 transition-colors px-6 py-2 text-sm font-medium tracking-[-0.03em] rounded-full"
               >
                 Sign In
@@ -105,7 +105,7 @@ export default function PricingPage() {
                   </a>
                   <Button
                     onClick={() => {
-                      window.location.href = 'https://www.cxlus.com/auth/signin';
+                      window.location.href = 'https://app.cxlus.com/auth/signin';
                       setIsMenuOpen(false);
                     }}
                     className="w-full bg-[#eaf212] text-gray-800 hover:bg-[#eaf212]/90 transition-colors py-3 text-base font-medium tracking-[-0.03em] rounded-full mt-4"
