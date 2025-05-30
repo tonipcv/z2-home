@@ -15,50 +15,11 @@ const nextConfig = {
   async headers() {
     return [
       {
-        source: '/favicon.ico',
+        source: '/:path*', // General catch-all for other paths
         headers: [
           {
             key: 'Cache-Control',
-            // Vercel might handle caching differently, trying a common value.
-            value: 'public, max-age=31536000, immutable',
-          },
-          {
-            key: 'Content-Type',
-            value: 'image/x-icon',
-          },
-        ],
-      },
-      {
-        source: '/favicon.png',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=86400, immutable',
-          },
-          {
-            key: 'Content-Type',
-            value: 'image/png',
-          },
-        ],
-      },
-      {
-        source: '/apple-touch-icon.png',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=86400, immutable',
-          },
-          {
-            key: 'Content-Type',
-            value: 'image/png',
-          },
-        ],
-      },
-      {
-        source: '/:path*', // Catch-all for other paths
-        headers: [
-          {
-            key: 'Cache-Control',
+            // Default cache policy for most assets
             value: 'public, max-age=0, must-revalidate',
           },
         ],
