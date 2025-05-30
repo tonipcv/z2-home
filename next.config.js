@@ -19,7 +19,8 @@ const nextConfig = {
         headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=86400, immutable',
+            // Vercel might handle caching differently, trying a common value.
+            value: 'public, max-age=31536000, immutable',
           },
           {
             key: 'Content-Type',
@@ -54,7 +55,7 @@ const nextConfig = {
         ],
       },
       {
-        source: '/:path*',
+        source: '/:path*', // Catch-all for other paths
         headers: [
           {
             key: 'Cache-Control',
