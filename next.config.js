@@ -5,15 +5,54 @@ const nextConfig = {
   },
   output: 'standalone',
   images: {
-    domains: ['med1.app'],
+    domains: ['cxlus.com'],
   },
   // Basic asset handling
   webpack: (config) => {
     return config;
   },
-  // Simple cache control
+  // Optimized cache control with specific favicon handling
   async headers() {
     return [
+      {
+        source: '/favicon.ico',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=86400, immutable',
+          },
+          {
+            key: 'Content-Type',
+            value: 'image/x-icon',
+          },
+        ],
+      },
+      {
+        source: '/favicon.png',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=86400, immutable',
+          },
+          {
+            key: 'Content-Type',
+            value: 'image/png',
+          },
+        ],
+      },
+      {
+        source: '/apple-touch-icon.png',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=86400, immutable',
+          },
+          {
+            key: 'Content-Type',
+            value: 'image/png',
+          },
+        ],
+      },
       {
         source: '/:path*',
         headers: [
