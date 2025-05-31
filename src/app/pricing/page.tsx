@@ -13,17 +13,25 @@ import {
 } from '@heroicons/react/24/outline';
 import { useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
+import { useRouter } from 'next/navigation';
 
 export default function PricingPage() {
+  const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const handleDemoClick = () => {
+    router.push('/demo');
+  };
+
   return (
-    <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm border-b border-gray-100">
+    <div className="min-h-screen bg-white text-gray-900 font-satoshi tracking-[-0.03em]">
+      {/* Navigation */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm border-b border-gray-100">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <img src="/logo.png" alt="Logo" className="h-8" />
+            <a href="/" className="cursor-pointer">
+              <img src="/logo.png" alt="Logo" className="h-8" />
+            </a>
             
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-10">
@@ -35,28 +43,36 @@ export default function PricingPage() {
               </a>
               <Button 
                 onClick={() => window.location.href = 'https://app.cxlus.com/auth/signin'}
-                className="bg-[#eaf212] text-black hover:bg-[#eaf212]/90 transition-colors px-6 py-2 text-sm font-medium tracking-[-0.03em] rounded-full"
+                className="bg-[#00dbe2] text-black hover:bg-[#00dbe2]/90 transition-colors px-6 py-2 text-sm font-medium tracking-[-0.03em] rounded-full"
               >
                 Sign In
               </Button>
             </div>
 
-            {/* Mobile Menu Button */}
-            <button
-              className="md:hidden p-2.5 text-gray-900 hover:text-gray-600 transition-colors bg-white rounded-full shadow-sm"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              {isMenuOpen ? (
-                <XMarkIcon className="h-5 w-5" />
-              ) : (
-                <Bars3Icon className="h-5 w-5" />
-              )}
-            </button>
+            {/* Mobile Navigation */}
+            <div className="md:hidden flex items-center space-x-3">
+              <Button 
+                onClick={handleDemoClick}
+                className="bg-[#00dbe2] text-black hover:bg-[#00dbe2]/90 transition-colors px-4 py-2 text-xs font-medium tracking-[-0.03em] rounded-full"
+              >
+                Get a Demo
+              </Button>
+              <button
+                className="p-2.5 text-gray-900 hover:text-gray-600 transition-colors bg-white rounded-full shadow-sm"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+              >
+                {isMenuOpen ? (
+                  <XMarkIcon className="h-5 w-5" />
+                ) : (
+                  <Bars3Icon className="h-5 w-5" />
+                )}
+              </button>
+            </div>
           </div>
         </div>
-      </header>
+      </nav>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isMenuOpen && (
           <>
@@ -77,9 +93,11 @@ export default function PricingPage() {
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
               className="fixed top-0 right-0 bottom-0 w-full max-w-sm bg-white z-50 shadow-xl overflow-y-auto"
             >
-              <div className="p-6">
+              <div className="p-6 h-full flex flex-col">
                 <div className="flex justify-between items-center mb-8">
-                  <img src="/logo.png" alt="Logo" className="h-8" />
+                  <a href="/" className="cursor-pointer">
+                    <img src="/logo.png" alt="Logo" className="h-8" />
+                  </a>
                   <button
                     onClick={() => setIsMenuOpen(false)}
                     className="p-2 text-gray-900 hover:text-gray-600 transition-colors"
@@ -88,30 +106,46 @@ export default function PricingPage() {
                   </button>
                 </div>
                 
-                <div className="flex flex-col space-y-4">
-                  <a
-                    href="/partners"
-                    className="text-base text-gray-900 hover:text-gray-600 transition-colors tracking-[-0.03em] py-2"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Partners
-                  </a>
-                  <a
-                    href="/pricing"
-                    className="text-base text-gray-900 hover:text-gray-600 transition-colors tracking-[-0.03em] py-2"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Pricing
-                  </a>
-                  <Button
-                    onClick={() => {
-                      window.location.href = 'https://app.cxlus.com/auth/signin';
-                      setIsMenuOpen(false);
-                    }}
-                    className="w-full bg-[#eaf212] text-gray-800 hover:bg-[#eaf212]/90 transition-colors py-3 text-base font-medium tracking-[-0.03em] rounded-full mt-4"
-                  >
-                    Sign In
-                  </Button>
+                <div className="flex flex-col flex-1">
+                  <div className="flex flex-col space-y-4">
+                    <a
+                      href="/partners"
+                      className="text-base text-gray-900 hover:text-gray-600 transition-colors tracking-[-0.03em] py-2"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Partners
+                    </a>
+                    <a
+                      href="/pricing"
+                      className="text-base text-gray-900 hover:text-gray-600 transition-colors tracking-[-0.03em] py-2"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Pricing
+                    </a>
+                  </div>
+                  
+                  {/* Buttons Section - Fixed at bottom */}
+                  <div className="mt-auto pt-6 flex space-x-3">
+                    <Button
+                      onClick={() => {
+                        window.location.href = 'https://app.cxlus.com/auth/signin';
+                        setIsMenuOpen(false);
+                      }}
+                      variant="outline"
+                      className="flex-1 border-gray-300 text-gray-700 hover:bg-gray-50 transition-all duration-300 py-3 text-base font-medium tracking-[-0.03em] rounded-full"
+                    >
+                      Login
+                    </Button>
+                    <Button
+                      onClick={() => {
+                        handleDemoClick();
+                        setIsMenuOpen(false);
+                      }}
+                      className="flex-1 bg-[#00dbe2] text-gray-800 hover:bg-[#00dbe2]/90 transition-all duration-300 py-3 text-base font-medium tracking-[-0.03em] rounded-full shadow-lg hover:shadow-xl"
+                    >
+                      Get a Demo
+                    </Button>
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -287,7 +321,7 @@ export default function PricingPage() {
             className="text-center mt-12"
           >
             <Button 
-              onClick={() => window.location.href = '/demo'}
+              onClick={handleDemoClick}
               className="bg-[#eaf212] text-gray-800 hover:bg-[#eaf212]/90 transition-colors px-8 py-4 text-base font-medium tracking-[-0.03em] rounded-full"
             >
               See demo
@@ -371,7 +405,7 @@ export default function PricingPage() {
               Our team is here to help you choose the right plan for your practice
             </p>
             <Button 
-              onClick={() => window.location.href = '/demo'}
+              onClick={handleDemoClick}
               className="bg-[#eaf212] text-gray-800 hover:bg-[#eaf212]/90 transition-all duration-300 px-8 py-4 text-lg font-medium tracking-[-0.03em] rounded-full"
             >
               Schedule Demo

@@ -57,17 +57,25 @@ export default function HomePage() {
               </Button>
             </div>
     
-            {/* Mobile Menu Button */}
-            <button
-              className="md:hidden p-2.5 text-gray-900 hover:text-gray-600 transition-colors bg-white rounded-full shadow-sm"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              {isMenuOpen ? (
-                <XMarkIcon className="h-5 w-5" />
-              ) : (
-                <Bars3Icon className="h-5 w-5" />
-              )}
-            </button>
+            {/* Mobile Navigation */}
+            <div className="md:hidden flex items-center space-x-3">
+              <Button 
+                onClick={handleDemoClick}
+                className="bg-[#eaf212] text-black hover:bg-[#eaf212]/90 transition-colors px-4 py-2 text-xs font-medium tracking-[-0.03em] rounded-full"
+              >
+                Get a Demo
+              </Button>
+              <button
+                className="p-2.5 text-gray-900 hover:text-gray-600 transition-colors bg-white rounded-full shadow-sm"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+              >
+                {isMenuOpen ? (
+                  <XMarkIcon className="h-5 w-5" />
+                ) : (
+                  <Bars3Icon className="h-5 w-5" />
+                )}
+              </button>
+            </div>
           </div>
         </div>
       </nav>
@@ -93,7 +101,7 @@ export default function HomePage() {
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
               className="fixed top-0 right-0 bottom-0 w-full max-w-sm bg-white z-50 shadow-xl overflow-y-auto"
             >
-              <div className="p-6">
+              <div className="p-6 h-full flex flex-col">
                 <div className="flex justify-between items-center mb-8">
                   <img src="/logo.png" alt="Logo" className="h-8" />
                   <button
@@ -104,30 +112,46 @@ export default function HomePage() {
                   </button>
                 </div>
                 
-                <div className="flex flex-col space-y-4">
-                  <a
-                    href="/partners"
-                    className="text-base text-gray-900 hover:text-gray-600 transition-colors tracking-[-0.03em] py-2"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Partners
-                  </a>
-                  <a
-                    href="/pricing"
-                    className="text-base text-gray-900 hover:text-gray-600 transition-colors tracking-[-0.03em] py-2"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Pricing
-                  </a>
-                  <Button
-                    onClick={() => {
-                      handleDemoClick();
-                      setIsMenuOpen(false);
-                    }}
-                    className="w-full bg-[#eaf212] text-gray-800 hover:bg-[#eaf212]/90 transition-colors py-3 text-base font-medium tracking-[-0.03em] rounded-full mt-4"
-                  >
-                    Sign In
-                  </Button>
+                <div className="flex flex-col flex-1">
+                  <div className="flex flex-col space-y-4">
+                    <a
+                      href="/partners"
+                      className="text-base text-gray-900 hover:text-gray-600 transition-colors tracking-[-0.03em] py-2"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Partners
+                    </a>
+                    <a
+                      href="/pricing"
+                      className="text-base text-gray-900 hover:text-gray-600 transition-colors tracking-[-0.03em] py-2"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Pricing
+                    </a>
+                  </div>
+                  
+                  {/* Buttons Section - Fixed at bottom */}
+                  <div className="mt-auto pt-6 flex space-x-3">
+                    <Button
+                      onClick={() => {
+                        window.location.href = 'https://app.cxlus.com/auth/signin';
+                        setIsMenuOpen(false);
+                      }}
+                      variant="outline"
+                      className="flex-1 border-gray-300 text-gray-700 hover:bg-gray-50 transition-all duration-300 py-3 text-base font-medium tracking-[-0.03em] rounded-full"
+                    >
+                      Login
+                    </Button>
+                    <Button
+                      onClick={() => {
+                        handleDemoClick();
+                        setIsMenuOpen(false);
+                      }}
+                      className="flex-1 bg-[#eaf212] text-gray-800 hover:bg-[#eaf212]/90 transition-all duration-300 py-3 text-base font-medium tracking-[-0.03em] rounded-full shadow-lg hover:shadow-xl"
+                    >
+                      Get a Demo
+                    </Button>
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -690,17 +714,17 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="bg-white p-6 sm:p-8 rounded-2xl border-2 border-[#eaf212] shadow-lg relative transform scale-105"
+              className="bg-white p-6 sm:p-8 rounded-2xl border-2 border-[#00dbe2] shadow-lg relative transform scale-105"
             >
               <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                <span className="bg-[#eaf212] text-gray-900 px-4 py-1 rounded-full text-xs font-semibold tracking-[-0.03em]">
+                <span className="bg-[#00dbe2] text-gray-900 px-4 py-1 rounded-full text-xs font-semibold tracking-[-0.03em]">
                   MOST POPULAR
                 </span>
               </div>
               
               <div className="mb-6">
                 <div className="flex items-center mb-3">
-                  <div className="w-10 h-10 rounded-full bg-[#eaf212] flex items-center justify-center mr-3">
+                  <div className="w-10 h-10 rounded-full bg-[#00dbe2] flex items-center justify-center mr-3">
                     <ChartBarIcon className="w-5 h-5 text-gray-900" />
                   </div>
                   <h3 className="text-xl sm:text-2xl font-bold text-gray-900 tracking-[-0.03em]">Growth</h3>
