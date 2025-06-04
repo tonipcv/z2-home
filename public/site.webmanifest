@@ -1,16 +1,33 @@
 {
-  "name": "CXLUS - User Experience Platform",
+  "name": "CXLUS - Supercharge Growth by Elevating Every Experience",
   "short_name": "CXLUS",
-  "description": "CXLUS is a platform that provides a user experience in another level.",
+  "description": "A complete tech solution to support your patients, personalise care, and turn clients into advocates.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#000000",
+  "theme_color": "#00dbe2",
   "icons": [
     {
       "src": "/favicon.ico",
-      "sizes": "any",
+      "sizes": "32x32",
       "type": "image/x-icon"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
     }
   ]
 } 
