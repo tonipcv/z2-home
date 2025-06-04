@@ -121,7 +121,7 @@ export default function DemoPage() {
       className="text-center max-w-3xl mx-auto"
     >
       <h1 className="text-3xl md:text-4xl font-light text-white mb-6 leading-tight">
-        Agende uma demonstração gratuita da Med1
+        Agende uma demonstração gratuita da CXLUS
       </h1>
       <p className="text-xl text-white/80 mb-8 leading-relaxed">
         Veja como nossa plataforma pode transformar seu consultório
@@ -359,7 +359,7 @@ export default function DemoPage() {
             className="bg-green-600 text-white hover:bg-green-700 hover:scale-105 active:scale-95 transition-all duration-300 shadow-xl mt-6 px-8 py-6 text-lg rounded-lg inline-flex items-center"
             variant="default"
             onClick={() => {
-              const message = encodeURIComponent(`Olá me chamo ${formData.name} e quero acesso a minha demonstração do Med1!`);
+              const message = encodeURIComponent(`Olá me chamo ${formData.name} e quero acesso a minha demonstração do CXLUS!`);
               window.location.href = `https://wa.me/5511937064833?text=${message}`;
             }}
           >
@@ -403,7 +403,7 @@ export default function DemoPage() {
                 Pricing
               </a>
               <Button 
-                onClick={() => window.location.href = 'https://www.med1.app/auth/signin'}
+                onClick={() => window.location.href = 'https://app.cxlus.com/auth/signin'}
                 className="bg-[#eaf212] text-black hover:bg-[#eaf212]/90 transition-colors px-6 py-2 text-sm font-medium tracking-[-0.03em] rounded-full"
               >
                 Sign In
@@ -474,7 +474,7 @@ export default function DemoPage() {
                   </a>
                   <Button
                     onClick={() => {
-                      window.location.href = 'https://www.med1.app/auth/signin';
+                      window.location.href = 'https://app.cxlus.com/auth/signin';
                       setIsMenuOpen(false);
                     }}
                     className="w-full bg-[#eaf212] text-gray-800 hover:bg-[#eaf212]/90 transition-colors py-3 text-base font-medium tracking-[-0.03em] rounded-full mt-4"
@@ -503,7 +503,7 @@ export default function DemoPage() {
                 Schedule Your Free Demo
               </h1>
               <p className="text-xl text-gray-600 tracking-[-0.03em]">
-                Discover how MED1 can transform your practice with our personalized demo session.
+                Discover how CXLUS can transform your practice with our personalized demo session.
               </p>
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
@@ -646,7 +646,7 @@ export default function DemoPage() {
               What to Expect in Your Demo
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Get a comprehensive overview of how MED1 can help your practice grow
+              Get a comprehensive overview of how CXLUS can help your practice grow
             </p>
           </motion.div>
 
@@ -670,7 +670,7 @@ export default function DemoPage() {
               },
               {
                 title: 'Implementation Plan',
-                description: 'Get a clear roadmap for getting started with MED1'
+                description: 'Get a clear roadmap for getting started with CXLUS'
               },
               {
                 title: 'Q&A Session',
@@ -750,7 +750,7 @@ export default function DemoPage() {
           <div className="flex flex-col sm:flex-row justify-between items-center">
             <img src="/logo.png" alt="Logo" className="h-6 mb-4 sm:mb-0" />
             <p className="text-gray-600 text-xs sm:text-sm tracking-[-0.03em]">
-              © 2024 MED1. All rights reserved.
+              © 2024 CXLUS. All rights reserved.
             </p>
           </div>
         </div>
