@@ -1,6 +1,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import { FacebookPixel } from '@/components/FacebookPixel'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -98,6 +99,7 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="text-size-adjust" content="none" />
+        <FacebookPixel />
         {/* Structured Data */}
         <script
           type="application/ld+json"
