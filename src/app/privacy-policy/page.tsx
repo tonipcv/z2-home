@@ -1,129 +1,111 @@
 import { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy',
-  description: 'Privacy Policy for our application',
+  title: 'Privacy Policy - Secure Professional Platform',
+  description: 'Privacy Policy for our secure professional platform - Available on App Store',
 }
 
 export default function PrivacyPolicy() {
   return (
-    <main className="max-w-4xl mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-8">Privacy Policy</h1>
-      <div className="space-y-6 text-gray-700">
-        <p className="italic text-sm text-gray-500">Last updated: March 2024</p>
+    <main className="min-h-screen bg-white">
+      <div className="max-w-4xl mx-auto px-4 py-16 sm:py-24">
+        <h1 className="text-4xl font-semibold text-gray-900 mb-4">Privacy Policy</h1>
+        <p className="text-sm text-gray-500 mb-12">Last updated: March 2024</p>
 
-        <section>
-          <p className="mb-4">
-            This Privacy Policy describes how we collect, use, and handle your information when you use our services.
-          </p>
-        </section>
+        <div className="space-y-12 text-gray-600">
+          <section>
+            <p className="text-lg leading-relaxed">
+              This Privacy Policy describes our commitment to protecting your privacy and securing your data on our professional platform, 
+              which is available on the Apple App Store and Google Play Store.
+            </p>
+          </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Information We Collect</h2>
-          <p className="mb-2">We collect the following types of information:</p>
-          <div className="ml-4">
-            <h3 className="font-semibold mb-2">Personal Information:</h3>
-            <ul className="list-disc ml-6 mb-4">
-              <li>Name</li>
-              <li>Email address</li>
-              <li>Phone number/WhatsApp</li>
-              <li>Professional information (specialty, profession)</li>
-              <li>Instagram handle (where applicable)</li>
+          <section>
+            <h2 className="text-2xl font-semibold text-gray-900 mb-6">Limited Data Collection</h2>
+            <p className="text-lg leading-relaxed mb-4">
+              We maintain a minimalist approach to data collection. We only collect:
+            </p>
+            <ul className="list-disc ml-6 space-y-2">
+              <li>Login credentials (username/email and encrypted password) that you create</li>
+              <li>Basic account information necessary for platform functionality</li>
             </ul>
+            <p className="text-lg leading-relaxed mt-4">
+              We do not collect any additional personal information, tracking data, or unnecessary user data.
+            </p>
+          </section>
 
-            <h3 className="font-semibold mb-2">Business Information:</h3>
-            <ul className="list-disc ml-6">
-              <li>Company size (number of employees)</li>
-              <li>Revenue information</li>
-              <li>Business segment</li>
-              <li>Technology usage</li>
+          <section>
+            <h2 className="text-2xl font-semibold text-gray-900 mb-6">Security Measures</h2>
+            <p className="text-lg leading-relaxed mb-4">
+              Your security is our top priority. We implement industry-leading security measures:
+            </p>
+            <ul className="list-disc ml-6 space-y-2">
+              <li>All data is encrypted using advanced encryption protocols</li>
+              <li>Passwords are securely hashed and never stored in plain text</li>
+              <li>Regular security audits and updates</li>
+              <li>Secure SSL/TLS encryption for all data transmission</li>
+              <li>Compliance with industry security standards</li>
             </ul>
-          </div>
-        </section>
+          </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">How We Use Your Information</h2>
-          <ul className="list-disc ml-6">
-            <li>Providing and improving our services</li>
-            <li>Communicating with you about our services</li>
-            <li>Processing your requests and inquiries</li>
-            <li>Sending relevant updates and information</li>
-            <li>Analyzing and improving our service quality</li>
-          </ul>
-        </section>
+          <section>
+            <h2 className="text-2xl font-semibold text-gray-900 mb-6">Data Usage</h2>
+            <p className="text-lg leading-relaxed">
+              Your login credentials are used solely for authentication purposes and accessing our platform. 
+              We do not use your data for marketing, analytics, or share it with third parties.
+            </p>
+          </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Data Storage and Security</h2>
-          <p>
-            We implement appropriate security measures to protect your personal information. 
-            Your data is stored in secure databases with restricted access.
-          </p>
-        </section>
+          <section>
+            <h2 className="text-2xl font-semibold text-gray-900 mb-6">Your Control</h2>
+            <p className="text-lg leading-relaxed mb-4">
+              You have complete control over your account:
+            </p>
+            <ul className="list-disc ml-6 space-y-2">
+              <li>Change your password at any time</li>
+              <li>Request account deletion</li>
+              <li>Access your account information</li>
+              <li>Update your login credentials</li>
+            </ul>
+          </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Information Sharing</h2>
-          <p className="mb-2">We do not sell your personal information to third parties. We may share your information with:</p>
-          <ul className="list-disc ml-6">
-            <li>Service providers who assist in our operations</li>
-            <li>Legal authorities when required by law</li>
-            <li>Business partners with your explicit consent</li>
-          </ul>
-        </section>
+          <section>
+            <h2 className="text-2xl font-semibold text-gray-900 mb-6">Platform Availability</h2>
+            <p className="text-lg leading-relaxed">
+              Our application is available on the Apple App Store and Google Play Store, 
+              meeting their respective privacy and security requirements. We maintain regular updates 
+              to ensure compliance with platform guidelines and security standards.
+            </p>
+          </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Your Rights</h2>
-          <p className="mb-2">You have the right to:</p>
-          <ul className="list-disc ml-6">
-            <li>Access your personal information</li>
-            <li>Correct inaccurate information</li>
-            <li>Request deletion of your information</li>
-            <li>Opt-out of marketing communications</li>
-            <li>Request a copy of your data</li>
-          </ul>
-        </section>
+          <section>
+            <h2 className="text-2xl font-semibold text-gray-900 mb-6">Changes to This Policy</h2>
+            <p className="text-lg leading-relaxed">
+              We may update this Privacy Policy to reflect changes in our practices or for legal compliance. 
+              We will notify you of any material changes through the platform.
+            </p>
+          </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Changes to This Policy</h2>
-          <p>
-            We may update this Privacy Policy from time to time. We will notify you of any changes 
-            by posting the new Privacy Policy on this page.
-          </p>
-        </section>
+          <section>
+            <h2 className="text-2xl font-semibold text-gray-900 mb-6">Contact Us</h2>
+            <p className="mb-4 text-lg">If you have any questions about this Privacy Policy, please contact us at:</p>
+            <div className="mt-4 space-y-1">
+              <p className="font-medium text-gray-900">KRX Group</p>
+              <p>Location: London</p>
+              <p>Email: indiajade@cxlus.com</p>
+              <p>Phone: +447908697238</p>
+            </div>
+          </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Contact Us</h2>
-          <p>If you have any questions about this Privacy Policy, please contact us at:</p>
-          <div className="mt-2">
-            <p>KRX Group</p>
-            <p>Location: London</p>
-            <p>Email: indiajade@cxlus.com</p>
-            <p>Phone: +447908697238</p>
-          </div>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Children&apos;s Privacy</h2>
-          <p>
-            Our services are not intended for use by children under the age of 13. 
-            We do not knowingly collect personal information from children under 13.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Third-Party Services</h2>
-          <p>
-            Our service may contain links to other websites or services. 
-            We are not responsible for the privacy practices of these third-party sites.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Data Retention</h2>
-          <p>
-            We retain your personal information for as long as necessary to provide our services 
-            and comply with legal obligations.
-          </p>
-        </section>
+          <section>
+            <h2 className="text-2xl font-semibold text-gray-900 mb-6">Compliance</h2>
+            <p className="text-lg leading-relaxed">
+              Our privacy practices comply with relevant data protection regulations and app store guidelines. 
+              We regularly review and update our practices to maintain the highest standards of data protection 
+              and user privacy.
+            </p>
+          </section>
+        </div>
       </div>
     </main>
   )
