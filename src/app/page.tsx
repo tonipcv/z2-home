@@ -34,10 +34,10 @@ export default function HomePage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-gray-100 font-satoshi tracking-[-0.03em]">
+    <div className="min-h-screen bg-[#0a0a0a] text-gray-100 font-satoshi tracking-[-0.03em] overflow-x-hidden">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-sm border-b border-gray-800/50">
-        <div className="container mx-auto px-6 py-4">
+        <div className="container mx-auto px-4 sm:px-6 py-4">
           <div className="flex items-center justify-between">
             <img src="/logo.png" alt="Logo" className="h-8" />
             
@@ -137,22 +137,22 @@ export default function HomePage() {
       </AnimatePresence>
 
       {/* Hero Section */}
-      <section id="hero" className="min-h-screen flex items-center pt-20 pb-32 px-4 sm:px-6 bg-[#0a0a0a] relative overflow-hidden">
-        {/* Geometric Shapes */}
+      <section id="hero" className="relative min-h-screen flex items-center pt-20 pb-32 px-4 sm:px-6 bg-[#0a0a0a] overflow-hidden">
+        {/* Geometric Shapes - Adjusted for mobile */}
         <div className="absolute inset-0 pointer-events-none">
           {/* Main background gradient */}
           <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0a] via-[#111111] to-[#0a0a0a]" />
           
-          {/* Large circles */}
-          <div className="absolute top-1/4 -left-32 w-[600px] h-[600px] border border-white/5 rounded-full blur-2xl opacity-30" />
-          <div className="absolute -bottom-48 -right-32 w-[800px] h-[800px] border border-white/5 rounded-full blur-2xl opacity-30" />
+          {/* Large circles - Adjusted positioning */}
+          <div className="absolute top-1/4 -left-[20%] sm:-left-32 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] border border-white/5 rounded-full blur-2xl opacity-30" />
+          <div className="absolute -bottom-[20%] -right-[20%] sm:-right-32 w-[400px] sm:w-[800px] h-[400px] sm:h-[800px] border border-white/5 rounded-full blur-2xl opacity-30" />
           
-          {/* Accent circles */}
-          <div className="absolute top-1/3 right-1/4 w-64 h-64 border border-white/5 rounded-full blur-xl animate-pulse opacity-20" />
-          <div className="absolute bottom-1/4 left-1/3 w-96 h-96 border border-white/5 rounded-full blur-xl animate-pulse opacity-20" style={{ animationDelay: '1s' }} />
+          {/* Accent circles - Adjusted for mobile */}
+          <div className="absolute top-1/3 right-1/4 w-32 sm:w-64 h-32 sm:h-64 border border-white/5 rounded-full blur-xl animate-pulse opacity-20" />
+          <div className="absolute bottom-1/4 left-1/3 w-48 sm:w-96 h-48 sm:h-96 border border-white/5 rounded-full blur-xl animate-pulse opacity-20" style={{ animationDelay: '1s' }} />
           
-          {/* Decorative lines */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px]">
+          {/* Decorative lines - Adjusted size */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[800px] h-[300px] sm:h-[800px]">
             <div className="absolute inset-0 border border-gray-800 rounded-full opacity-30" />
             <div className="absolute inset-8 border border-gray-800 rounded-full opacity-30" />
             <div className="absolute inset-16 border border-gray-800 rounded-full opacity-30" />
@@ -228,12 +228,11 @@ export default function HomePage() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-32 px-4 sm:px-6 bg-transparent relative">
-        {/* Background continuation */}
+      <section className="relative py-32 px-4 sm:px-6 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] to-black pointer-events-none">
-          {/* Subtle accent elements */}
-          <div className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] bg-white/[0.02] rounded-full blur-3xl" />
-          <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-white/[0.02] rounded-full blur-3xl" />
+          {/* Adjusted accent elements for mobile */}
+          <div className="absolute bottom-1/4 left-1/4 w-[200px] sm:w-[400px] h-[200px] sm:h-[400px] bg-white/[0.02] rounded-full blur-3xl" />
+          <div className="absolute top-1/4 right-1/4 w-[250px] sm:w-[500px] h-[250px] sm:h-[500px] bg-white/[0.02] rounded-full blur-3xl" />
           
           {/* Minimal lines */}
           <div className="absolute inset-0 max-w-7xl mx-auto">
@@ -320,11 +319,11 @@ export default function HomePage() {
       </section>
 
       {/* Blog Section */}
-      <section className="py-32 px-4 sm:px-6 bg-transparent relative">
+      <section className="relative py-32 px-4 sm:px-6 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-black to-[#0a0a0a] pointer-events-none">
-          {/* Subtle accent elements */}
-          <div className="absolute top-1/4 right-1/3 w-[400px] h-[400px] bg-white/[0.02] rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 left-1/3 w-[300px] h-[300px] bg-white/[0.02] rounded-full blur-3xl" />
+          {/* Adjusted accent elements for mobile */}
+          <div className="absolute top-1/4 right-1/3 w-[200px] sm:w-[400px] h-[200px] sm:h-[400px] bg-white/[0.02] rounded-full blur-3xl" />
+          <div className="absolute bottom-1/4 left-1/3 w-[150px] sm:w-[300px] h-[150px] sm:h-[300px] bg-white/[0.02] rounded-full blur-3xl" />
         </div>
 
         <div className="container mx-auto max-w-6xl relative">
@@ -413,7 +412,7 @@ export default function HomePage() {
       </section>
 
       {/* Comparison Section */}
-      <section className="py-32 px-4 sm:px-6 bg-transparent relative">
+      <section className="relative py-32 px-4 sm:px-6 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-black to-[#0a0a0a] pointer-events-none">
           {/* Subtle accent elements */}
           <div className="absolute top-1/4 right-1/3 w-[300px] h-[300px] bg-white/[0.02] rounded-full blur-3xl" />
@@ -500,7 +499,7 @@ export default function HomePage() {
       </section>
 
       {/* About Section - Client Journey Timeline */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 bg-[#0a0a0a] relative overflow-hidden">
+      <section className="relative py-16 sm:py-20 px-4 sm:px-6 overflow-hidden">
         <div className="container mx-auto max-w-7xl relative">
           {/* Header */}
           <motion.div 
@@ -691,7 +690,7 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-32 px-4 sm:px-6 bg-transparent relative">
+      <section className="relative py-32 px-4 sm:px-6 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] to-black pointer-events-none">
           {/* Subtle accent elements */}
           <div className="absolute top-1/3 right-1/4 w-[400px] h-[400px] bg-white/[0.02] rounded-full blur-3xl" />
@@ -734,7 +733,7 @@ export default function HomePage() {
       </section>
 
       {/* Privacy Section */}
-      <section className="py-8 sm:py-12 px-4 sm:px-6 bg-[#0a0a0a] border-t border-white/10">
+      <section className="relative py-8 sm:py-12 px-4 sm:px-6 overflow-hidden">
         <div className="container mx-auto max-w-4xl text-center">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -757,7 +756,7 @@ export default function HomePage() {
       </section>
 
       {/* Footer */}
-      <footer className="py-6 sm:py-8 px-4 sm:px-6 border-t border-white/10 bg-black">
+      <footer className="relative py-6 sm:py-8 px-4 sm:px-6 overflow-hidden">
         <div className="container mx-auto max-w-6xl">
           <div className="flex flex-col sm:flex-row justify-between items-center">
             <img src="/logo.png" alt="Logo" className="h-6 mb-4 sm:mb-0 filter brightness-0 invert opacity-50" />
