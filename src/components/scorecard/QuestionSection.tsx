@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { ChevronRightIcon, ChevronLeftIcon, CheckIcon } from '@heroicons/react/24/outline';
+import { ChevronRightIcon, ChevronLeftIcon } from '@heroicons/react/24/outline';
 
 type Question = {
   id: number;
@@ -66,10 +66,6 @@ export function QuestionSection({
       transition={{ duration: 0.8 }}
       className="max-w-5xl mx-auto px-3 sm:px-6 py-4 sm:py-8"
     >
-      <div className="text-center mb-6 sm:mb-12">
-        <h2 className="text-3xl sm:text-5xl font-light tracking-[-0.02em] text-white">{currentCategory}</h2>
-      </div>
-
       <div className="grid gap-4 sm:gap-8">
         {questions
           .filter(q => q.category === currentCategory)
@@ -105,18 +101,17 @@ export function QuestionSection({
                             : 'bg-white/[0.03] border-white/10 text-white/70 hover:bg-white/[0.05]'
                         } transition-all duration-300 group relative`}
                       >
-                        <div className="flex items-start justify-between gap-4 sm:gap-6">
-                          <div className="space-y-1 sm:space-y-2">
-                            <h4 className="text-sm sm:text-lg font-light text-white tracking-[-0.02em]">
-                              {level}
-                            </h4>
-                            <p className="text-sm sm:text-base text-gray-400 font-light leading-relaxed pr-8 sm:pr-10 tracking-[-0.03em]">
-                              {question.answers[level]}
-                            </p>
+                        <div className="flex items-start gap-4 sm:gap-6">
+                          <div className={`w-5 h-5 rounded-full border-2 flex-shrink-0 mt-1 ${
+                            isSelected ? 'border-white bg-white' : 'border-white/50'
+                          }`}>
+                            {isSelected && (
+                              <div className="w-full h-full rounded-full bg-black/50" />
+                            )}
                           </div>
-                          {isSelected && (
-                            <CheckIcon className="w-5 h-5 sm:w-6 sm:h-6 text-white absolute top-4 right-4 sm:top-6 sm:right-6" />
-                          )}
+                          <p className="text-sm sm:text-base text-gray-400 font-light leading-relaxed tracking-[-0.03em]">
+                            {question.answers[level]}
+                          </p>
                         </div>
                       </button>
                     );
