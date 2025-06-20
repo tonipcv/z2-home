@@ -200,7 +200,7 @@ export default function HomePage() {
                 transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
                 className="text-base sm:text-lg text-gray-400 max-w-xl mx-auto leading-relaxed tracking-[-0.01em] font-light"
               >
-                CXLUS turns the patient journey into a premium, automated, and unforgettable experience — fully branded as your owngit
+                CXLUS turns the patient journey into a premium, automated, and unforgettable experience — fully branded as your own
               </motion.p>
 
               <motion.div 
