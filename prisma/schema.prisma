@@ -8,17 +8,17 @@ datasource db {
 }
 
 model DemoRequest {
-  id        String   @id @default(cuid())
-  name      String
-  email     String
-  phone     String?
-  specialty String?
-  whatsapp  String?
+  id         String   @id @default(cuid())
+  name       String
+  email      String
+  whatsapp   String?
   speciality String?
-  bestTime  String?
-  status    String   @default("PENDING") // PENDING, SCHEDULED, COMPLETED, CANCELLED
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  bestTime   String?
+  status     String   @default("PENDING")
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  phone      String?
+  specialty  String?
 }
 
 model InsideSalesLead {
@@ -61,4 +61,66 @@ model ProposalLead {
   updatedAt       DateTime @updatedAt
 
   @@map("proposal_leads")
+}
+
+enum ScoreValue {
+  Poor
+  Basic
+  Good
+  Professional
+  Excellent
+}
+
+enum Source {
+  website
+  email
+  phone
+  referral
+  other
+}
+
+enum SubmissionStatus {
+  pending
+  contacted
+  scheduled
+  completed
+  archived
+}
+
+model ScorecardSubmission {
+  id              Int             @id @default(autoincrement())
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+
+  // Contact Information
+  name            String         @db.VarChar(255)
+  email           String         @db.VarChar(255)
+  phone           String         @db.VarChar(50)
+  clinicName      String         @db.VarChar(255)
+  role            String         @db.VarChar(100)
+  numberOfDoctors Int
+  city            String         @db.VarChar(100)
+  state           String         @db.VarChar(100)
+
+  // Scorecard Ratings
+  firstImpression ScoreValue
+  patientJourney  ScoreValue
+  followUp        ScoreValue
+  reviews         ScoreValue
+  branding        ScoreValue
+  totalScore      Int
+
+  // Tracking Information
+  source          Source          @default(website)
+  utmSource       String?         @db.VarChar(100)
+  utmMedium       String?         @db.VarChar(100)
+  utmCampaign     String?         @db.VarChar(100)
+  ipAddress       String          @db.VarChar(100)
+  userAgent       String          @db.Text
+  status          SubmissionStatus @default(pending)
+  notes           String?         @db.Text
+
+  @@index([email])
+  @@index([status])
+  @@index([createdAt])
 }

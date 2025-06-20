@@ -6,16 +6,21 @@
     "dev": "next dev",
     "build": "prisma generate && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "setup-db": "node scripts/setup_database.js"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
     "@prisma/client": "^6.5.0",
+    "@radix-ui/react-label": "^2.1.7",
     "@tailwindcss/line-clamp": "^0.4.4",
     "@tailwindcss/typography": "^0.5.16",
     "clsx": "^2.1.1",
+    "dotenv": "^16.5.0",
     "framer-motion": "^12.6.3",
     "next": "15.1.6",
+    "node-fetch": "^2.7.0",
+    "pg": "^8.16.2",
     "prisma": "^6.5.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
