@@ -319,6 +319,99 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Blog Section */}
+      <section className="py-32 px-4 sm:px-6 bg-transparent relative">
+        <div className="absolute inset-0 bg-gradient-to-b from-black to-[#0a0a0a] pointer-events-none">
+          {/* Subtle accent elements */}
+          <div className="absolute top-1/4 right-1/3 w-[400px] h-[400px] bg-white/[0.02] rounded-full blur-3xl" />
+          <div className="absolute bottom-1/4 left-1/3 w-[300px] h-[300px] bg-white/[0.02] rounded-full blur-3xl" />
+        </div>
+
+        <div className="container mx-auto max-w-6xl relative">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-2xl sm:text-3xl font-light text-white tracking-[-0.02em] mb-3">Latest Insights</h2>
+            <p className="text-gray-400 font-light text-lg">Expert analysis for premium healthcare providers</p>
+          </motion.div>
+
+          <div className="grid gap-8">
+            {[
+              {
+                title: "What Patients Say After Visiting a 5-Star Clinic",
+                description: "Discover how premium clinics create unforgettable patient experiences that drive 5-star reviews and long-term loyalty.",
+                category: "Patient Experience",
+                readTime: "8 min read",
+                slug: "how-to-create-5-star-clinic-experience",
+                date: "Mar 14, 2024"
+              },
+              {
+                title: "How Premium Clinics Transform Single Visits Into Lifelong Value",
+                description: "Learn how market-leading clinics turn first-time patients into loyal advocates through sophisticated engagement strategies.",
+                category: "Strategic Analysis",
+                readTime: "8 min read",
+                slug: "premium-clinics-loyalty",
+                date: "Mar 12, 2024"
+              },
+              {
+                title: "Why Most Private Clinics Lose Money After the First Appointment",
+                description: "Most clinics lose revenue after the first appointment. Discover how to turn one-time patients into loyal, high-value promoters.",
+                category: "Revenue Analysis",
+                readTime: "7 min read",
+                slug: "patient-retention",
+                date: "Mar 10, 2024"
+              }
+            ].map((post, index) => (
+              <motion.div
+                key={post.slug}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="group"
+              >
+                <Link href={`/blog/${post.slug}`}>
+                  <div className="bg-white/[0.03] backdrop-blur-sm border border-white/5 rounded-2xl p-6 sm:p-8 hover:bg-white/[0.05] transition-all duration-300">
+                    <div className="flex items-center space-x-4 text-sm text-gray-400">
+                      <span>{post.category}</span>
+                      <span className="w-1 h-1 rounded-full bg-gray-700"></span>
+                      <span>{post.readTime}</span>
+                      <span className="w-1 h-1 rounded-full bg-gray-700"></span>
+                      <span>{post.date}</span>
+                    </div>
+                    
+                    <h3 className="text-xl sm:text-2xl font-light text-white mt-4 mb-3 group-hover:text-white/90 transition-colors duration-300">
+                      {post.title}
+                    </h3>
+                    
+                    <p className="text-gray-400 line-clamp-2 mb-4">
+                      {post.description}
+                    </p>
+                    
+                    <div className="inline-flex items-center space-x-2 text-white/60 group-hover:text-white transition-colors duration-300">
+                      <span className="text-sm">Read article</span>
+                      <ChevronRightIcon className="w-4 h-4" />
+                    </div>
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Link 
+              href="/blog"
+              className="inline-flex items-center space-x-2 text-white/80 hover:text-white transition-colors duration-300"
+            >
+              <span>View all articles</span>
+              <ChevronRightIcon className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Comparison Section */}
       <section className="py-32 px-4 sm:px-6 bg-transparent relative">
         <div className="absolute inset-0 bg-gradient-to-b from-black to-[#0a0a0a] pointer-events-none">
