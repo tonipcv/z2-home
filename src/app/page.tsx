@@ -190,7 +190,7 @@ export default function HomePage() {
                   Welcome to the future of healthcare
                 </motion.span>
                 <h1 className="text-2xl sm:text-3xl md:text-4xl font-light tracking-[-0.02em] leading-[1.3]">
-                  <span className="text-white">The new standard for clinics that refuse to be ordinary.</span>
+                  <span className="text-white">The new standard for clinics that refuse to be ordinary</span>
                 </h1>
               </div>
               
@@ -200,7 +200,7 @@ export default function HomePage() {
                 transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
                 className="text-base sm:text-lg text-gray-400 max-w-xl mx-auto leading-relaxed tracking-[-0.01em] font-light"
               >
-                CXLUS turns the patient journey into a premium, automated, and unforgettable experience — fully branded as your own.
+                CXLUS turns the patient journey into a premium, automated, and unforgettable experience — fully branded as your owngit
               </motion.p>
 
               <motion.div 
