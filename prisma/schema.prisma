@@ -124,3 +124,27 @@ model ScorecardSubmission {
   @@index([status])
   @@index([createdAt])
 }
+
+model AccessRequest {
+  id            String      @id @default(cuid())
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+  name          String
+  email         String
+  company       String
+  role          String
+  clinicSize    String
+  specialties   String[]
+  currentSystem String
+  budget        String
+  timeline      String
+  message       String?
+  status        RequestStatus @default(PENDING)
+}
+
+enum RequestStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  CONTACTED
+}

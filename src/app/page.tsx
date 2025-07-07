@@ -3,10 +3,28 @@
 import { Button } from '@/components/ui/button';
 import { Logo } from '@/components/ui/logo';
 import { motion, AnimatePresence } from 'framer-motion';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Checkbox } from "@/components/ui/checkbox";
 import { 
   ChevronRightIcon, 
-  Bars3Icon, 
-  XMarkIcon,
+
   ChartBarIcon,
   ArrowTrendingUpIcon,
   MagnifyingGlassIcon,
@@ -22,12 +40,26 @@ import {
   CheckIcon
 } from '@heroicons/react/24/outline';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useState, type ChangeEvent } from 'react';
 import Link from 'next/link';
 
 export default function HomePage() {
   const router = useRouter();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const [showRequestModal, setShowRequestModal] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    company: '',
+    role: '',
+    clinicSize: '',
+    specialties: [] as string[],
+    currentSystem: '',
+    budget: '',
+    timeline: '',
+    message: ''
+  });
 
   const handleDemoClick = () => {
     router.push('/demo');
@@ -56,89 +88,18 @@ export default function HomePage() {
             </div>
     
             {/* Mobile Navigation */}
-            <div className="md:hidden flex items-center space-x-3">
+            <div className="md:hidden">
               <Button 
-                onClick={handleDemoClick}
-                className="bg-white/10 text-white hover:bg-white/20 transition-colors px-4 py-2 text-xs font-light tracking-[-0.03em] rounded-full"
+                onClick={() => window.location.href = 'https://app.cxlus.com/auth/signin'}
+                className="bg-transparent border border-white/20 text-white hover:bg-white/5 transition-all duration-300 px-6 py-2 text-xs font-light tracking-[-0.03em] rounded-full hover:border-white/30"
               >
-                Get a Demo
+                Login
               </Button>
-              <button
-                className="p-2.5 text-gray-100 hover:text-gray-300 transition-colors bg-white/5 rounded-full"
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-              >
-                {isMenuOpen ? (
-                  <XMarkIcon className="h-5 w-5" />
-                ) : (
-                  <Bars3Icon className="h-5 w-5" />
-                )}
-              </button>
             </div>
           </div>
         </div>
       </nav>
 
-      {/* Mobile Menu Overlay */}
-      <AnimatePresence>
-        {isMenuOpen && (
-          <>
-            {/* Backdrop */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40"
-              onClick={() => setIsMenuOpen(false)}
-            />
-            
-            {/* Menu Panel */}
-            <motion.div
-              initial={{ opacity: 0, x: 100 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 100 }}
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="fixed top-0 right-0 bottom-0 w-full max-w-sm bg-white z-50 shadow-xl overflow-y-auto"
-            >
-              <div className="p-6 h-full flex flex-col">
-                <div className="flex justify-between items-center mb-8">
-                  <img src="/logo.png" alt="Logo" className="h-8" />
-                  <button
-                    onClick={() => setIsMenuOpen(false)}
-                    className="p-2 text-gray-900 hover:text-gray-600 transition-colors"
-                  >
-                    <XMarkIcon className="h-6 w-6" />
-                  </button>
-                </div>
-                
-                <div className="flex flex-col flex-1">
-                  {/* Buttons Section - Fixed at bottom */}
-                  <div className="mt-auto pt-6 flex space-x-3">
-                    <Button
-                      onClick={() => {
-                        window.location.href = 'https://app.cxlus.com/auth/signin';
-                        setIsMenuOpen(false);
-                      }}
-                      variant="outline"
-                      className="flex-1 border-gray-300 text-gray-700 hover:bg-gray-50 transition-all duration-300 py-3 text-base font-medium tracking-[-0.03em] rounded-full"
-                    >
-                      Login
-                    </Button>
-                    <Button
-                      onClick={() => {
-                        handleDemoClick();
-                        setIsMenuOpen(false);
-                      }}
-                      className="flex-1 bg-[#FFD700] text-black hover:bg-[#FFD700]/90 transition-all duration-300 py-3 text-base font-medium tracking-[-0.03em] rounded-full shadow-lg hover:shadow-xl"
-                    >
-                      Get a Demo
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
 
       {/* Hero Section */}
       <section id="hero" className="relative min-h-screen flex items-center pt-20 pb-32 px-4 sm:px-6 bg-[#0a0a0a] overflow-hidden">
@@ -184,28 +145,11 @@ export default function HomePage() {
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
               className="space-y-12 max-w-3xl mx-auto text-center"
             >
-              <div className="space-y-3">
-                <motion.span 
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5 }}
-                  className="text-gray-400 uppercase text-sm tracking-widest font-light"
-                >
-                  Welcome to the future of healthcare
-                </motion.span>
-                <h1 className="text-2xl sm:text-3xl md:text-4xl font-light tracking-[-0.02em] leading-[1.3]">
-                  <span className="text-white">The new standard for clinics that refuse to be ordinary</span>
+              <div>
+                <h1 className="text-4xl sm:text-6xl md:text-7xl font-light tracking-[-0.02em] leading-[1.1] bg-gradient-to-b from-white via-white/90 to-white/70 bg-clip-text text-transparent">
+                  Trust, care, and data for who matters
                 </h1>
               </div>
-              
-              <motion.p 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-                className="text-base sm:text-lg text-gray-400 max-w-xl mx-auto leading-relaxed tracking-[-0.01em] font-light"
-              >
-                CXLUS turns the patient journey into a premium, automated, and unforgettable experience — fully branded as your own
-              </motion.p>
 
               <motion.div 
                 initial={{ opacity: 0, y: 20 }} 
@@ -214,16 +158,10 @@ export default function HomePage() {
                 className="flex flex-col sm:flex-row gap-3 sm:gap-6 justify-center pt-4"
               >
                 <Button 
-                  onClick={handleDemoClick}
-                  className="bg-[#1a1a1a] text-white hover:bg-[#252525] transition-all duration-300 px-6 sm:px-8 py-2.5 text-sm font-light tracking-[-0.03em] rounded-full shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 border border-white/20"
+                  onClick={() => setShowRequestModal(true)}
+                  className="bg-transparent border border-white/20 text-white hover:bg-white/5 transition-all duration-300 px-8 sm:px-10 py-6 text-sm font-light tracking-[-0.03em] rounded-full hover:border-white/30"
                 >
-                  Experience the demo
-                </Button>
-                <Button 
-                  onClick={handleScorecardClick}
-                  className="bg-transparent border border-white/20 text-white hover:bg-white/10 transition-all duration-300 px-6 sm:px-8 py-2.5 text-sm font-light tracking-[-0.03em] rounded-full hover:scale-105 active:scale-95"
-                >
-                  Assess Your Clinic
+                  Request Access
                 </Button>
               </motion.div>
             </motion.div>
@@ -231,523 +169,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="relative py-32 px-4 sm:px-6 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] to-black pointer-events-none">
-          {/* Adjusted accent elements for mobile */}
-          <div className="absolute bottom-1/4 left-1/4 w-[200px] sm:w-[400px] h-[200px] sm:h-[400px] bg-white/[0.02] rounded-full blur-3xl" />
-          <div className="absolute top-1/4 right-1/4 w-[250px] sm:w-[500px] h-[250px] sm:h-[500px] bg-white/[0.02] rounded-full blur-3xl" />
-          
-          {/* Minimal lines */}
-          <div className="absolute inset-0 max-w-7xl mx-auto">
-            <div className="absolute left-[15%] top-0 w-px h-full bg-gradient-to-b from-white/5 via-white/10 to-transparent" />
-            <div className="absolute right-[15%] top-0 w-px h-full bg-gradient-to-b from-white/5 via-white/10 to-transparent" />
-          </div>
-        </div>
-
-        <div className="container mx-auto max-w-5xl relative">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="space-y-20"
-          >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1, delay: 0.2 }}
-                className="space-y-2"
-              >
-                <p className="text-4xl font-light text-white tracking-[-0.02em]">92%</p>
-                <div className="h-px w-12 bg-gradient-to-r from-white/20 to-transparent my-6"></div>
-                <p className="text-gray-400 font-light tracking-[-0.02em] text-lg">
-                  Adherence to treatment protocols in just 30 days
-                </p>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1, delay: 0.3 }}
-                className="space-y-2"
-              >
-                <p className="text-4xl font-light text-white tracking-[-0.02em]">67%</p>
-                <div className="h-px w-12 bg-gradient-to-r from-white/20 to-transparent my-6"></div>
-                <p className="text-gray-400 font-light tracking-[-0.02em] text-lg">
-                  Increase in 5-star reviews within 45 days
-                </p>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1, delay: 0.4 }}
-                className="space-y-2"
-              >
-                <p className="text-4xl font-light text-white tracking-[-0.02em]">74%</p>
-                <div className="h-px w-12 bg-gradient-to-r from-white/20 to-transparent my-6"></div>
-                <p className="text-gray-400 font-light tracking-[-0.02em] text-lg">
-                  Patients reported a more premium experience before first appointment
-                </p>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1, delay: 0.5 }}
-                className="space-y-2"
-              >
-                <p className="text-4xl font-light text-white tracking-[-0.02em]">38%</p>
-                <div className="h-px w-12 bg-gradient-to-r from-white/20 to-transparent my-6"></div>
-                <p className="text-gray-400 font-light tracking-[-0.02em] text-lg">
-                  Increase in average patient lifetime value
-                </p>
-              </motion.div>
-            </div>
-
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 0.6 }}
-              className="pt-10 border-t border-white/5"
-            >
-              <div className="max-w-2xl">
-                <p className="text-xl text-white font-light tracking-[-0.02em] leading-relaxed mb-6">
-                  "Clients see ROI within the first 60 days — often recovering the monthly license with just one retained patient."
-                </p>
-                <Button
-                  onClick={handleScorecardClick}
-                  className="bg-white/5 hover:bg-white/10 text-white border border-white/10 px-6 py-3 text-sm rounded-xl transition-all duration-300"
-                >
-                  Get Your Free Assessment
-                </Button>
-              </div>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Blog Section */}
-      <section className="relative py-32 px-4 sm:px-6 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-black to-[#0a0a0a] pointer-events-none">
-          {/* Adjusted accent elements for mobile */}
-          <div className="absolute top-1/4 right-1/3 w-[200px] sm:w-[400px] h-[200px] sm:h-[400px] bg-white/[0.02] rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 left-1/3 w-[150px] sm:w-[300px] h-[150px] sm:h-[300px] bg-white/[0.02] rounded-full blur-3xl" />
-        </div>
-
-        <div className="container mx-auto max-w-6xl relative">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-2xl sm:text-3xl font-light text-white tracking-[-0.02em] mb-3">Latest Insights</h2>
-            <p className="text-gray-400 font-light text-lg">Expert analysis for premium healthcare providers</p>
-          </motion.div>
-
-          <div className="grid gap-8">
-            {[
-              {
-                title: "What Patients Say After Visiting a 5-Star Clinic",
-                description: "Discover how premium clinics create unforgettable patient experiences that drive 5-star reviews and long-term loyalty.",
-                category: "Patient Experience",
-                readTime: "8 min read",
-                slug: "how-to-create-5-star-clinic-experience",
-                date: "Mar 14, 2024"
-              },
-              {
-                title: "How Premium Clinics Transform Single Visits Into Lifelong Value",
-                description: "Learn how market-leading clinics turn first-time patients into loyal advocates through sophisticated engagement strategies.",
-                category: "Strategic Analysis",
-                readTime: "8 min read",
-                slug: "premium-clinics-loyalty",
-                date: "Mar 12, 2024"
-              },
-              {
-                title: "Why Most Private Clinics Lose Money After the First Appointment",
-                description: "Most clinics lose revenue after the first appointment. Discover how to turn one-time patients into loyal, high-value promoters.",
-                category: "Revenue Analysis",
-                readTime: "7 min read",
-                slug: "patient-retention",
-                date: "Mar 10, 2024"
-              }
-            ].map((post, index) => (
-              <motion.div
-                key={post.slug}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group"
-              >
-                <Link href={`/blog/${post.slug}`}>
-                  <div className="bg-white/[0.03] backdrop-blur-sm border border-white/5 rounded-2xl p-6 sm:p-8 hover:bg-white/[0.05] transition-all duration-300">
-                    <div className="flex items-center space-x-4 text-sm text-gray-400">
-                      <span>{post.category}</span>
-                      <span className="w-1 h-1 rounded-full bg-gray-700"></span>
-                      <span>{post.readTime}</span>
-                      <span className="w-1 h-1 rounded-full bg-gray-700"></span>
-                      <span>{post.date}</span>
-                    </div>
-                    
-                    <h3 className="text-xl sm:text-2xl font-light text-white mt-4 mb-3 group-hover:text-white/90 transition-colors duration-300">
-                      {post.title}
-                    </h3>
-                    
-                    <p className="text-gray-400 line-clamp-2 mb-4">
-                      {post.description}
-                    </p>
-                    
-                    <div className="inline-flex items-center space-x-2 text-white/60 group-hover:text-white transition-colors duration-300">
-                      <span className="text-sm">Read article</span>
-                      <ChevronRightIcon className="w-4 h-4" />
-                    </div>
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <Link 
-              href="/blog"
-              className="inline-flex items-center space-x-2 text-white/80 hover:text-white transition-colors duration-300"
-            >
-              <span>View all articles</span>
-              <ChevronRightIcon className="w-4 h-4" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Comparison Section */}
-      <section className="relative py-32 px-4 sm:px-6 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-black to-[#0a0a0a] pointer-events-none">
-          {/* Subtle accent elements */}
-          <div className="absolute top-1/4 right-1/3 w-[300px] h-[300px] bg-white/[0.02] rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 left-1/3 w-[400px] h-[400px] bg-white/[0.02] rounded-full blur-3xl" />
-        </div>
-
-        <div className="container mx-auto max-w-6xl relative">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16 sm:mb-20"
-          >
-            <h2 className="text-2xl sm:text-3xl font-light text-white tracking-[-0.02em] mb-3 sm:mb-4">The CXLUS Difference</h2>
-            <p className="text-gray-400 font-light text-base sm:text-lg">A transformative approach to patient experience</p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 gap-8 relative">
-            {[
-              {
-                aspect: "First Contact",
-                traditional: "Manual WhatsApp or generic call center",
-                cxlus: "Personalized portal with guided onboarding"
-              },
-              {
-                aspect: "Follow-up",
-                traditional: "Manual and forgotten reminders",
-                cxlus: "Intelligent automated check-ins"
-              },
-              {
-                aspect: "Patient Portal",
-                traditional: "Non-existent or generic",
-                cxlus: "100% branded to your clinic"
-              },
-              {
-                aspect: "Treatment Progress",
-                traditional: "Physical files or PDF via email",
-                cxlus: "Interactive visual dashboard"
-              },
-              {
-                aspect: "Communication",
-                traditional: "Fragmented across email, WhatsApp, spreadsheets",
-                cxlus: "Fully integrated and automated"
-              },
-              {
-                aspect: "Patient Referrals",
-                traditional: "Informal word of mouth",
-                cxlus: "Automated referral system"
-              },
-              {
-                aspect: "Patient Perception",
-                traditional: "Common, cold, disorganized",
-                cxlus: "Modern, premium, unforgettable"
-              }
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 * index }}
-                className="bg-white/[0.03] backdrop-blur-sm border border-white/5 rounded-2xl p-6 sm:p-8"
-              >
-                <div className="space-y-6">
-                  <div>
-                    <div className="h-px w-12 bg-gradient-to-r from-white/20 to-transparent mb-4"></div>
-                    <h3 className="text-white/80 text-lg sm:text-xl font-light tracking-[-0.02em] mb-6">{item.aspect}</h3>
-                  </div>
-                  
-                  <div className="grid sm:grid-cols-2 gap-6">
-                    <div className="space-y-3">
-                      <p className="text-gray-500 text-xs uppercase tracking-wider">Traditional Approach</p>
-                      <p className="text-gray-400 font-light text-sm sm:text-base">{item.traditional}</p>
-                    </div>
-                    <div className="space-y-3">
-                      <p className="text-white/60 text-xs uppercase tracking-wider">CXLUS Experience</p>
-                      <p className="text-white font-light text-sm sm:text-base">{item.cxlus}</p>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* About Section - Client Journey Timeline */}
-      <section className="relative py-16 sm:py-20 px-4 sm:px-6 overflow-hidden">
-        <div className="container mx-auto max-w-7xl relative">
-          {/* Header */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }} 
-            animate={{ opacity: 1, y: 0 }} 
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl sm:text-4xl font-light text-white tracking-[-0.03em] leading-tight mb-6">
-              Create an exclusive experience
-            </h2>
-            <p className="text-xl font-light text-gray-400 tracking-[-0.03em] leading-relaxed mb-8 max-w-3xl mx-auto">
-              A complete tech solution to support your patients, personalise care, and turn clients into advocates.
-            </p>
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }} 
-              animate={{ opacity: 1, y: 0 }} 
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="bg-white/5 p-6 sm:p-8 rounded-2xl border border-white/10 max-w-4xl mx-auto backdrop-blur-sm"
-            >
-              <p className="text-lg text-gray-300 leading-relaxed tracking-[-0.03em] font-light">
-                Built to elevate every client experience through intelligent automation, personalized care journeys, and meaningful connections that transform satisfied clients into your most powerful advocates.
-              </p>
-            </motion.div>
-          </motion.div>
-
-          {/* Timeline content */}
-          <div className="relative">
-            {/* Mobile Timeline (Vertical Stack) */}
-            <div className="block lg:hidden space-y-8">
-              {[
-                {
-                  step: "01",
-                  icon: <UserGroupIcon className="w-6 h-6 text-white" />,
-                  title: 'Create a truly personal Client Area',
-                  description: 'Give each client a smart, branded space that remembers their journey, preferences, and needs — from the first contact to loyal fan.',
-                  color: 'bg-white/10'
-                },
-                {
-                  step: "02", 
-                  icon: <ArrowTrendingUpIcon className="w-6 h-6 text-white" />,
-                  title: 'Deliver tailored follow-ups that feel one-on-one',
-                  description: 'CXLUS tracks every interaction and stage, sending reminders, content, and offers that match exactly where the client is in their journey.',
-                  color: 'bg-white/10'
-                },
-                {
-                  step: "03",
-                  icon: <ChartBarIcon className="w-6 h-6 text-white" />,
-                  title: 'Turn each journey into a source of insight',
-                  description: 'Understand what each client has seen, clicked, and felt — and use that to improve every next interaction.',
-                  color: 'bg-white/10'
-                },
-                {
-                  step: "04",
-                  icon: <CheckIcon className="w-6 h-6 text-white" />,
-                  title: 'Automated Client Support',
-                  description: 'AI-powered automation handles follow-ups, reminders, and support with a personal touch that delights clients',
-                  color: 'bg-white/10'
-                },
-                {
-                  step: "05",
-                  icon: <GiftIcon className="w-6 h-6 text-white" />,
-                  title: 'Grow through love — and track every referral',
-                  description: 'CXLUS invites satisfied clients to share their experience, refer friends, and leave glowing reviews — all tracked and rewarded.',
-                  color: 'bg-white/10'
-                }
-              ].map((item, index) => (
-                <motion.div 
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
-                  className="flex items-start space-x-4"
-                >
-                  <div className="flex-shrink-0">
-                    <div className={`w-12 h-12 ${item.color} rounded-full flex items-center justify-center shadow-lg border border-white/10`}>
-                      {item.icon}
-                    </div>
-                  </div>
-                  
-                  <div className="flex-1">
-                    <div className="bg-white/5 p-4 rounded-xl shadow-lg border border-white/10 backdrop-blur-sm">
-                      <div className="mb-2">
-                        <span className="text-xs font-light text-gray-400 tracking-wider">
-                          STEP {item.step}
-                        </span>
-                      </div>
-                      <h3 className="text-lg font-light text-white mb-2 tracking-[-0.03em]">
-                        {item.title}
-                      </h3>
-                      <p className="text-gray-400 text-sm leading-relaxed tracking-[-0.03em] font-light">
-                        {item.description}
-                      </p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Desktop Timeline */}
-            <div className="hidden lg:block">
-              {/* Central Timeline Line */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 w-px bg-gradient-to-b from-white/5 via-white/10 to-white/5 h-full"></div>
-              
-              {/* Timeline Steps */}
-              <div className="space-y-16">
-                {[
-                  {
-                    step: "01",
-                    icon: <UserGroupIcon className="w-8 h-8 text-white" />,
-                    title: 'Create a truly personal Client Area',
-                    description: 'Give each client a smart, branded space that remembers their journey, preferences, and needs — from the first contact to loyal fan.',
-                    side: 'left',
-                    color: 'bg-white/10'
-                  },
-                  {
-                    step: "02", 
-                    icon: <ArrowTrendingUpIcon className="w-8 h-8 text-white" />,
-                    title: 'Deliver tailored follow-ups that feel one-on-one',
-                    description: 'CXLUS tracks every interaction and stage, sending reminders, content, and offers that match exactly where the client is in their journey.',
-                    side: 'right',
-                    color: 'bg-white/10'
-                  },
-                  {
-                    step: "03",
-                    icon: <ChartBarIcon className="w-8 h-8 text-white" />,
-                    title: 'Turn each journey into a source of insight',
-                    description: 'Understand what each client has seen, clicked, and felt — and use that to improve every next interaction.',
-                    side: 'left',
-                    color: 'bg-white/10'
-                  },
-                  {
-                    step: "04",
-                    icon: <CheckIcon className="w-8 h-8 text-white" />,
-                    title: 'Automated Client Support',
-                    description: 'AI-powered automation handles follow-ups, reminders, and support with a personal touch that delights clients',
-                    side: 'right',
-                    color: 'bg-white/10'
-                  },
-                  {
-                    step: "05",
-                    icon: <GiftIcon className="w-8 h-8 text-white" />,
-                    title: 'Grow through love — and track every referral',
-                    description: 'CXLUS invites satisfied clients to share their experience, refer friends, and leave glowing reviews — all tracked and rewarded.',
-                    side: 'left',
-                    color: 'bg-white/10'
-                  }
-                ].map((item, index) => (
-                  <motion.div 
-                    key={index}
-                    initial={{ opacity: 0, x: item.side === 'left' ? -50 : 50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.3 + index * 0.2 }}
-                    className={`relative flex items-center ${item.side === 'left' ? 'justify-start' : 'justify-end'}`}
-                  >
-                    <div className={`w-full max-w-md ${item.side === 'left' ? 'pr-8' : 'pl-8'}`}>
-                      <div className={`bg-white/5 p-6 rounded-xl shadow-lg border border-white/10 backdrop-blur-sm hover:shadow-xl transition-all duration-300 ${item.side === 'right' ? 'text-right' : ''}`}>
-                        <div className={`flex items-center mb-4 ${item.side === 'right' ? 'justify-end' : 'justify-start'}`}>
-                          <span className="text-sm font-light text-gray-400 tracking-wider">
-                            STEP {item.step}
-                          </span>
-                        </div>
-                        <h3 className="text-xl font-light text-white mb-3 tracking-[-0.03em]">
-                          {item.title}
-                        </h3>
-                        <p className="text-gray-400 leading-relaxed tracking-[-0.03em] font-light">
-                          {item.description}
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="absolute left-1/2 transform -translate-x-1/2 z-10">
-                      <motion.div 
-                        initial={{ scale: 0 }}
-                        animate={{ scale: 1 }}
-                        transition={{ duration: 0.4, delay: 0.5 + index * 0.2 }}
-                        className={`w-16 h-16 bg-white/10 rounded-full flex items-center justify-center shadow-lg border border-white/10`}
-                      >
-                        {item.icon}
-                      </motion.div>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="relative py-32 px-4 sm:px-6 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] to-black pointer-events-none">
-          {/* Subtle accent elements */}
-          <div className="absolute top-1/3 right-1/4 w-[400px] h-[400px] bg-white/[0.02] rounded-full blur-3xl" />
-          <div className="absolute bottom-1/3 left-1/4 w-[300px] h-[300px] bg-white/[0.02] rounded-full blur-3xl" />
-          
-          {/* Minimal line */}
-          <div className="absolute left-1/2 top-0 w-px h-32 bg-gradient-to-b from-transparent via-white/10 to-transparent" />
-        </div>
-
-        <div className="container mx-auto max-w-4xl relative">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center space-y-12"
-          >
-            <div className="space-y-6">
-              <h2 className="text-3xl sm:text-4xl font-extralight text-white tracking-[-0.02em]">
-                Experience the future of healthcare
-              </h2>
-              <p className="text-lg text-white/60 font-light tracking-[-0.02em] max-w-xl mx-auto">
-                Book a personalized demo to see how CXLUS can transform your practice
-              </p>
-            </div>
-            
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center"
-            >
-              <Button 
-                onClick={handleDemoClick}
-                className="bg-transparent hover:bg-white/5 border border-white/20 text-white transition-all duration-300 px-10 py-5 text-sm font-light tracking-wide rounded-full"
-              >
-                Schedule Demo
-              </Button>
-              <Button 
-                onClick={handleScorecardClick}
-                className="bg-white/5 hover:bg-white/10 border border-white/20 text-white transition-all duration-300 px-10 py-5 text-sm font-light tracking-wide rounded-full"
-              >
-                Free Clinic Assessment
-              </Button>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
 
       {/* Privacy Section */}
       <section className="relative py-8 sm:py-12 px-4 sm:px-6 overflow-hidden">
@@ -783,6 +204,231 @@ export default function HomePage() {
           </div>
         </div>
       </footer>
+
+      {/* Request Access Modal */}
+      <Dialog open={showRequestModal} onOpenChange={setShowRequestModal}>
+        <DialogContent className="bg-black/95 border border-white/10 text-white max-w-lg">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-light tracking-[-0.02em] mb-2">Request Access</DialogTitle>
+            <DialogDescription className="text-gray-400">
+              Fill out the form below to request early access to CXLUS.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="space-y-6 py-4">
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <Label htmlFor="name" className="text-white/60">Name</Label>
+                <Input
+                  id="name"
+                  value={formData.name}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFormData({...formData, name: e.target.value})}
+                  className="bg-white/5 border-white/10 text-white"
+                  placeholder="John Doe"
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="email" className="text-white/60">Email</Label>
+                <Input
+                  id="email"
+                  type="email"
+                  value={formData.email}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFormData({...formData, email: e.target.value})}
+                  className="bg-white/5 border-white/10 text-white"
+                  placeholder="john@example.com"
+                />
+              </div>
+            </div>
+            
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <Label htmlFor="company" className="text-white/60">Clinic Name</Label>
+                <Input
+                  id="company"
+                  value={formData.company}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFormData({...formData, company: e.target.value})}
+                  className="bg-white/5 border-white/10 text-white"
+                  placeholder="Your Clinic Name"
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="role" className="text-white/60">Your Role</Label>
+                <Select onValueChange={(value) => setFormData({...formData, role: value})}>
+                  <SelectTrigger className="bg-white/5 border-white/10 text-white">
+                    <SelectValue placeholder="Select your role" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="owner">Clinic Owner</SelectItem>
+                    <SelectItem value="director">Medical Director</SelectItem>
+                    <SelectItem value="manager">Practice Manager</SelectItem>
+                    <SelectItem value="physician">Physician</SelectItem>
+                    <SelectItem value="administrator">Administrator</SelectItem>
+                    <SelectItem value="other">Other</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <Label htmlFor="clinicSize" className="text-white/60">Clinic Size</Label>
+                <Select onValueChange={(value) => setFormData({...formData, clinicSize: value})}>
+                  <SelectTrigger className="bg-white/5 border-white/10 text-white">
+                    <SelectValue placeholder="Select size" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="1-5">1-5 Physicians</SelectItem>
+                    <SelectItem value="6-10">6-10 Physicians</SelectItem>
+                    <SelectItem value="11-20">11-20 Physicians</SelectItem>
+                    <SelectItem value="21-50">21-50 Physicians</SelectItem>
+                    <SelectItem value="50+">50+ Physicians</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="currentSystem" className="text-white/60">Current System</Label>
+                <Select onValueChange={(value) => setFormData({...formData, currentSystem: value})}>
+                  <SelectTrigger className="bg-white/5 border-white/10 text-white">
+                    <SelectValue placeholder="Select system" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="none">No System</SelectItem>
+                    <SelectItem value="manual">Manual/Spreadsheets</SelectItem>
+                    <SelectItem value="basic-emr">Basic EMR</SelectItem>
+                    <SelectItem value="custom">Custom Solution</SelectItem>
+                    <SelectItem value="other">Other</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+            </div>
+
+            <div className="space-y-3">
+              <Label className="text-white/60">Specialties</Label>
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  "Primary Care",
+                  "Cardiology",
+                  "Dermatology",
+                  "Orthopedics",
+                  "Pediatrics",
+                  "OB/GYN",
+                  "Neurology",
+                  "Oncology"
+                ].map((specialty) => (
+                  <div key={specialty} className="flex items-center space-x-2">
+                    <Checkbox 
+                      id={specialty}
+                      checked={formData.specialties.includes(specialty)}
+                      onCheckedChange={(checked) => {
+                        if (checked) {
+                          setFormData({...formData, specialties: [...formData.specialties, specialty]})
+                        } else {
+                          setFormData({...formData, specialties: formData.specialties.filter(s => s !== specialty)})
+                        }
+                      }}
+                      className="border-white/20 data-[state=checked]:bg-white/20 data-[state=checked]:border-white/30"
+                    />
+                    <Label htmlFor={specialty} className="text-white/80">{specialty}</Label>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <Label htmlFor="budget" className="text-white/60">Budget Range</Label>
+                <Select onValueChange={(value) => setFormData({...formData, budget: value})}>
+                  <SelectTrigger className="bg-white/5 border-white/10 text-white">
+                    <SelectValue placeholder="Select budget" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="<1k">Less than $1,000/mo</SelectItem>
+                    <SelectItem value="1k-2k">$1,000 - $2,000/mo</SelectItem>
+                    <SelectItem value="2k-5k">$2,000 - $5,000/mo</SelectItem>
+                    <SelectItem value="5k+">$5,000+/mo</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="timeline" className="text-white/60">Implementation Timeline</Label>
+                <Select onValueChange={(value) => setFormData({...formData, timeline: value})}>
+                  <SelectTrigger className="bg-white/5 border-white/10 text-white">
+                    <SelectValue placeholder="Select timeline" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="immediate">Immediate</SelectItem>
+                    <SelectItem value="1-3months">1-3 months</SelectItem>
+                    <SelectItem value="3-6months">3-6 months</SelectItem>
+                    <SelectItem value="6months+">6+ months</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="message" className="text-white/60">Additional Information</Label>
+              <Textarea
+                id="message"
+                value={formData.message}
+                onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setFormData({...formData, message: e.target.value})}
+                className="bg-white/5 border-white/10 text-white min-h-[100px]"
+                placeholder="Tell us about your specific needs or any questions you have..."
+              />
+            </div>
+
+            <Button 
+              onClick={async () => {
+                if (isSubmitting) return;
+                setIsSubmitting(true);
+                try {
+                  const response = await fetch('/api/access-request', {
+                    method: 'POST',
+                    headers: {
+                      'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData),
+                  });
+
+                  if (!response.ok) {
+                    const error = await response.json();
+                    throw new Error(error.error || 'Failed to submit request');
+                  }
+
+                  // Clear form and close modal
+                  setFormData({
+                    name: '',
+                    email: '',
+                    company: '',
+                    role: '',
+                    clinicSize: '',
+                    specialties: [],
+                    currentSystem: '',
+                    budget: '',
+                    timeline: '',
+                    message: ''
+                  });
+                  setShowRequestModal(false);
+
+                  // Show success message
+                  alert('Thank you for your interest! We will contact you soon.');
+                } catch (error) {
+                  console.error('Error submitting form:', error);
+                  alert('Failed to submit request. Please try again.');
+                } finally {
+                  setIsSubmitting(false);
+                }
+              }}
+              disabled={isSubmitting}
+              className={`w-full bg-transparent border border-white/20 text-white transition-all duration-300 py-6 text-sm font-light tracking-[-0.03em] rounded-full ${
+                isSubmitting 
+                  ? 'opacity-50 cursor-not-allowed' 
+                  : 'hover:bg-white/5 hover:border-white/30'
+              }`}
+            >
+              {isSubmitting ? 'Submitting...' : 'Submit Request'}
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 } 

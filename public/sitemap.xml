@@ -1,15 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
-    <loc>https://boop.tech/blog/how-boop-labs-helps-you-build-profitable-business</loc>
-    <lastmod>2024-03-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://cxlus.com/</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://boop.tech/blog/master-plan-8-figure-business</loc>
-    <lastmod>2024-03-15</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://cxlus.com/blog/premium-clinics-loyalty</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cxlus.com/blog/premium-clinics-loyalty"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cxlus.com/blog/premium-clinics-loyalty/pt"/>
+    <image:image>
+      <image:loc>https://cxlus.com/blog/premium-clinics-loyalty/cover.jpg</image:loc>
+      <image:title>Premium Clinics Transformation Strategy</image:title>
+    </image:image>
   </url>
 </urlset> 

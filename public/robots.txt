@@ -1,4 +1,14 @@
+# Allow all crawlers
 User-agent: *
 Allow: /
 
-Sitemap: https://boop.tech/sitemap.xml 
+# Sitemap location
+Sitemap: https://cxlus.com/sitemap.xml
+
+# Disallow admin and api routes
+Disallow: /admin/
+Disallow: /api/
+Disallow: /dashboard/
+
+# Crawl-delay
+Crawl-delay: 10 
