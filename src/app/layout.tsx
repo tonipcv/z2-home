@@ -1,9 +1,10 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Inter, Alegreya } from 'next/font/google'
 import { FacebookPixel } from '@/components/FacebookPixel'
 
 const inter = Inter({ subsets: ['latin'] })
+const alegreya = Alegreya({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Cxlus',
