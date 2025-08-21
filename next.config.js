@@ -5,7 +5,7 @@ const nextConfig = {
   },
   output: 'standalone',
   images: {
-    domains: ['cxlus.com'],
+    domains: ['zuzz.org'],
   },
   // Basic asset handling
   webpack: (config) => {
@@ -25,6 +25,16 @@ const nextConfig = {
         ],
       },
     ];
+  },
+  async redirects() {
+    return [
+      { source: '/home-2', destination: '/', permanent: true },
+      { source: '/2backupt', destination: '/', permanent: true },
+      { source: '/home', destination: '/', permanent: true },
+      { source: '/demo', destination: '/', permanent: true },
+      { source: '/partners', destination: '/', permanent: true },
+      { source: '/pricing', destination: '/', permanent: true },
+    ]
   },
 }
 

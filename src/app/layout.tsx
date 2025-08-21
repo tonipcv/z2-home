@@ -7,33 +7,33 @@ const inter = Inter({ subsets: ['latin'] })
 const alegreya = Alegreya({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Cxlus',
-  description: 'The all-in-one, AI-powered solution to boost patient loyalty, personalise every step of care, and turn satisfied clients into brand advocates.',
-  keywords: ['CXLUS', 'customer experience', 'medical clinics', 'digital platform', 'customer service'],
-  authors: [{ name: 'CXLUS' }],
-  creator: 'CXLUS',
-  publisher: 'CXLUS',
-  metadataBase: new URL('https://cxlus.com'),
+  title: 'Zuzz',
+  description: 'Zuzz engineers data-driven loyalty and referral systems for businesses of all sizes to increase repeat purchases, product attach rate, and Customer Lifetime Value (CLV).',
+  keywords: ['Zuzz', 'loyalty', 'referral', 'rewards', 'customer retention', 'growth', 'CLV', 'lifetime value', 'repeat purchases'],
+  authors: [{ name: 'Zuzz' }],
+  creator: 'Zuzz',
+  publisher: 'Zuzz',
+  metadataBase: new URL('https://zuzz.org'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: 'Cxlus',
-    description: 'The all-in-one, AI-powered solution to boost patient loyalty, personalise every step of care, and turn satisfied clients into brand advocates.',
-    url: 'https://cxlus.com',
-    siteName: 'CXLUS',
+    title: 'Zuzz',
+    description: 'Zuzz engineers data-driven loyalty and referral systems for businesses to increase repeat purchases, product attach rate, and CLV.',
+    url: 'https://zuzz.org',
+    siteName: 'Zuzz',
     images: [
       {
         url: '/logo.png',
         width: 1200,
         height: 630,
-        alt: 'CXLUS Logo',
+        alt: 'Zuzz Logo',
       },
       {
         url: '/icon.png',
         width: 800,
         height: 600,
-        alt: 'CXLUS Icon',
+        alt: 'Zuzz Icon',
       },
     ],
     locale: 'en_US',
@@ -41,11 +41,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Cxlus',
-    description: 'The all-in-one, AI-powered solution to boost patient loyalty, personalise every step of care, and turn satisfied clients into brand advocates.',
+    title: 'Zuzz',
+    description: 'Zuzz engineers data-driven loyalty and referral systems for businesses to increase repeat purchases, product attach rate, and CLV.',
     images: ['/logo.png'],
-    creator: '@cxlus',
-    site: '@cxlus',
   },
   robots: {
     index: true,
@@ -108,14 +106,11 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              "name": "CXLUS",
-              "url": "https://cxlus.com",
-              "logo": "https://cxlus.com/logo.png",
-              "description": "A complete tech solution to support your patients, personalise care, and turn clients into advocates.",
-              "sameAs": [
-                "https://www.linkedin.com/company/cxlus",
-                "https://twitter.com/cxlus"
-              ]
+              "name": "Zuzz",
+              "url": "https://zuzz.org",
+              "logo": "https://zuzz.org/logo.png",
+              "description": "Data-driven loyalty and referral systems to grow repeat purchases, attach rate, and CLV.",
+              "sameAs": []
             })
           }}
         />

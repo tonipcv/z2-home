@@ -5,21 +5,27 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
-    <loc>https://cxlus.com/</loc>
-    <lastmod>2024-01-01</lastmod>
+    <loc>https://zuzz.org/</loc>
+    <lastmod>2025-08-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://cxlus.com/blog/premium-clinics-loyalty</loc>
-    <lastmod>2024-01-01</lastmod>
+    <loc>https://zuzz.org/blog</loc>
+    <lastmod>2025-08-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://cxlus.com/blog/premium-clinics-loyalty"/>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cxlus.com/blog/premium-clinics-loyalty/pt"/>
-    <image:image>
-      <image:loc>https://cxlus.com/blog/premium-clinics-loyalty/cover.jpg</image:loc>
-      <image:title>Premium Clinics Transformation Strategy</image:title>
-    </image:image>
+  </url>
+  <url>
+    <loc>https://zuzz.org/blog/referral-program-roi-aesthetics</loc>
+    <lastmod>2025-08-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://zuzz.org/blog/loyalty-program-roi-aesthetics</loc>
+    <lastmod>2025-08-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset> 
