@@ -22,6 +22,15 @@ const blogPosts = [
     date: "Aug 21, 2025"
   }
 ]
+// Added: precision loyalty ROI post
+blogPosts.unshift({
+  title: "From One-Off Visits to Market Dominance: A Technical ROI Analysis of Precision Loyalty Programs",
+  description: "A precision loyalty methodology that lifted injectables revenue by 40% and recurring clients by 18%, with a replicable ROI model.",
+  category: "Loyalty Analysis",
+  readTime: "9 min read",
+  slug: "technical-roi-precision-loyalty-programs",
+  date: "Aug 21, 2025"
+})
 
 export default function BlogIndex() {
   const t = getDict('en')

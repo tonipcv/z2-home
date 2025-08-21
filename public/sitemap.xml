@@ -28,4 +28,10 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-</urlset> 
+  <url>
+    <loc>https://zuzz.org/blog/technical-roi-precision-loyalty-programs</loc>
+    <lastmod>2025-08-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+</urlset>
