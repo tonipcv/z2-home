@@ -3,14 +3,14 @@ import type { Metadata } from 'next'
 import { getDict } from '@/lib/i18n';
 
 export const metadata: Metadata = {
-  title: 'From One-Off Visits to Market Dominance: Technical ROI of Precision Loyalty Programs | Zuzz',
+  title: 'De Visitas Pontuais à Dominância de Mercado: ROI Técnico de Programas de Fidelidade de Precisão | Zuzz',
   description:
-    'A technical ROI breakdown of how a precision loyalty strategy for injectables drove +40% revenue and +18% recurring clients, and how to model the impact for maintenance-based services.',
+    'Uma decomposição técnica de ROI mostrando como uma estratégia de fidelidade de precisão para injetáveis gerou +40% de receita e +18% de clientes recorrentes, e como modelar o impacto para serviços de manutenção.',
   alternates: { canonical: '/blog/technical-roi-precision-loyalty-programs' },
   openGraph: {
-    title: 'Technical ROI of Precision Loyalty Programs | Zuzz',
+    title: 'ROI Técnico de Programas de Fidelidade de Precisão | Zuzz',
     description:
-      'How precision loyalty transforms maintenance services into growth engines: +40% revenue and +18% recurring clients in injectables.',
+      'Como a fidelidade de precisão transforma serviços de manutenção em motores de crescimento: +40% de receita e +18% de clientes recorrentes em injetáveis.',
     url: 'https://zuzz.org/blog/technical-roi-precision-loyalty-programs',
     siteName: 'Zuzz',
     images: [
@@ -20,16 +20,16 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Technical ROI of Precision Loyalty Programs | Zuzz',
+    title: 'ROI Técnico de Programas de Fidelidade de Precisão | Zuzz',
     description:
-      'A precision loyalty methodology that boosted injectables revenue by 40% and recurring clients by 18%—with a replicable ROI model.',
+      'Uma metodologia de fidelidade de precisão que aumentou a receita de injetáveis em 40% e clientes recorrentes em 18% — com um modelo de ROI replicável.',
     images: ['/logo.png'],
   },
   robots: { index: true, follow: true },
 }
 
 export default function BlogPost() {
-  const t = getDict('en')
+  const t = getDict('pt')
   return (
     <div className="min-h-screen bg-white text-black flex flex-col">
       {/* Article Structured Data */}
@@ -39,8 +39,8 @@ export default function BlogPost() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
-            "headline": "From One-Off Visits to Market Dominance: A Technical ROI Analysis of Precision Loyalty Programs",
-            "description": "A technical ROI breakdown of how a precision loyalty strategy for injectables drove +40% revenue and +18% recurring clients, and how to model the impact for maintenance-based services.",
+            "headline": "De Visitas Pontuais à Dominância de Mercado: Uma Análise Técnica de ROI de Programas de Fidelidade de Precisão",
+            "description": "Uma decomposição técnica de ROI mostrando como uma estratégia de fidelidade de precisão para injetáveis gerou +40% de receita e +18% de clientes recorrentes, e como modelar o impacto para serviços de manutenção.",
             "mainEntityOfPage": {
               "@type": "WebPage",
               "@id": "https://zuzz.org/blog/technical-roi-precision-loyalty-programs"
@@ -83,9 +83,9 @@ export default function BlogPost() {
       <section className="pt-10 pb-6 px-4 sm:px-6">
         <div className="container mx-auto max-w-3xl">
           <h1 className="text-3xl sm:text-4xl font-light tracking-[-0.02em]">
-            From One-Off Visits to Market Dominance: A Technical ROI Analysis of Precision Loyalty Programs
+            De Visitas Pontuais à Dominância de Mercado: Uma Análise Técnica de ROI de Programas de Fidelidade de Precisão
           </h1>
-          <div className="text-sm text-gray-600 mt-2">Loyalty Analysis · 9 min read</div>
+          <div className="text-sm text-gray-600 mt-2">Análise de Fidelidade · 9 min de leitura</div>
         </div>
       </section>
 
@@ -94,74 +94,74 @@ export default function BlogPost() {
         <div className="container mx-auto max-w-2xl">
           <article className="prose prose-neutral max-w-none">
             <p>
-              In the highly lucrative Los Angeles market, Lux Med Spa faced a strategic challenge: how to ensure retention in their most profitable segment—injectables. Clients for services like neurotoxins and dermal fillers are the bedrock of profitability for many clinics, yet their loyalty is constantly tested by the competition. The solution was to move away from a generic marketing approach and implement a precision loyalty methodology with Zuzz, focused specifically on this service.
+              No lucrativo mercado de Los Angeles, a Lux Med Spa enfrentava um desafio estratégico: como garantir retenção no seu segmento mais rentável — injetáveis. Clientes de serviços como neurotoxinas e preenchedores são a base da lucratividade de muitas clínicas, mas sua lealdade é constantemente testada pela concorrência. A solução foi abandonar uma abordagem genérica de marketing e implementar, com a Zuzz, uma metodologia de fidelidade de precisão focada especificamente nesse serviço.
             </p>
             <p>
-              As architects of growth systems at Zuzz.org, we see this case as the evolution of customer loyalty—a shift from generalist programs to surgical strategies that amplify results in the areas of greatest impact. The proven result—a 40% surge in revenue from injectables and an 18% growth in the number of recurring clients for this service—is unequivocal proof of this approach's effectiveness.
+              Como arquitetos de sistemas de crescimento na Zuzz.org, vemos este caso como a evolução da fidelização — a mudança de programas generalistas para estratégias cirúrgicas que ampliam resultados nas áreas de maior impacto. O resultado comprovado — aumento de 40% na receita de injetáveis e 18% no número de clientes recorrentes nesse serviço — é prova inequívoca da eficácia dessa abordagem.
             </p>
 
-            <h2>Deconstructing the Core Metrics</h2>
+            <h2>Deconstruindo os Métricos Centrais</h2>
 
             <p>
-              Lux Med Spa's strategy was to create a focused points program where spending on injectables generated a higher point value or unlocked exclusive benefits within that category. This tactic creates a positive feedback loop, encouraging the desired behavior: returning for maintenance sessions.
+              A estratégia da Lux Med Spa foi criar um programa de pontos focado, em que gastos com injetáveis geravam maior valor de pontos ou desbloqueavam benefícios exclusivos nessa categoria. Essa tática cria um ciclo de feedback positivo, estimulando o comportamento desejado: voltar para sessões de manutenção.
             </p>
 
-            <h3>1) 18% Growth in Recurring Clients for Injectables</h3>
+            <h3>1) 18% de Crescimento em Clientes Recorrentes de Injetáveis</h3>
             <p>
-              This is the primary Key Performance Indicator (KPI) for a maintenance-based service. The goal is not just to attract clients, but to ensure they complete their treatment cycle at your clinic.
+              Este é o principal KPI para um serviço de manutenção. O objetivo não é apenas atrair clientes, mas garantir que completem seu ciclo de tratamento na sua clínica.
             </p>
             <p>
-              <strong>Analysis of "Inactivity Cost":</strong> In the aesthetics industry, every injectables client who does not return within their 3–6 month window represents significant lost revenue. An 18% increase in the return rate directly transforms this lost revenue into realized profit.
+              <strong>Análise do "Custo de Inatividade":</strong> No setor de estética, cada cliente de injetáveis que não retorna dentro da janela de 3–6 meses representa receita perdida. Um aumento de 18% na taxa de retorno converte diretamente essa perda em lucro realizado.
             </p>
-            <h4>Retention Impact Model</h4>
+            <h4>Modelo de Impacto na Retenção</h4>
             <ul>
-              <li>Assume a base of 200 active injectables clients with a historical return rate of 60% for their next session. (120 clients return).</li>
-              <li>An 18% increase in this rate elevates it to approximately 71% (142 clients return).</li>
-              <li>This results in 22 additional retained clients per treatment cycle, creating a recurring client base that compounds over time.</li>
+              <li>Base de 200 clientes ativos de injetáveis, com taxa histórica de retorno de 60% para a próxima sessão (120 retornam).</li>
+              <li>Aumento de 18% eleva a taxa para ~71% (142 retornam).</li>
+              <li>Resultado: +22 clientes retidos por ciclo, criando uma base recorrente que se compõe ao longo do tempo.</li>
             </ul>
 
-            <h3>2) 40% Surge in Revenue from Injectables</h3>
+            <h3>2) 40% de Aumento na Receita de Injetáveis</h3>
             <p>
-              This impressive figure is the direct result of the synergy between increased retention and a higher average client value.
+              Esse resultado é fruto da sinergia entre maior retenção e aumento do valor médio por cliente.
             </p>
-            <h4>Financial Projection</h4>
+            <h4>Projeção Financeira</h4>
             <ul>
-              <li>Assuming an average spend per injectables session of $650 and a cycle of 3 sessions per year.</li>
-              <li>Initial Annual Revenue per Client: 3 sessions × $650 = $1,950.</li>
-              <li>The 18% increase in recurring clients already provides a significant boost to baseline revenue. However, the 40% surge suggests a second factor: an uplift in the Average Transaction Value (ATV).</li>
+              <li>Gasto médio por sessão: US$650, com 3 sessões/ano.</li>
+              <li>Receita anual inicial por cliente: 3 × US$650 = US$1.950.</li>
+              <li>O +18% em clientes recorrentes já eleva a linha de base. O +40% sugere um segundo fator: aumento do ATV (ticket médio).</li>
             </ul>
             <p>
-              <strong>How the Program Drives ATV:</strong> Loyal clients feel more comfortable trying new treatments or adding application areas (e.g., moving from treating just the glabella to including the forehead and crow's feet). The accrued points lower the psychological barrier to increasing the treatment value. "I'm only X points away from a reward, so I'll add one more syringe of filler."
+              <strong>Como o programa eleva o ATV:</strong> Clientes fiéis se sentem mais confortáveis em testar novos tratamentos ou adicionar áreas de aplicação. Os pontos acumulados reduzem a barreira psicológica para aumentar o valor do tratamento. "Faltam X pontos para a recompensa; vou adicionar mais uma seringa."
             </p>
 
-            <h4>Revenue Model</h4>
-            <p><strong>Initial Revenue (Example):</strong> 200 clients × $1,950/year × 60% retention = $234,000/year</p>
-            <p><strong>New Revenue (with 40% increase):</strong> $327,600/year</p>
+            <h4>Modelo de Receita</h4>
+            <p><strong>Receita Inicial (Exemplo):</strong> 200 clientes × US$1.950/ano × 60% retenção = US$234.000/ano</p>
+            <p><strong>Nova Receita (com +40%):</strong> US$327.600/ano</p>
             <p>
-              A $93,600 increase in annual revenue from a single service segment, which already holds the clinic's highest profit margins.
+              Aumento de US$93.600/ano em um único segmento — que já carrega as maiores margens da clínica.
             </p>
 
-            <h2>The Psychology of Loyalty in Maintenance Services</h2>
+            <h2>A Psicologia da Fidelidade em Serviços de Manutenção</h2>
             <p>
-              The success of this model is not accidental; it's rooted in how clients make decisions for recurring treatments.
+              O sucesso deste modelo não é acidental; está enraizado em como clientes decidem por tratamentos recorrentes.
             </p>
             <ul>
-              <li><strong>Reducing Cognitive Load:</strong> The need for a maintenance session arises every few months. An effective points program eliminates the question of "Where should I go this time?". The answer becomes automatic, simplifying the customer's decision journey and securing their loyalty.</li>
-              <li><strong>Creating a "Switching Cost":</strong> By accumulating points, the client builds invested value with Lux Med Spa. Moving to a competitor for a small discount would mean abandoning that accrued value. This "switching cost" is a powerful barrier to exit.</li>
-              <li><strong>Gamification of the Treatment Cycle:</strong> The program transforms a maintenance necessity into a winning opportunity. Each treatment brings the client closer to a reward, adding an element of immediate gratification to an aesthetic result that manifests over time.</li>
+              <li><strong>Redução de Carga Cognitiva:</strong> A necessidade de manutenção surge a cada poucos meses. Um programa de pontos eficaz elimina a dúvida "Para onde vou desta vez?". A resposta vira automática, simplificando a jornada e garantindo lealdade.</li>
+              <li><strong>Criação de "Custo de Troca":</strong> Ao acumular pontos, o cliente constrói valor investido com a clínica. Migrar por um pequeno desconto implica abandonar esse valor — uma barreira de saída poderosa.</li>
+              <li><strong>Gamificação do Ciclo:</strong> O programa transforma uma necessidade de manutenção em oportunidade de ganho. Cada tratamento aproxima o cliente de uma recompensa, adicionando gratificação imediata a um resultado estético que aparece com o tempo.</li>
             </ul>
 
-            <h2>Conclusion: Precision is the New Frontier of Profitability</h2>
+            <h2>Conclusão: Precisão é a Nova Fronteira da Lucratividade</h2>
             <p>
-              The Lux Med Spa case illustrates a critical lesson for the modern aesthetics industry: the era of generic, "one-size-fits-all" loyalty programs is ending. Exponential growth lies in identifying your most valuable services and building loyalty ecosystems around them.
+              O caso da Lux Med Spa ilustra uma lição crítica para o setor: a era dos programas genéricos de fidelidade está acabando. O crescimento exponencial está em identificar seus serviços mais valiosos e construir ecossistemas de fidelidade ao redor deles.
             </p>
             <p>
-              By focusing its strategy on the behavior that mattered most—the consistent return of its injectables clients—the clinic not only protected its most vital revenue stream but amplified it by 40%. The technology and methodology of Zuzz.org enable this precision, empowering clinics to turn their best clients into lifelong customers and their most profitable services into unstoppable growth engines.
+              Ao focar no comportamento que mais importava — o retorno consistente dos clientes de injetáveis — a clínica não apenas protegeu sua fonte vital de receita, como a ampliou em 40%. A tecnologia e a metodologia da Zuzz.org viabilizam essa precisão, permitindo transformar os melhores clientes em clientes de longa vida e os serviços mais rentáveis em motores de crescimento.
             </p>
           </article>
 
           <div className="mt-8 text-sm text-gray-700">
-            Next: <Link href="/" className="text-blue-700 hover:underline">Request an analysis</Link>
+            Próximo: <Link href="/" className="text-blue-700 hover:underline">Solicitar uma análise</Link>
           </div>
         </div>
       </section>

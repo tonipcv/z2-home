@@ -24,7 +24,8 @@ import {
   ChevronRightIcon,
   ArrowRightIcon
 } from '@heroicons/react/24/outline';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { Alegreya } from 'next/font/google';
 import { getDict } from '@/lib/i18n';
@@ -46,7 +47,7 @@ const stagger = {
 };
 
 export default function HomePage() {
-  const t = getDict('en');
+  const t = getDict('pt');
   const [showRequestModal, setShowRequestModal] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
@@ -55,6 +56,13 @@ export default function HomePage() {
     phone: '',
     specialties: [] as string[]
   });
+
+  const router = useRouter();
+  useEffect(() => {
+    router.replace('/avaliacao-completa');
+  }, [router]);
+
+  return null;
 
   return (
     <div className="min-h-screen bg-white text-black antialiased flex flex-col">
@@ -251,7 +259,9 @@ export default function HomePage() {
       <footer className="mt-auto py-6 sm:py-8 px-4 sm:px-6 border-t border-blue-100/50 bg-transparent">
         <div className="max-w-screen-xl mx-auto">
           <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
-           
+            <div className="text-xs text-gray-600 text-center sm:text-left">
+              Zuzz Corporation — 123 Buckingham Palace Rd, London SW1W 9SH, London — Floor 2
+            </div>
             <div className="flex space-x-4 sm:space-x-6">
               <Link href="#" className="text-sm bg-gradient-to-r from-zinc-600 via-slate-500 to-zinc-600 bg-clip-text text-transparent hover:from-zinc-800 hover:via-slate-600 hover:to-zinc-800 transition-all duration-300">Terms</Link>
               <Link href="#" className="text-sm bg-gradient-to-r from-zinc-600 via-slate-500 to-zinc-600 bg-clip-text text-transparent hover:from-zinc-800 hover:via-slate-600 hover:to-zinc-800 transition-all duration-300">Privacy</Link>

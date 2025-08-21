@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { getDict } from '@/lib/i18n';
 
 export default function BlogPost() {
-  const t = getDict('en')
+  const t = getDict('pt')
   return (
     <div className="min-h-screen bg-white text-black flex flex-col">
       {/* Top Bar */}
@@ -25,9 +25,9 @@ export default function BlogPost() {
       <section className="pt-10 pb-6 px-4 sm:px-6">
         <div className="container mx-auto max-w-3xl">
           <h1 className="text-3xl sm:text-4xl font-light tracking-[-0.02em]">
-            From Expensive Ads to a Growth Ecosystem: A Technical ROI Analysis of Referral Programs in the Aesthetics Industry
+            De Anúncios Caros a um Ecossistema de Crescimento: Uma Análise Técnica de ROI de Programas de Indicação na Indústria de Estética
           </h1>
-          <div className="text-sm text-gray-600 mt-2">Referral Analysis · 8 min read</div>
+          <div className="text-sm text-gray-600 mt-2">Análise de Indicação · 8 min de leitura</div>
         </div>
       </section>
 
@@ -36,81 +36,81 @@ export default function BlogPost() {
         <div className="container mx-auto max-w-2xl">
           <article className="prose prose-neutral max-w-none">
             <p>
-              In the competitive Nashville, Tennessee market, Rejuvenation Clinic faced a challenge ubiquitous in the aesthetics industry: a heavy reliance on paid advertising channels to acquire new patients. This strategy, while effective for generating visibility, often results in a high Customer Acquisition Cost (CAC) and a diminishing return on investment (ROI). The shift to an organic growth model, through the implementation of a referral program with Zuzz, demonstrated a fundamental strategic optimization.
+              No competitivo mercado de Nashville (Tennessee), a Rejuvenation Clinic enfrentava um desafio comum na estética: forte dependência de mídia paga para adquirir novos pacientes. Embora gere visibilidade, essa estratégia costuma resultar em CAC elevado e ROI decrescente. A migração para um modelo de crescimento orgânico, com a implementação de um programa de indicação via Zuzz, representou uma otimização estratégica fundamental.
             </p>
             <p>
-              As growth systems specialists at Zuzz.org, we analyze this case as a paradigmatic example of how to transform an existing client base into the most powerful and efficient sales engine. The reported result—a 20% increase in new clients in just six months with a drastically reduced CAC—is the logical outcome of implementing a data-driven and psychologically-attuned referral mechanic.
+              Como especialistas em sistemas de crescimento na Zuzz.org, analisamos este caso como exemplo de como transformar a base atual de clientes no motor de vendas mais poderoso e eficiente. O resultado reportado — +20% de novos clientes em seis meses com CAC drasticamente reduzido — é o desfecho lógico de uma mecânica de indicação orientada por dados e alinhada à psicologia do consumidor.
             </p>
 
-            <h2>Deconstructing the Core Metrics</h2>
+            <h2>Deconstruindo os Métricos Centrais</h2>
             <p>
-              The strategy implemented at Rejuvenation Clinic was a dual-incentive referral program: both the referring client (the "advocate") and the new referred client receive a reward. This win-win model aligns the interests of all parties and maximizes conversion rates.
+              A estratégia implementada foi um programa de indicação com incentivo duplo: tanto quem indica (advocate) quanto o novo cliente indicado recebem recompensa. Esse modelo ganha-ganha alinha interesses e maximiza taxas de conversão.
             </p>
 
-            <h3>1) Reclassification of Customer Acquisition Cost (CAC)</h3>
+            <h3>1) Reclassificação do CAC (Custo de Aquisição de Clientes)</h3>
             <p>
-              Traditional advertising (e.g., social media ads, Google Ads) operates on a cost-per-click or cost-per-impression model. The CAC is volatile and subject to ad auction competition. In contrast, a referral program can be strategically accounted for as a performance-based growth driver where direct acquisition costs are zero.
+              Mídia paga (redes sociais, Google Ads) opera por CPC/CPM. O CAC é volátil e sujeito a leilões. Já um programa de indicação pode ser contabilizado como alavanca de crescimento baseada em performance, onde o custo direto de aquisição é zero.
             </p>
-            <h4>Comparative CAC Analysis</h4>
-            <p><strong>Paid Advertising Scenario (Industry Estimate):</strong></p>
+            <h4>Análise Comparativa de CAC</h4>
+            <p><strong>Cenário de Mídia Paga (Estimativa de Mercado):</strong></p>
             <ul>
-              <li>Average Cost-Per-Click (CPC): $3.50</li>
-              <li>Click-to-Lead Conversion Rate (form submission): 10% → Cost-Per-Lead: $35.00</li>
-              <li>Lead-to-Patient Conversion Rate (booking and attendance): 20%</li>
-              <li>CAC via Paid Ads (Estimated): $175 per new patient</li>
+              <li>CPC médio: US$3,50</li>
+              <li>Click-to-Lead (formulário): 10% → CPL: US$35</li>
+              <li>Lead-to-Patient (agendamento e comparecimento): 20%</li>
+              <li>CAC via mídia paga (estimado): US$175 por novo paciente</li>
             </ul>
-            <p><strong>Zuzz Referral Program Scenario:</strong></p>
+            <p><strong>Cenário com Programa de Indicação Zuzz:</strong></p>
             <ul>
-              <li>Advocate reward (e.g., $50 credit) accounted as retention marketing (loyalty investment)</li>
-              <li>New patient discount (e.g., $50 off) accounted as promotional discount (revenue reduction)</li>
-              <li><strong>CAC via Referrals: $0</strong></li>
+              <li>Crédito ao advocate (ex.: US$50) como marketing de retenção (investimento em fidelidade)</li>
+              <li>Desconto ao novo paciente (ex.: US$50) como desconto promocional (redução de receita)</li>
+              <li><strong>CAC via indicações: US$0</strong></li>
             </ul>
             <p>
-              By reframing these costs as investments in retention and sales promotion, uncertain ad spend is reallocated to guaranteed outcomes while reinforcing loyalty. Referrals become an organic outcome of customer satisfaction, not a paid acquisition line item.
+              Ao reclassificar custos como investimento em retenção e promoção, o gasto incerto em anúncios é realocado para resultados garantidos, enquanto se reforça a lealdade. Indicações tornam-se um resultado orgânico da satisfação do cliente, não uma linha de aquisição paga.
             </p>
 
-            <h3>2) 20% Increase in New Clients in Six Months</h3>
+            <h3>2) +20% de Novos Clientes em Seis Meses</h3>
             <p>
-              This growth is not only more cost-effective but also higher quality. Referred clients arrive with a pre-established level of trust, which accelerates the sales cycle and increases conversion rates.
+              Esse crescimento é mais eficiente e de maior qualidade. Indicados chegam com confiança prévia, acelerando o ciclo de vendas e aumentando conversões.
             </p>
-            <h4>Growth and Revenue Projection</h4>
+            <h4>Projeção de Crescimento e Receita</h4>
             <ul>
-              <li>Baseline: 25 new patients/month via traditional channels</li>
-              <li>+20% via referrals: +5 per month → 30 additional new patients over six months</li>
-              <li>Initial Transaction Value (ITV): $450</li>
-              <li><strong>Additional Revenue (6 months):</strong> 30 × $450 = $13,500</li>
+              <li>Base: 25 novos pacientes/mês por canais tradicionais</li>
+              <li>+20% via indicações: +5/mês → +30 novos pacientes em seis meses</li>
+              <li>Valor Inicial de Transação (ITV): US$450</li>
+              <li><strong>Receita adicional (6 meses):</strong> 30 × US$450 = US$13.500</li>
             </ul>
             <p>
-              This revenue was achieved with a zero-CAC acquisition model, maximizing gross margin on each new patient.
+              Essa receita foi obtida com modelo de aquisição de CAC zero, maximizando a margem bruta em cada novo paciente.
             </p>
 
-            <h2>The Superior Value of the Referred Client: LTV Analysis</h2>
+            <h2>O Valor Superior do Cliente Indicado: Análise de LTV</h2>
             <p>
-              Consistent industry data (e.g., Wharton, Nielsen) confirms that referred customers are intrinsically more valuable.
+              Estudos de mercado (Wharton, Nielsen) mostram que indicados são intrinsecamente mais valiosos.
             </p>
             <ul>
-              <li><strong>Retention Rate:</strong> up to 37% higher vs. other channels</li>
-              <li><strong>Lifetime Value (LTV):</strong> 16–25% higher on average</li>
+              <li><strong>Taxa de Retenção:</strong> até 37% maior vs. outros canais</li>
+              <li><strong>Lifetime Value (LTV):</strong> 16–25% maior em média</li>
             </ul>
-            <h4>Financial Projection</h4>
+            <h4>Projeção Financeira</h4>
             <table className="w-full text-left border-collapse">
               <thead>
                 <tr>
-                  <th className="py-2 pr-4 border-b">Client Type</th>
+                  <th className="py-2 pr-4 border-b">Tipo de Cliente</th>
                   <th className="py-2 pr-4 border-b">CAC</th>
-                  <th className="py-2 pr-4 border-b">3-Year LTV</th>
-                  <th className="py-2 pr-4 border-b">LTV/CAC ROI</th>
+                  <th className="py-2 pr-4 border-b">LTV (3 anos)</th>
+                  <th className="py-2 pr-4 border-b">ROI LTV/CAC</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td className="py-2 pr-4 border-b">Acquired via Ads</td>
+                  <td className="py-2 pr-4 border-b">Adquirido via Anúncios</td>
                   <td className="py-2 pr-4 border-b">$175</td>
                   <td className="py-2 pr-4 border-b">$4,500</td>
                   <td className="py-2 pr-4 border-b">25.7x</td>
                 </tr>
                 <tr>
-                  <td className="py-2 pr-4 border-b">Acquired via Zuzz Referral</td>
+                  <td className="py-2 pr-4 border-b">Adquirido via Indicação Zuzz</td>
                   <td className="py-2 pr-4 border-b">$0</td>
                   <td className="py-2 pr-4 border-b">$5,220 (16% uplift)</td>
                   <td className="py-2 pr-4 border-b">Theoretically Infinite</td>
@@ -118,23 +118,23 @@ export default function BlogPost() {
               </tbody>
             </table>
             <p>
-              With direct acquisition cost at zero, ROI on acquisition is unbounded, and the channel consistently yields higher-quality clients.
+              Com custo direto de aquisição igual a zero, o ROI de aquisição é ilimitado e o canal traz clientes de maior qualidade.
             </p>
 
-            <h2>Conclusion: The Referral Engine as a Strategic Asset</h2>
+            <h2>Conclusão: O Motor de Indicações como Ativo Estratégico</h2>
             <p>
-              The Rejuvenation Clinic case illustrates a fundamental truth: your most satisfied clients are your most underutilized marketing asset. By providing them with a structured and rewarding platform to share their positive experience, the clinic transformed a variable and escalating marketing expense into a predictable, self-sustaining growth system.
+              O caso da Rejuvenation Clinic ilustra uma verdade: os clientes mais satisfeitos são o ativo de marketing mais subutilizado. Ao oferecer uma plataforma estruturada e recompensadora para compartilhar experiências, a clínica transformou uma despesa variável e crescente em um sistema de crescimento previsível e autossustentável.
             </p>
             <p>
-              Technology like Zuzz.org allows this word-of-mouth effect to scale. With automation, transparent tracking, and instant rewards, a referral engine can operate continuously in the background, generating a steady stream of high-quality new patients at a marginal cost trending toward zero.
+              Tecnologia como a Zuzz.org permite escalar o boca a boca. Com automação, rastreio transparente e recompensas imediatas, um motor de indicações opera continuamente, gerando um fluxo de novos pacientes de alta qualidade a custo marginal próximo de zero.
             </p>
             <p>
-              For clinics aiming to optimize marketing spend and build a more loyal, valuable client base, the directive is clear: reduce dependency on paid ads and activate satisfied clients as the primary growth engine.
+              Para clínicas que buscam otimizar marketing e construir uma base mais leal e valiosa, a diretriz é clara: reduza a dependência de anúncios pagos e ative clientes satisfeitos como principal motor de crescimento.
             </p>
           </article>
 
           <div className="mt-8 text-sm text-gray-700">
-            Next: <Link href="/" className="text-blue-700 hover:underline">Request an analysis</Link>
+            Próximo: <Link href="/" className="text-blue-700 hover:underline">Solicitar uma análise</Link>
           </div>
         </div>
       </section>

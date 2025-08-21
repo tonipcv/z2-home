@@ -6,34 +6,40 @@ import { getDict } from '@/lib/i18n'
 
 const blogPosts = [
   {
-    title: "From Expensive Ads to a Growth Ecosystem: A Technical ROI Analysis of Referral Programs in the Aesthetics Industry",
-    description: "How a dual-incentive referral program reframes CAC to $0 by classifying rewards as loyalty investment and promotional discount, yielding higher-quality growth.",
-    category: "Referral Analysis",
-    readTime: "8 min read",
-    slug: "referral-program-roi-aesthetics",
-    date: "Aug 21, 2025"
+    title:
+      'De Anúncios Caros a um Ecossistema de Crescimento: Uma Análise Técnica de ROI de Programas de Indicação na Indústria de Estética',
+    description:
+      'Como um programa de indicação com incentivo duplo reclassifica o CAC para R$0 ao tratar recompensas como investimento em fidelidade e desconto promocional, gerando crescimento de maior qualidade.',
+    category: 'Análise de Indicação',
+    readTime: '8 min de leitura',
+    slug: 'referral-program-roi-aesthetics',
+    date: '21 de ago de 2025',
   },
   {
-    title: "From Transactional Visits to Predictable Revenue: A Technical Analysis of Loyalty Program ROI in the Aesthetics Industry",
-    description: "A data-driven breakdown of how a Zuzz-engineered loyalty program increases repeat visit frequency, product attach rate, and CLV for medical aesthetics clinics.",
-    category: "Technical Analysis",
-    readTime: "9 min read",
-    slug: "loyalty-program-roi-aesthetics",
-    date: "Aug 21, 2025"
-  }
+    title:
+      'De Visitas Transacionais a Receita Prevísivel: Uma Análise Técnica do ROI de Programas de Fidelidade na Indústria de Estética',
+    description:
+      'Uma decomposição orientada por dados de como um programa de fidelidade projetado pela Zuzz aumenta a frequência de visitas, o attach rate de produtos e o CLV para clínicas de estética médica.',
+    category: 'Análise Técnica',
+    readTime: '9 min de leitura',
+    slug: 'loyalty-program-roi-aesthetics',
+    date: '21 de ago de 2025',
+  },
 ]
 // Added: precision loyalty ROI post
 blogPosts.unshift({
-  title: "From One-Off Visits to Market Dominance: A Technical ROI Analysis of Precision Loyalty Programs",
-  description: "A precision loyalty methodology that lifted injectables revenue by 40% and recurring clients by 18%, with a replicable ROI model.",
-  category: "Loyalty Analysis",
-  readTime: "9 min read",
-  slug: "technical-roi-precision-loyalty-programs",
-  date: "Aug 21, 2025"
+  title:
+    'De Visitas Pontuais à Dominância de Mercado: Uma Análise Técnica de ROI de Programas de Fidelidade de Precisão',
+  description:
+    'Uma metodologia de fidelidade de precisão que elevou a receita de injetáveis em 40% e clientes recorrentes em 18%, com um modelo de ROI replicável.',
+  category: 'Análise de Fidelidade',
+  readTime: '9 min de leitura',
+  slug: 'technical-roi-precision-loyalty-programs',
+  date: '21 de ago de 2025',
 })
 
 export default function BlogIndex() {
-  const t = getDict('en')
+  const t = getDict('pt')
   return (
     <div className="min-h-screen bg-white text-black flex flex-col">
       {/* Top Bar */}

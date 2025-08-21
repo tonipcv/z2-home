@@ -8,8 +8,8 @@ const alegreya = Alegreya({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Zuzz',
-  description: 'Zuzz engineers data-driven loyalty and referral systems for businesses of all sizes to increase repeat purchases, product attach rate, and Customer Lifetime Value (CLV).',
-  keywords: ['Zuzz', 'loyalty', 'referral', 'rewards', 'customer retention', 'growth', 'CLV', 'lifetime value', 'repeat purchases'],
+  description: 'A Zuzz projeta sistemas de fidelidade e indicação orientados por dados para aumentar recompra, attach rate e o valor de vida do cliente (CLV).',
+  keywords: ['Zuzz', 'fidelidade', 'indicação', 'recompensas', 'retenção de clientes', 'crescimento', 'CLV', 'valor do tempo de vida', 'recompra'],
   authors: [{ name: 'Zuzz' }],
   creator: 'Zuzz',
   publisher: 'Zuzz',
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Zuzz',
-    description: 'Zuzz engineers data-driven loyalty and referral systems for businesses to increase repeat purchases, product attach rate, and CLV.',
+    description: 'A Zuzz projeta sistemas de fidelidade e indicação orientados por dados para aumentar recompra, attach rate e CLV.',
     url: 'https://zuzz.org',
     siteName: 'Zuzz',
     images: [
@@ -36,13 +36,13 @@ export const metadata: Metadata = {
         alt: 'Zuzz Icon',
       },
     ],
-    locale: 'en_US',
+    locale: 'pt_BR',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Zuzz',
-    description: 'Zuzz engineers data-driven loyalty and referral systems for businesses to increase repeat purchases, product attach rate, and CLV.',
+    description: 'A Zuzz projeta sistemas de fidelidade e indicação orientados por dados para aumentar recompra, attach rate e CLV.',
     images: ['/logo.png'],
   },
   robots: {
@@ -90,7 +90,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning className="h-full">
+    <html lang="pt-BR" suppressHydrationWarning className="h-full">
       <head>
         <link rel="icon" href="/favicon.ico" sizes="32x32" />
         <link rel="icon" href="/favicon.png" sizes="32x32" type="image/png" />
@@ -109,7 +109,7 @@ export default function RootLayout({
               "name": "Zuzz",
               "url": "https://zuzz.org",
               "logo": "https://zuzz.org/logo.png",
-              "description": "Data-driven loyalty and referral systems to grow repeat purchases, attach rate, and CLV.",
+              "description": "Sistemas de fidelidade e indicação orientados por dados para aumentar recompra, attach rate e CLV.",
               "sameAs": []
             })
           }}

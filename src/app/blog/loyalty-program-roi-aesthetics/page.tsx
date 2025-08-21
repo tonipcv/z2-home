@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { getDict } from '@/lib/i18n'
 
 export default function BlogPost() {
-  const t = getDict('en')
+  const t = getDict('pt')
 
   return (
     <div className="min-h-screen bg-white text-black flex flex-col">
@@ -26,9 +26,9 @@ export default function BlogPost() {
       <section className="pt-10 pb-6 px-4 sm:px-6">
         <div className="container mx-auto max-w-3xl">
           <h1 className="text-3xl sm:text-4xl font-light tracking-[-0.02em]">
-            From Transactional Visits to Predictable Revenue: A Technical Analysis of Loyalty Program ROI in the Aesthetics Industry
+            De Visitas Transacionais a Receita Prevísivel: Uma Análise Técnica do ROI de Programas de Fidelidade na Indústria de Estética
           </h1>
-          <div className="text-sm text-gray-600 mt-2">Technical Analysis · 9 min read</div>
+          <div className="text-sm text-gray-600 mt-2">Análise Técnica · 9 min de leitura</div>
         </div>
       </section>
 
@@ -37,65 +37,65 @@ export default function BlogPost() {
         <div className="container mx-auto max-w-2xl">
           <article className="prose prose-neutral max-w-none">
             <p>
-              In the competitive landscape of the medical aesthetics industry, sustainable growth is intrinsically linked to maximizing Customer Lifetime Value (CLV). Historically, a common challenge for establishments like Na Belle Ame Med Spa in Phoenix, Arizona, was a client engagement model characterized by high-value but low-frequency, transactional visits. The implementation of a structured loyalty framework, powered by a platform like Zuzz, marked a strategic pivot, yielding data that warrants a deeper, technical analysis.
+              No cenário competitivo da estética médica, o crescimento sustentável está ligado à maximização do Valor de Vida do Cliente (CLV). Historicamente, um desafio comum para clínicas como a Na Belle Ame Med Spa (Phoenix, Arizona) era um engajamento marcado por visitas transacionais de alto valor, porém baixa frequência. A implementação de um framework estruturado de fidelidade, com uma plataforma como a Zuzz, marcou uma virada estratégica e gerou dados que merecem uma análise técnica mais profunda.
             </p>
 
-            <h2>Interpreting KPI Shifts through the Zuzz Methodology</h2>
+            <h2>Interpretando Mudanças de KPIs com a Metodologia Zuzz</h2>
             <p>
-              As specialists at Zuzz.org, we interpret this success not as an anomaly, but as a confirmation of data-driven loyalty mechanics. The reported 25% increase in repeat visits and 15% uplift in product sales are more than headline figures; they are KPIs that directly influence revenue predictability and operational profitability.
+              Como especialistas da Zuzz.org, interpretamos esse sucesso não como um outlier, mas como confirmação das mecânicas de fidelidade orientadas por dados. O aumento de 25% nas visitas recorrentes e 15% nas vendas de produtos são KPIs que impactam diretamente a previsibilidade de receita e a lucratividade operacional.
             </p>
 
-            <h2>Deconstructing the Core Metrics</h2>
-            <h3>1) 25% Increase in Repeat Visit Frequency</h3>
+            <h2>Deconstruindo os Métricos Centrais</h2>
+            <h3>1) +25% na Frequência de Visitas Recorrentes</h3>
             <p>
-              This metric is critical for enhancing CLV. Acquisition costs for new customers are five to seven times higher than the cost of retaining existing ones. Retained clients also tend to increase their spend over time.
+              Métrica crítica para elevar CLV. Custos de aquisição são 5–7× maiores do que reter. Clientes retidos tendem a aumentar o gasto ao longo do tempo.
             </p>
-            <p><strong>Financial Projection:</strong></p>
+            <p><strong>Projeção Financeira:</strong></p>
             <ul>
-              <li>Baseline: 3 visits/year, Average Transaction Value (ATV) = $500 → $1,500/year</li>
-              <li>With +25% frequency: 3.75 visits/year → $1,875/year</li>
-              <li>Per client uplift: $375/year → For 500 active clients ≈ $187,500/year</li>
+              <li>Base: 3 visitas/ano, Ticket Médio (ATV) = US$500 → US$1.500/ano</li>
+              <li>Com +25% frequência: 3,75 visitas/ano → US$1.875/ano</li>
+              <li>Ganho por cliente: US$375/ano → Para 500 clientes ativos ≈ US$187.500/ano</li>
             </ul>
             <p>
-              Technical driver: endowed progress effect. Clients who are $100 away from a $50 reward are statistically more likely to book sooner and add a minor service to bridge the gap.
+              Motor técnico: efeito de progresso investido. Quem está a US$100 de uma recompensa de US$50 tende a agendar antes e adicionar um serviço menor para "fechar a meta".
             </p>
 
-            <h3>2) 15% Increase in Product Sales</h3>
+            <h3>2) +15% em Vendas de Produtos</h3>
             <p>
-              Retail sales represent a high-margin revenue stream often under-leveraged in service-centric businesses. Loyalty mechanics provide an effective nudge to activate this vertical.
+              Varejo é uma receita de alta margem muitas vezes subalavancada em negócios de serviços. Mecânicas de fidelidade são um empurrão efetivo para ativar essa vertical.
             </p>
-            <p><strong>Financial Projection:</strong></p>
+            <p><strong>Projeção Financeira:</strong></p>
             <ul>
-              <li>Assume 500 clients; 40% (200 clients) purchase products at $200/year → $40,000</li>
-              <li>+15% uplift → +$6,000 → $46,000 total</li>
+              <li>Suponha 500 clientes; 40% (200) compram produtos a US$200/ano → US$40.000</li>
+              <li>+15% → +US$6.000 → US$46.000 total</li>
             </ul>
             <p>
-              Technical driver: redeemable points reduce friction for first-time product trials. A $25 redemption on a $120 serum reframes the purchase as rational and value-driven, seeding future full-price orders.
+              Motor técnico: pontos resgatáveis reduzem fricção para o primeiro teste. Um resgate de US$25 num sérum de US$120 torna a compra mais racional, semeando pedidos futuros a preço cheio.
             </p>
 
-            <h2>Projecting Long-Term CLV and Scalability</h2>
-            <p>The true power of these metrics emerges over a multi-year horizon. Loyalty is not a single-year event.</p>
+            <h2>Projetando CLV de Longo Prazo e Escalabilidade</h2>
+            <p>O poder dessas métricas aparece no horizonte de múltiplos anos. Fidelidade não é um evento de um ano só.</p>
             <div className="overflow-x-auto">
               <table className="w-full text-left border-collapse">
                 <thead>
                   <tr>
-                    <th className="py-2 pr-4 border-b">Scenario</th>
-                    <th className="py-2 pr-4 border-b">Year 1</th>
-                    <th className="py-2 pr-4 border-b">Year 2</th>
-                    <th className="py-2 pr-4 border-b">Year 3</th>
-                    <th className="py-2 pr-4 border-b">3-Year CLV</th>
+                    <th className="py-2 pr-4 border-b">Cenário</th>
+                    <th className="py-2 pr-4 border-b">Ano 1</th>
+                    <th className="py-2 pr-4 border-b">Ano 2</th>
+                    <th className="py-2 pr-4 border-b">Ano 3</th>
+                    <th className="py-2 pr-4 border-b">CLV (3 anos)</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td className="py-2 pr-4 border-b">Without Loyalty Program</td>
+                    <td className="py-2 pr-4 border-b">Sem Programa de Fidelidade</td>
                     <td className="py-2 pr-4 border-b">$1,500</td>
                     <td className="py-2 pr-4 border-b">$1,500</td>
                     <td className="py-2 pr-4 border-b">$1,500</td>
                     <td className="py-2 pr-4 border-b">$4,500</td>
                   </tr>
                   <tr>
-                    <td className="py-2 pr-4 border-b">With Zuzz Loyalty Program</td>
+                    <td className="py-2 pr-4 border-b">Com Programa de Fidelidade Zuzz</td>
                     <td className="py-2 pr-4 border-b">$2,105</td>
                     <td className="py-2 pr-4 border-b">$2,210</td>
                     <td className="py-2 pr-4 border-b">$2,320</td>
@@ -105,21 +105,21 @@ export default function BlogPost() {
               </table>
             </div>
 
-            <h2>Beyond Points: The Future of Aesthetic Loyalty</h2>
+            <h2>Além de Pontos: O Futuro da Fidelidade em Estética</h2>
             <ul>
-              <li><strong>Tiered Programs:</strong> Segment clients into VIP tiers (e.g., Silver, Gold, Platinum) with perks to increase ATV.</li>
-              <li><strong>Predictive Analytics:</strong> Use purchasing history and redemption patterns for timely recommendations.</li>
-              <li><strong>Omnichannel Integration:</strong> Unify in-clinic, e-commerce, and mobile interactions for accurate attribution.</li>
+              <li><strong>Programas com Tiers:</strong> Segmentar em níveis VIP (Prata, Ouro, Platina) com benefícios para elevar ATV.</li>
+              <li><strong>Analytics Preditivo:</strong> Usar histórico e padrões de resgate para recomendações no timing certo.</li>
+              <li><strong>Integração Omnichannel:</strong> Unificar clínica, e-commerce e mobile para atribuição precisa.</li>
             </ul>
 
-            <h2>Conclusion</h2>
+            <h2>Conclusão</h2>
             <p>
-              Data-driven loyalty is an efficient lever to increase visit frequency, boost high-margin sales, and generate predictable uplift in CLV. The Na Belle Ame data is not a one-off success but a financial model the Zuzz methodology is designed to deliver.
+              A fidelidade orientada por dados é uma alavanca eficiente para aumentar frequência, impulsionar vendas de alta margem e gerar elevação previsível no CLV. Os dados da Na Belle Ame não são um caso isolado, mas um modelo financeiro que a metodologia Zuzz foi construída para entregar.
             </p>
           </article>
 
           <div className="mt-8 text-sm text-gray-700">
-            Next: <Link href="/" className="text-blue-700 hover:underline">Request an analysis</Link>
+            Próximo: <Link href="/" className="text-blue-700 hover:underline">Solicitar uma análise</Link>
           </div>
         </div>
       </section>

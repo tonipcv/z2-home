@@ -12,37 +12,52 @@ async function runMigration() {
   });
 
   try {
-    // Read the migration file
-    const migrationPath = path.join(__dirname, '../migrations/20240319_add_access_requests.sql');
-    const sql = await fs.readFile(migrationPath, 'utf8');
+    // Find all .sql migrations
+    const migrationsDir = path.join(__dirname, '../migrations');
+    const files = await fs.readdir(migrationsDir);
+    const sqlFiles = files.filter((f) => f.endsWith('.sql')).sort();
 
-    // Start a transaction
     const client = await pool.connect();
     try {
-      await client.query('BEGIN');
-      
-      // Execute the migration
-      await client.query(sql);
-      
-      // Create a record of the migration
+      // Ensure migrations table exists
       await client.query(`
         CREATE TABLE IF NOT EXISTS "_migrations" (
           "id" SERIAL PRIMARY KEY,
-          "name" TEXT NOT NULL,
+          "name" TEXT NOT NULL UNIQUE,
           "executed_at" TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         )
       `);
-      
-      await client.query(`
-        INSERT INTO "_migrations" ("name") 
-        VALUES ($1)
-      `, ['20240319_add_access_requests']);
 
-      await client.query('COMMIT');
-      console.log('Migration completed successfully');
-    } catch (err) {
-      await client.query('ROLLBACK');
-      throw err;
+      // Fetch already executed migrations
+      const { rows } = await client.query('SELECT name FROM "_migrations"');
+      const executed = new Set(rows.map((r) => r.name));
+
+      // Run pending migrations in order
+      for (const file of sqlFiles) {
+        const name = path.basename(file, '.sql');
+        if (executed.has(name)) {
+          console.log(`Skipping already executed migration: ${name}`);
+          continue;
+        }
+
+        const migrationPath = path.join(migrationsDir, file);
+        const sql = await fs.readFile(migrationPath, 'utf8');
+
+        console.log(`Applying migration: ${name}`);
+        await client.query('BEGIN');
+        try {
+          await client.query(sql);
+          await client.query('INSERT INTO "_migrations" (name) VALUES ($1)', [name]);
+          await client.query('COMMIT');
+          console.log(`✅ Migration applied: ${name}`);
+        } catch (err) {
+          await client.query('ROLLBACK');
+          console.error(`❌ Migration failed: ${name}`);
+          throw err;
+        }
+      }
+
+      console.log('All migrations up to date.');
     } finally {
       client.release();
     }

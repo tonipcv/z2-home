@@ -1,9 +1,10 @@
-export type Lang = 'en'
+export type Lang = 'en' | 'pt'
 
-export const supportedLangs: Lang[] = ['en']
+export const supportedLangs: Lang[] = ['en', 'pt']
 
 export function normalizeLang(_input?: string | null): Lang {
-  return 'en'
+  // Temporarily default to Portuguese site-wide.
+  return 'pt'
 }
 
 const dict = {
@@ -46,6 +47,49 @@ const dict = {
       read: 'min read',
       next: 'Next:',
       requestAnalysis: 'Request an analysis',
+    },
+  },
+  pt: {
+    nav: {
+      blog: 'Blog',
+      home: 'Início',
+      request: 'Solicitar Análise',
+    },
+    home: {
+      title: 'Programas de Fidelidade e Indicação: Análise Técnica e Desenho de Programa (Metodologia Zuzz)',
+      intro:
+        'Desenhamos e validamos mecanismos de fidelidade e indicação para negócios de todos os portes. O objetivo é aumentar a recorrência de compras, melhorar o attach rate de produtos e maximizar o LTV (CLV) com intervenções mensuráveis e orientadas por dados.',
+      scope: 'Escopo',
+      items: [
+        'Diagnóstico: análise de coortes (frequência de visita, ticket médio, churn, attach rate)',
+        'Mecânicas: emissão/resgate de pontos, tiers, velocidade de acúmulo, economia de recompensas',
+        'Governança: contabilização de passivos, quebra (breakage), prevenção de abuso',
+        'Experimentação: testes A/B de multiplicadores de ganho, thresholds e fricção de resgate',
+        'Atribuição: modelagem de delta de CLV e acompanhamento de ROI',
+      ],
+      seeArticle: 'Veja o artigo relacionado:',
+      readBlog: 'Ler o Blog',
+      modalTitle: 'Solicite uma Análise de Programa de Fidelidade & Indicação',
+      modalDesc:
+        'Informe seus dados para receber uma avaliação estruturada e uma proposta baseada na metodologia Zuzz, adaptada ao seu negócio.',
+      name: 'Nome',
+      email: 'Email',
+      phone: 'Telefone',
+      industry: 'Setor',
+      submit: 'Solicitar Análise',
+      tos: 'Ao enviar, você concorda com nossos Termos de Uso e Política de Privacidade.',
+    },
+    blogIndex: {
+      header: 'Notas Técnicas Zuzz',
+      sub: 'Análises aplicadas sobre economia de fidelidade, desenho de programas e modelagem de CLV.',
+    },
+    articleMeta: {
+      blog: 'Blog',
+      technical: 'Análise Técnica',
+      referral: 'Análise de Indicação',
+      read: 'min de leitura',
+      next: 'Próximo:',
+      requestAnalysis: 'Solicitar uma análise',
     },
   },
 } as const
