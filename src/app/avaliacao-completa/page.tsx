@@ -20,7 +20,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { ArrowRightIcon } from "@heroicons/react/24/outline";
+import { ArrowRightIcon, CheckCircleIcon } from "@heroicons/react/24/outline";
 
 const alegreya = Alegreya({ subsets: ["latin"] });
 
@@ -28,6 +28,7 @@ export default function AvaliacaoCompletaPage() {
   const [showRequestModal, setShowRequestModal] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [hasAccess, setHasAccess] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     whatsapp: "",
@@ -64,7 +65,7 @@ export default function AvaliacaoCompletaPage() {
       {/* Main */}
       <main className="flex-1">
         {/* Title */}
-        <section className={`px-4 transition filter ${showRequestModal ? "blur-[2px]" : ""}`}>
+        <section className={`px-4 transition filter ${!hasAccess ? "blur-[2px]" : ""}`}>
           <div className="max-w-3xl mx-auto py-12">
             <h1 className={`${alegreya.className} text-3xl sm:text-4xl font-normal tracking-tight text-black mb-4`}>
               Metodologia Zuzz: Uma Análise Estratégica para Aumentar a Rentabilidade de Clínicas
@@ -73,7 +74,7 @@ export default function AvaliacaoCompletaPage() {
         </section>
 
         {/* Overview */}
-        <section className={`px-4 transition filter ${showRequestModal ? "blur-[2px]" : ""}`}>
+        <section className={`px-4 transition filter ${!hasAccess ? "blur-[2px]" : ""}`}>
           <div className="max-w-3xl mx-auto space-y-4">
             <h2 className="text-xl font-semibold text-black">Overview da Estratégia Geral</h2>
             <p className="text-gray-700 leading-relaxed">
@@ -97,7 +98,7 @@ export default function AvaliacaoCompletaPage() {
         </section>
 
         {/* Psicologia */}
-        <section className={`px-4 mt-10 transition filter ${showRequestModal ? "blur-[2px]" : ""}`}>
+        <section className={`px-4 mt-10 transition filter ${!hasAccess ? "blur-[2px]" : ""}`}>
           <div className="max-w-3xl mx-auto space-y-4">
             <h2 className="text-xl font-semibold text-black">A Estratégia Psicológica por Trás dos Resultados (Dados e Estudos)</h2>
             <p className="text-gray-700 leading-relaxed">
@@ -118,7 +119,7 @@ export default function AvaliacaoCompletaPage() {
         </section>
 
         {/* Casos e Projeções (BRL) */}
-        <section className={`px-4 mt-10 transition filter ${showRequestModal ? "blur-[2px] pointer-events-none select-none" : ""}`}>
+        <section className={`px-4 mt-10 transition filter ${!hasAccess ? "blur-[2px] pointer-events-none select-none" : ""}`}>
           <div className="max-w-3xl mx-auto space-y-10">
             {/* Caso 1 */}
             <div>
@@ -193,7 +194,7 @@ export default function AvaliacaoCompletaPage() {
         </section>
 
         {/* Síntese Final */}
-        <section className={`px-4 mt-10 transition filter ${showRequestModal ? "blur-[2px] pointer-events-none select-none" : ""}`}>
+        <section className={`px-4 mt-10 transition filter ${!hasAccess ? "blur-[2px] pointer-events-none select-none" : ""}`}>
           <div className="max-w-3xl mx-auto space-y-4">
             <h2 className="text-xl font-semibold text-black">Síntese Final: O Efeito Zuzz como Ativo Financeiro</h2>
             <p className="text-gray-700 leading-relaxed">
@@ -217,7 +218,7 @@ export default function AvaliacaoCompletaPage() {
         </section>
 
         {/* Próximo Passo */}
-        <section className={`px-4 mt-10 mb-16 transition filter ${showRequestModal ? "blur-[2px]" : ""}`}>
+        <section className={`px-4 mt-10 mb-16 transition filter ${!hasAccess ? "blur-[2px]" : ""}`}>
           <div className="max-w-3xl mx-auto border-t border-gray-200 pt-6">
             <h2 className="text-lg font-semibold text-black">Próximo Passo: Análise de Potencial para a Sua Clínica</h2>
             <p className="text-gray-700 leading-relaxed mt-2">
@@ -275,106 +276,124 @@ export default function AvaliacaoCompletaPage() {
             <div className="grid grid-cols-1">
               {/* Unified header + form (mobile style on all sizes) */}
               <div className="col-span-1 p-4 sm:p-6">
-                <DialogHeader>
-                  <div className="mb-2">
-                    <span className="inline-flex items-center rounded-full bg-blue-50 text-blue-700 border border-blue-200 px-2 py-0.5 text-[11px] font-medium uppercase tracking-wide">
-                      Estudo de Caso Gratuito
-                    </span>
-                  </div>
-                  <DialogTitle className="text-xl sm:text-2xl font-semibold text-black leading-snug">
-                    Inteligência de Crescimento para Clínicas: Relatório Completo sobre Práticas Americanas para criar um aumento de Faturamento Previsível
-                  </DialogTitle>
-                  <DialogDescription className="text-sm text-gray-700 mt-1 sm:mt-2">
-                    Somente para Donos ou C-Levels de Clínicas
-                  </DialogDescription>
-                </DialogHeader>
+                {!showSuccess ? (
+                  <>
+                    <DialogHeader>
+                      <div className="mb-2">
+                        <span className="inline-flex items-center rounded-full bg-blue-50 text-blue-700 border border-blue-200 px-2 py-0.5 text-[11px] font-medium uppercase tracking-wide">
+                          Estudo de Caso Gratuito
+                        </span>
+                      </div>
+                      <DialogTitle className="text-xl sm:text-2xl font-semibold text-black leading-snug">
+                        Inteligência de Crescimento para Clínicas: Relatório Completo sobre Práticas Americanas para criar um aumento de Faturamento Previsível
+                      </DialogTitle>
+                      <DialogDescription className="text-sm text-gray-700 mt-1 sm:mt-2">
+                        Somente para Donos ou C-Levels de Clínicas
+                      </DialogDescription>
+                    </DialogHeader>
 
-                <div className="mt-2 sm:mt-4 space-y-4">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="name" className="text-sm font-medium text-gray-800">Nome</Label>
-                      <Input
-                        id="name"
-                        value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full px-3 py-2 bg-white border-gray-300 rounded-md focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
-                        placeholder="Seu nome completo"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="whatsapp" className="text-sm font-medium text-gray-800">Whatsapp</Label>
-                      <Input
-                        id="whatsapp"
-                        type="tel"
-                        value={formData.whatsapp}
-                        onChange={(e) => setFormData({ ...formData, whatsapp: e.target.value })}
-                        className="w-full px-3 py-2 bg-white border-gray-300 rounded-md focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
-                        placeholder="+55 (11) 90000-0000"
-                      />
-                    </div>
-                  </div>
+                    <div className="mt-2 sm:mt-4 space-y-4">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div className="space-y-2">
+                          <Label htmlFor="name" className="text-sm font-medium text-gray-800">Nome</Label>
+                          <Input
+                            id="name"
+                            value={formData.name}
+                            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                            className="w-full px-3 py-2 bg-white border-gray-300 rounded-md focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
+                            placeholder="Seu nome completo"
+                          />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="whatsapp" className="text-sm font-medium text-gray-800">Whatsapp</Label>
+                          <Input
+                            id="whatsapp"
+                            type="tel"
+                            value={formData.whatsapp}
+                            onChange={(e) => setFormData({ ...formData, whatsapp: e.target.value })}
+                            className="w-full px-3 py-2 bg-white border-gray-300 rounded-md focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
+                            placeholder="+55 (11) 90000-0000"
+                          />
+                        </div>
+                      </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="clinicLocation" className="text-sm font-medium text-gray-800">Localização da Clínica</Label>
-                      <Input
-                        id="clinicLocation"
-                        value={formData.clinicLocation}
-                        onChange={(e) => setFormData({ ...formData, clinicLocation: e.target.value })}
-                        className="w-full px-3 py-2 bg-white border-gray-300 rounded-md focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
-                        placeholder="Cidade / Estado"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="annualRevenue" className="text-sm font-medium text-gray-800">Faturamento anual</Label>
-                      <Select onValueChange={(value) => setFormData({ ...formData, annualRevenue: value })}>
-                        <SelectTrigger className="w-full px-3 py-2 bg-white border-gray-300 rounded-md focus:ring-1 focus:ring-blue-600 focus:border-blue-600">
-                          <SelectValue placeholder="Selecionar" />
-                        </SelectTrigger>
-                        <SelectContent className="bg-white border border-gray-200 rounded-md">
-                          <SelectItem value="<500k">Abaixo de R$ 500 mil</SelectItem>
-                          <SelectItem value="500k-1m">R$ 500 mil a R$ 1 milhão</SelectItem>
-                          <SelectItem value="1m-3m">R$ 1 milhão a R$ 3 milhões</SelectItem>
-                          <SelectItem value=">3m">Acima de R$ 3 milhões</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-                  </div>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div className="space-y-2">
+                          <Label htmlFor="clinicLocation" className="text-sm font-medium text-gray-800">Localização da Clínica</Label>
+                          <Input
+                            id="clinicLocation"
+                            value={formData.clinicLocation}
+                            onChange={(e) => setFormData({ ...formData, clinicLocation: e.target.value })}
+                            className="w-full px-3 py-2 bg-white border-gray-300 rounded-md focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
+                            placeholder="Cidade / Estado"
+                          />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="annualRevenue" className="text-sm font-medium text-gray-800">Faturamento anual</Label>
+                          <Select onValueChange={(value) => setFormData({ ...formData, annualRevenue: value })}>
+                            <SelectTrigger className="w-full px-3 py-2 bg-white border-gray-300 rounded-md focus:ring-1 focus:ring-blue-600 focus:border-blue-600">
+                              <SelectValue placeholder="Selecionar" />
+                            </SelectTrigger>
+                            <SelectContent className="bg-white border border-gray-200 rounded-md">
+                              <SelectItem value="<500k">Abaixo de R$ 500 mil</SelectItem>
+                              <SelectItem value="500k-1m">R$ 500 mil a R$ 1 milhão</SelectItem>
+                              <SelectItem value="1m-3m">R$ 1 milhão a R$ 3 milhões</SelectItem>
+                              <SelectItem value=">3m">Acima de R$ 3 milhões</SelectItem>
+                            </SelectContent>
+                          </Select>
+                        </div>
+                      </div>
 
-                  <div className="pt-2">
-                    <Button
-                      onClick={async () => {
-                        if (isSubmitting) return;
-                        setIsSubmitting(true);
-                        try {
-                          const response = await fetch("/api/report-access", {
-                            method: "POST",
-                            headers: { "Content-Type": "application/json" },
-                            body: JSON.stringify(formData),
-                          });
-                          if (!response.ok) throw new Error("Failed to submit request");
-                          setFormData({ name: "", whatsapp: "", clinicLocation: "", annualRevenue: "" });
-                          setHasAccess(true);
-                          setShowRequestModal(false);
-                          alert("Obrigado! Acesso liberado ao relatório completo.");
-                        } catch (error) {
-                          alert("Falha ao enviar. Tente novamente.");
-                        } finally {
-                          setIsSubmitting(false);
-                        }
-                      }}
-                      disabled={isSubmitting}
-                      className={`w-full bg-blue-700 text-white hover:bg-blue-800 transition-colors py-2.5 text-sm rounded-md ${
-                        isSubmitting ? "opacity-50 cursor-not-allowed" : ""
-                      }`}
-                    >
-                      {isSubmitting ? "Processando..." : "Acessar Relatório"}
-                    </Button>
-                    <p className="mt-3 text-xs text-center text-gray-500">
-                      Ao enviar, você concorda com nossos termos e política de privacidade.
-                    </p>
+                      <div className="pt-2">
+                        <Button
+                          onClick={async () => {
+                            if (isSubmitting) return;
+                            setIsSubmitting(true);
+                            try {
+                              const response = await fetch("/api/report-access", {
+                                method: "POST",
+                                headers: { "Content-Type": "application/json" },
+                                body: JSON.stringify(formData),
+                              });
+                              if (!response.ok) throw new Error("Failed to submit request");
+                              setFormData({ name: "", whatsapp: "", clinicLocation: "", annualRevenue: "" });
+                              // Track lead conversion - Facebook when unlocking the page
+                              if (typeof window !== 'undefined' && (window as any).fbq) {
+                                (window as any).fbq('track', 'Lead');
+                              }
+                              setHasAccess(true);
+                              setShowSuccess(true);
+                              // Auto close after a brief confirmation
+                              setTimeout(() => {
+                                setShowRequestModal(false);
+                                setShowSuccess(false);
+                              }, 1400);
+                            } catch (error) {
+                              // You may want to show an inline error here
+                            } finally {
+                              setIsSubmitting(false);
+                            }
+                          }}
+                          disabled={isSubmitting}
+                          className={`w-full bg-blue-700 text-white hover:bg-blue-800 transition-colors py-2.5 text-sm rounded-md ${
+                            isSubmitting ? "opacity-50 cursor-not-allowed" : ""
+                          }`}
+                        >
+                          {isSubmitting ? "Processando..." : "Acessar Relatório"}
+                        </Button>
+                        <p className="mt-3 text-xs text-center text-gray-500">
+                          Ao enviar, você concorda com nossos termos e política de privacidade.
+                        </p>
+                      </div>
+                    </div>
+                  </>
+                ) : (
+                  <div className="flex flex-col items-center justify-center py-16">
+                    <CheckCircleIcon className="w-14 h-14 text-green-600" />
+                    <p className="mt-4 text-lg font-medium text-black">Acesso liberado</p>
+                    <p className="mt-1 text-sm text-gray-600">Abrindo o relatório completo...</p>
                   </div>
-                </div>
+                )}
               </div>
             </div>
           </DialogContent>
