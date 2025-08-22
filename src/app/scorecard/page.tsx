@@ -182,6 +182,11 @@ export default function ScorecardPage() {
   const handleContactSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+
+    // Track lead conversion - Facebook
+    if (typeof window !== 'undefined' && (window as any).fbq) {
+      (window as any).fbq('track', 'Lead');
+    }
     
     try {
       const response = await fetch('/api/scorecard', {

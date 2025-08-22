@@ -43,6 +43,11 @@ export default function Proposta3MesesPage() {
     e.preventDefault();
     setIsSubmitting(true);
 
+    // Track lead conversion - Facebook
+    if (typeof window !== 'undefined' && (window as any).fbq) {
+      (window as any).fbq('track', 'Lead');
+    }
+
     try {
       const response = await fetch('/api/proposta-3meses', {
         method: 'POST',
