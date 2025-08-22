@@ -15,7 +15,7 @@ export function FacebookPixel() {
           t.src=v;s=b.getElementsByTagName(e)[0];
           s.parentNode.insertBefore(t,s)}(window, document,'script',
           'https://connect.facebook.net/en_US/fbevents.js');
-          fbq('init', '1825091108430625');
+          fbq('init', '2081938345668852');
           fbq('track', 'PageView');
         `}
       </Script>
@@ -24,7 +24,7 @@ export function FacebookPixel() {
           height="1" 
           width="1" 
           style={{ display: 'none' }}
-          src={`https://www.facebook.com/tr?id=1825091108430625&ev=PageView&noscript=1`}
+          src={`https://www.facebook.com/tr?id=2081938345668852&ev=PageView&noscript=1`}
           alt=""
         />
       </noscript>
